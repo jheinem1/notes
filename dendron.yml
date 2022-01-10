@@ -19,7 +19,6 @@ site:
         action: useVault
         payload:
             - vault
-            - class
 commands:
     lookup:
         note:
@@ -38,8 +37,6 @@ commands:
         enableMarker: false
 workspace:
     vaults:
-        -
-            fsPath: class
         -
             fsPath: vault
     journal:

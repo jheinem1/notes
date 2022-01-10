@@ -1,11 +1,13 @@
 ---
-id: LScytvcDIQ3SCisBp1JsQ
-title: Notes
+id: 6YxiIDvTOeKoHyAaqqzY9
+title: Class Notes
 desc: ''
-updated: 1641245369117
-created: 1641245139531
+updated: 1641832805846
+created: 1641245237998
 ---
-This is used for a variety of notes- namely class notes.
+This vault contains a wide variety of class notes, spanning from 2020 to 2024. Not all notes have been ported properly and may only be available as images.
 
-- [[dendron://class/root]]
+# Classes
+
+- [[cse230]]
 
