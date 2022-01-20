@@ -1,0 +1,1 @@
+{"rule":"AGREEMENT_SENT_START","sentence":"^\\QObjects\nAttributes\nAssociations\nSequence diagrams\nDescribe the dynamic behavior between objects of the system\nState-chart diagrams\nDescribe the dynamic behavior of an individual object\nActivity diagrams\nDescribe the dynamic behavior of a system\\E$"}
