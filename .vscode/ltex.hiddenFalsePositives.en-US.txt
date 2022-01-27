@@ -1,1 +1,3 @@
 {"rule":"AGREEMENT_SENT_START","sentence":"^\\QObjects\nAttributes\nAssociations\nSequence diagrams\nDescribe the dynamic behavior between objects of the system\nState-chart diagrams\nDescribe the dynamic behavior of an individual object\nActivity diagrams\nDescribe the dynamic behavior of a system\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QJavadoc tags\nTags are keywords recognized by Javadoc which define the type of information that follows\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QJavadoc tags\nTags are keywords recognized by Javadoc which define the type of information that follows\nTags come after the description (separated by a new line)\nCommon tags include...\\E$"}
