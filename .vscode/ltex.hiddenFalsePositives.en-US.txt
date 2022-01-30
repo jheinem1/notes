@@ -1,3 +1,7 @@
 {"rule":"AGREEMENT_SENT_START","sentence":"^\\QObjects\nAttributes\nAssociations\nSequence diagrams\nDescribe the dynamic behavior between objects of the system\nState-chart diagrams\nDescribe the dynamic behavior of an individual object\nActivity diagrams\nDescribe the dynamic behavior of a system\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QJavadoc tags\nTags are keywords recognized by Javadoc which define the type of information that follows\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QJavadoc tags\nTags are keywords recognized by Javadoc which define the type of information that follows\nTags come after the description (separated by a new line)\nCommon tags include...\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q$$ ab=ba\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q\\frac{a}{b}\\plusmn\\frac{c}{d}=\\frac{ad\\plusmn bc}{bd}\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q\\frac{\\frac{a}{b}}{c}=\\frac{a}{bc}\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q\\frac{\\frac{a}{b}}{c}=\\frac{ac}{b}\\E$"}
