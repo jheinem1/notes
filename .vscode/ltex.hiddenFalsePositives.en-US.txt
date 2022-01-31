@@ -5,3 +5,4 @@
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q\\frac{a}{b}\\plusmn\\frac{c}{d}=\\frac{ad\\plusmn bc}{bd}\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q\\frac{\\frac{a}{b}}{c}=\\frac{a}{bc}\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q\\frac{\\frac{a}{b}}{c}=\\frac{ac}{b}\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QEmpirical approach\n![ser222.empirical-analysis]\nAsymptotics\nBounding functions\nAllow for \"noisy\" regions to be ignored\nThe bounds will remain stable until some threshhold is met\nUpper Bounds\n\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q indicates that \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q has an upper bound\nTo find \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q for \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, we take $f(n)4, eliminate all but the dominant term, and remove any constant factor from the dominant term\\E$"}
