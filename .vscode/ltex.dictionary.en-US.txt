@@ -7,3 +7,5 @@ StarUML
 uml
 ^overview
 Swimlanes
+Threesum
+quadratically
