@@ -20,6 +20,7 @@ site:
         payload:
             - vault
     siteUrl: "https://jheinem1.github.io/notes/"
+    assetsPrefix: /notes
 commands:
     lookup:
         note:
