@@ -11,7 +11,7 @@ site:
         - root
     siteRootDir: docs
     usePrettyRefs: true
-    title: Dendron
+    title: James' Class Notes
     description: Personal knowledge space
     siteLastModified: true
     gh_edit_branch: main
@@ -19,6 +19,7 @@ site:
         action: useVault
         payload:
             - vault
+    siteUrl: "https://jheinem1.github.io/notes/"
 commands:
     lookup:
         note:
