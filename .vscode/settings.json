@@ -8,5 +8,6 @@
     "editor.tabCompletion": "on",
     "markdown-preview-enhanced.enableWikiLinkSyntax": true,
     "markdown-preview-enhanced.wikiLinkFileExtension": ".md",
-    "rpc.enabled": false
+    "rpc.enabled": false,
+    "docwriter.style": "Auto-detect"
 }
