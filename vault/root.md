@@ -2,12 +2,12 @@
 id: 6YxiIDvTOeKoHyAaqqzY9
 title: Class Notes
 desc: ''
-updated: 1641832805846
+updated: 1652679567045
 created: 1641245237998
 ---
-This vault contains a wide variety of class notes, spanning from 2020 to 2024. Not all notes have been ported properly and may only be available as images.
 
-# Classes
+## Spring 2022
 
-- [[cse230]]
-
+- [[SER 222 - Data Structures & Algorithms|ser222]]
+- [[SER 216 - "Software Enterprise" aka Intro to Software Design|ser216]]
+- [[MAT 266 - Calc For Engineers II|mat266]]
