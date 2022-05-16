@@ -19,7 +19,7 @@ site:
         action: useVault
         payload:
             - vault
-    siteUrl: "https://jheinem1.github.io/"
+    siteUrl: "https://jheinem1.github.io/notes"
     assetsPrefix: /notes
 commands:
     lookup:
