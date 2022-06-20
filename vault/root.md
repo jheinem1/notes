@@ -1,10 +1,15 @@
 ---
 id: 6YxiIDvTOeKoHyAaqqzY9
-title: Class Notes
+title: Notes
 desc: ''
-updated: 1652679567045
+updated: 1655764869385
 created: 1641245237998
 ---
+
+## Personal Notes
+
+- [[typescript]]
+- [[luau]]
 
 ## Spring 2022
 
