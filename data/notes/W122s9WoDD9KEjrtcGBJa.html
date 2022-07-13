@@ -1,0 +1,47 @@
+<h1 id="java-abridged"><a aria-hidden="true" class="anchor-heading" href="#java-abridged"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Java (abridged)</h1>
+<p>Java is a class-based, OO (Object-Oriented) language.</p>
+<h2 id="classes"><a aria-hidden="true" class="anchor-heading" href="#classes"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Classes</h2>
+<p>Everything in Java is wrapped by a class...</p>
+<pre class="language-java"><code class="language-Java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>...including the code necescarry for a "Hello World!" print to console.</p>
+<p>There can only be one public class for file (public means the class is exported and can be imported by other files), but there can be as many private classes in a file as necessary.</p>
+<pre class="language-java"><code class="language-Java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Other</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">Another</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+</code></pre>
+<p>Fields and methods can be either public or private and either static or non-static.</p>
+<p>Public fields are accessible from outside the class/object</p>
+<pre class="language-java"><code class="language-Java"><span class="token keyword">var</span> myObject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ClassName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+myObject<span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>myObject<span class="token punctuation">.</span>field<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>, whereas private fields are only accessible from within the object;</p>
+<pre class="language-java"><code class="language-Java"><span class="token keyword">class</span> <span class="token class-name">ClassName</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> field<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">ClassName</span><span class="token punctuation">(</span><span class="token keyword">int</span> field<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>field <span class="token operator">=</span> field<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Similarly (but also very differently), static fields an methods are only accessible on the base class and not any objects and vice-versa for non-static fields and methods.</p>
+<h2 id="variables"><a aria-hidden="true" class="anchor-heading" href="#variables"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Variables</h2>
+<p>Variables are declared and initialized with the syntax <code>Type varName = new Type(...);</code>, assuming the variable is being initialized as an object.</p>
+<h2 id="references"><a aria-hidden="true" class="anchor-heading" href="#references"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>References</h2>
+<p>There are no pointer types in Java, however all objects are stored as references. This means otherwise identical objects cannot be compared without specific methods or overloads to do so.</p>
+<pre class="language-java"><code class="language-Java"><span class="token class-name">String</span> string0 <span class="token operator">=</span> <span class="token string">"Hello World!"</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> string1 <span class="token operator">=</span> <span class="token string">"Hello World!"</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>string0 <span class="token operator">==</span> string1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+</code></pre>
+<p>(Unlike other languages, strings are considered objects in Java)</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/ssdLK9o9zW4uLk67v9czn">Interface</a></li>
+<li><a href="/notes/notes/vjKcnibkW5JgrQ8vvfM2x">Object</a></li>
+</ol>

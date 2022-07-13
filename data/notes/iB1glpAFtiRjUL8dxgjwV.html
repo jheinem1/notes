@@ -1,0 +1,48 @@
+<h1 id="functional-decomposition"><a aria-hidden="true" class="anchor-heading" href="#functional-decomposition"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Functional Decomposition</h1>
+<ul>
+<li>In Functional Decomposition, the system is decomposed into models</li>
+<li>Each model is a major processing step</li>
+<li>Modules can be decomposed into smaller modules.</li>
+</ul>
+<div class="mermaid">
+  flowchart TD
+    sf(System Function) --- ri0(Read Input)
+    sf --- tf0(Transform)
+    sf --- po0(Produce Output)
+    ri0 --- ri1(Read Input)
+    ri0 --- tf1(Transform)
+    ri0 --- po1(Produce Output)
+    ri1 --- o0[(...)]
+    tf1 --- o1[(...)]
+    po1 --- o2[(...)]
+    tf0 --- o3[(...)]
+    po0 --- o4[(...)]
+</div>
+<p>...which eventually leads to something like</p>
+<div class="mermaid">
+  flowchart TD
+    o0[(...)] --- l(LoadR10)
+    o0 --- a(Add R1, R10)
+</div>
+<h2 id="why-is-functional-decomposition-important"><a aria-hidden="true" class="anchor-heading" href="#why-is-functional-decomposition-important"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Why is Functional Decomposition Important?</h2>
+<ul>
+<li>Functionality is spread across the system</li>
+<li>Maintainer must understand the whole system to make a single change</li>
+<li>Consequences...
+<ul>
+<li>Code that is hard to understand</li>
+<li>Code that is complex and impossible to maintain</li>
+</ul>
+</li>
+<li>Example: <a href="/notes/notes/6iJuVC75rr1Ehhd1BPvTx">PowerPoint Autoshapes</a></li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/6iJuVC75rr1Ehhd1BPvTx">Autoshape</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/Kb8Psp6l1mOj5eKlZBrin">Decomposition</a></li>
+</ul>

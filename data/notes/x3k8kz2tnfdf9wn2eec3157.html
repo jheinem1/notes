@@ -1,0 +1,35 @@
+<h1 id="metamethods"><a aria-hidden="true" class="anchor-heading" href="#metamethods"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Metamethods</h1>
+<h2 id="metatables"><a aria-hidden="true" class="anchor-heading" href="#metatables"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Metatables</h2>
+<p>A metatable is a table full of metamethods which overload the functionality of existing types in Luau. Under the hood, every operator in Luau is essentially a function call. Metatables are primarily used to add functionality to <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">luau.types.userdata (Private)</a>, which can easily be implemented in C++.</p>
+<h2 id="metamethods-1"><a aria-hidden="true" class="anchor-heading" href="#metamethods-1"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Metamethods</h2>
+<p>Metamethods are functions within metatables such as <a href="/notes/notes/jzysbl25j6w405zgishuyts">__index</a> and <a href="/notes/notes/ffk2qsob0itlyecof3w20qd">__add</a> that define the behavior of operators in Luau acting on a given type.</p>
+<h2 id="interaction"><a aria-hidden="true" class="anchor-heading" href="#interaction"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Interaction</h2>
+<p><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">luau.globals.setmetatable (Private)</a> and <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">luau.globals.getmetatable (Private)</a> are primarily used to interact with metatables.</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/wxnmvwpmgk375e8hc308dnm">Metatable</a></li>
+<li><a href="/notes/notes/ffk2qsob0itlyecof3w20qd">__add</a></li>
+<li><a href="/notes/notes/9y5mntwua91pobpqwi42sfi">__call</a></li>
+<li><a href="/notes/notes/s6jsitmmn1gmopgfx579f3j">__concat</a></li>
+<li><a href="/notes/notes/n1mtlc8ofxydp76zm59a6f5">__div</a></li>
+<li><a href="/notes/notes/88rjpwi9w6s86d79hnz0701">__eq</a></li>
+<li><a href="/notes/notes/6h95ifg6vcj1bhznr91kr97">__gc</a></li>
+<li><a href="/notes/notes/jzysbl25j6w405zgishuyts">__index</a></li>
+<li><a href="/notes/notes/u8juv22z5x8ntw5z86wbj7a">__le</a></li>
+<li><a href="/notes/notes/ugy9ephle5zp8a9mrypazdn">__len</a></li>
+<li><a href="/notes/notes/ribtsosa4zg2y3javkhiaed">__lt</a></li>
+<li><a href="/notes/notes/ijhfng3dia02bwe10gsi4rh">__mod</a></li>
+<li><a href="/notes/notes/09vosgebznsr8w6r03dw42z">__mode</a></li>
+<li><a href="/notes/notes/nxcjdbcexnisbnmjxofephm">__mul</a></li>
+<li><a href="/notes/notes/7hv3ttdammfskfr1rvjx7xj">__namecall</a></li>
+<li><a href="/notes/notes/exgc8uwytsjoguk6w5chqyx">__newindex</a></li>
+<li><a href="/notes/notes/dasxk0nc327e49w5s5mdn0a">__sub</a></li>
+<li><a href="/notes/notes/7rtbigt1xgesltqm8afze5y">__tostring</a></li>
+<li><a href="/notes/notes/85nosg7amx1w5t9fi44i11e">__unm</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/qffdhovc1dsrt1dpaod3tsx">Table</a></li>
+</ul>

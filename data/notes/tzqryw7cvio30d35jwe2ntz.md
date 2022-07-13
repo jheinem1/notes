@@ -1,0 +1,8 @@
+
+A garbage collection method that involves storing the number of references to each object.
+
+Every time a reference to an object is dumped from the stack, the reference count is decremented. When the reference count reaches zero, the object can be safely garbage collected.
+
+Likewise, when a reference to an object is loaded into the stack, the reference count is incremented.
+
+This is a much more performant alternative to [[ser222.directed-graphs.problems.directed-search]], but does not handle objects linked to each other outside the stack, which has to be handled separately in languages where this situation can occur.

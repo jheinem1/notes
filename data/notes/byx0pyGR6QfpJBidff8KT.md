@@ -1,0 +1,18 @@
+
+## Definition
+- A graph is **symmetric with respect to the y-axis** if whenever the point $(x,y)$ is on the graph, the point $(-x,y)$ is also on the graph. 
+    - This means that the graph is unchanged when reflected on the y-axis.
+    - A function symmetric across the y-axis is an **even function**.
+    - ![](/assets/images/2022-01-12-15-38-20.png)
+- A graph is **symmetric with respect to the x-axis** if whenever the point $(x,y)$ is on the graph, the point $(x,-y)$ is also on the graph. 
+    - This means that the graph is unchanged when reflected on the x-axis.
+    - ![](/assets/images/2022-01-12-15-38-01.png)
+- A graph is **symmetric with respect to the origin** if whenever the point $(x,y)$ is on the graph, the point $(-x,-y)$ is also on the graph. 
+    - This means that the graph is unchanged when reflected across the origin (also means the graph is symmetrical across both the x and y axes).
+    - A function symmetric across the origin is an **odd function**.
+    - ![](/assets/images/2022-01-12-15-37-07.png)
+
+## Determining the Symmetry of a Function
+- A function that consists of only even powers is an even function ($x^0$ is considered an even power).
+- A function that consists of both even and odd powers is neither odd nor even.
+- A function that consists of only odd powers is considered an odd function (again, $x^0$ is considered an even power).

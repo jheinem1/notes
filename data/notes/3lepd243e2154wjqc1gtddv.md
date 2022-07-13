@@ -1,0 +1,24 @@
+
+The sequence of partial sums of a sequence ${S_n}$ is defined as
+
+$$
+{S_1, S_2, \ldots, S_n}\text,
+$$
+
+where
+
+$$
+S_n=x_1+x_2+\cdots+x_n\text.
+$$
+
+This can be used to evaluate the (infinite) series
+
+$$
+\sum_{k=1}^\infty{x_k}
+$$
+
+with the limit
+
+$$
+\lim_{k\to\infty}{x_k}=\sum_{k=1}^{\infty}{x_k}\text.
+$$

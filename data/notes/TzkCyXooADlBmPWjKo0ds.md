@@ -1,0 +1,73 @@
+Design and Analysis of Data Structures and Algorithms
+
+[Syllabus](https://github.com/jheinem1/notes/tree/main/vault/assets/ser222_22sc_syllabus.pdf)
+
+| Instructor       | Ruben Acuña                                                                                                                                                                                 |
+|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Office Hours** | [Online](https://zoom.us/my/acuna) Mon.-Wed. 3:30-4:45 PM, by appt. only. (Make an appt. at least 18 hours in advance [here](https://calendly.com/racuna1)), but can also contact in Slack. |
+| **SI Leader**    | Sai Nishanth Vaka                                                                                                                                                                           |
+## Course Overview
+- [[Data structures|ser222.data-structure]] and related [[algorithms|ser222.algorithms]]
+- Sorting and searching
+- Program development, documentation, and testing
+- [Gradescope](https://www.gradescope.com/courses/350795) will be used for unit tests
+## Outcomes
+- Big-O analyses of algorithms
+- Gaining experience in OOP
+- Judging the appropriateness of data structures (e.g. sequential vs. linked implementation)
+- Learning specification and application of data structures such as arrays, stacks, queues, strings, sets, sequential lists, binary search trees, and hashed storage
+## Modules
+### Module 1 - Data Abstraction
+- [Slides (Optional review)](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-01-01-slides-recursion.pdf)
+- [Video 1 (Optional review)](https://youtu.be/N6Z58aV55AQ)
+- [Video 2 (Optional review)](https://youtu.be/BFUEvrUFQAc)
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-01-02-slides-dataabstraction.pdf)
+- [[Notes|ser222.data-abstraction]]
+### Module 2 - Stacks, Lists, and Generics
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-01-03-slides-stackslistsgenerics.pdf)
+- [[Notes - Stack|ser222.stack]]
+- [[Notes - LinkedList|ser222.linked-list]]
+- [[Notes - Array|ser222.array]]
+### Module 3 - Analysis of Algorithms
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-01-04-slides-analysisofalgorithms.pdf)
+- [[Notes|ser222.algorithms]]
+### Module 4 - Analysis, Design, and Justification
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-adj-01-slides-introadj.pdf)
+- [[Notes|ser222.analysis-design-justification]]
+### Exam 1
+### Module 5 - Elementary Sorts
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-02-01-slides-elementarysorts.pdf)
+- [[Notes|ser222.sorting]]
+### Module 6 - Merge Sort
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-02-02-slides-mergesort.pdf)
+- [[Notes|ser222.sorting.merge-sort]]
+### Module 7 - Priority Queues
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-02-04-slides-pq.pdf)
+- [[Notes|ser222.sorting.priority-queue]]
+### Module 8 - ADJ: Algorithms
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-adj-02-slides-introadj.pdf)
+- [[Notes|ser222.algorithms.adj]]
+### Exam 2
+### Module 9 - Symbol Tables & Binary Search Trees
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-03-01-02-stbst.pdf)
+- [[Notes - Symbol Tables|ser222.symbol-table]]
+- [[Notes - Binary Search Trees|ser222.binary-search-tree]]
+### Module 10 - Hash Tables
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-03-04-ht.pdf)
+- [[Notes - Hash Tables|ser222.hash-table]]
+- [[Notes - Linear Probing|ser222.hash-table.linear-probing]]
+### Module 11 - Undirected Graphs
+
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-04-01-undirectedgraphs.pdf)
+- [[Notes|ser222.undirected-graphs]]
+
+### Module 12 - Directed Graphs
+
+- Part 1 - Directed Graphs
+    - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/ser-222-04-02-directedgraphs.pdf)
+    - [[Notes - Directed Graphs|ser222.directed-graphs]]
+- Part 2 - Weighted Graphs
+    - [Slides](assets/ser-222-04-04-shortestpaths.pdf)
+    - [[Notes - Weighted Graphs|ser222.weighted-graphs]]
+
+### Exam 3

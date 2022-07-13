@@ -1,0 +1,57 @@
+<h1 id="stack"><a aria-hidden="true" class="anchor-heading" href="#stack"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Stack</h1>
+<p>A data structure that can have elements added/removed in <code>O(1)</code>. This is generally implemented via a <a href="/notes/notes/h8wygkFWs7iL6Va4qS8sL">Linked List</a>.</p>
+<pre class="language-java"><code class="language-Java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+    <span class="token doc-comment comment">/** Pushes a new item to the top of the stack */</span>
+    <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token class-name">T</span> item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token doc-comment comment">/** Removes the topmost item from the stack and returns it */</span>
+    <span class="token class-name">T</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">boolean</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="linked-stack"><a aria-hidden="true" class="anchor-heading" href="#linked-stack"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Linked-Stack</h2>
+<p>If implemented with an <a href="/notes/notes/4k9qZIfJIkFWjOvS7QIYy">Array</a>, the <code>push()</code> method can be <code>O(n)</code>, as the array needs to be occasionally resized. If implemented through a <a href="/notes/notes/h8wygkFWs7iL6Va4qS8sL">Linked List</a>, all methods are <code>O(1)</code>.</p>
+<div class="mermaid">
+  flowchart LR
+    n0[Top\n4] --> n1[3]
+    n1 --> n2[2]
+    n2 --> n3[1]
+    n3 --> n4[Bottom\n0]
+</div>
+<p>To push to the stack, a new <code>Top</code> node is created, setting the linked list's reference to the new <code>Top</code> and that node's <code>next</code> to the previous <code>Top</code> (<code>4</code> in this example)</p>
+<div class="mermaid">
+  flowchart LR
+    n0[Top\n5] --> n1[OldTop\n4]
+    n1 --> n2[...]
+</div>
+<pre class="language-java"><code class="language-Java"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token class-name">T</span> element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> newTop <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">T</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newTop<span class="token punctuation">.</span>next <span class="token operator">=</span> top<span class="token punctuation">;</span> <span class="token comment">// this may also be handled by a setter</span>
+    top <span class="token operator">=</span> newTop<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<p>To remove an element (in Java), you have to set the current head to the top's <code>next</code> property and let the garbage collector do the rest. Although <code>OldTop</code> may still reference the <code>NewTop</code>, this no longer matters as there is no longer a way to access <code>OldTop</code>.</p>
+<div class="mermaid">
+  flowchart LR
+    n0[OldTop] --> n1[NewTop\n3] 
+    style n0 stroke:#FFF000
+    style n1 stroke:#00FF00
+    n1--> n2[2]
+    n2 --> n3[...]
+</div>
+<pre class="language-java"><code class="language-Java"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">public</span> <span class="token class-name">T</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> oldTop <span class="token operator">=</span> top<span class="token punctuation">;</span>
+    top <span class="token operator">=</span> top<span class="token punctuation">.</span>next<span class="token punctuation">;</span> <span class="token comment">// this may also be handled by a getter</span>
+    <span class="token keyword">return</span> oldTop<span class="token punctuation">.</span>value<span class="token punctuation">;</span> <span class="token comment">// this may also be handled by a getter</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/TzkCyXooADlBmPWjKo0ds">SER-222</a></li>
+<li><a href="/notes/notes/h8wygkFWs7iL6Va4qS8sL">Linked List</a></li>
+</ul>

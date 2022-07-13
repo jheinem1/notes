@@ -1,0 +1,163 @@
+
+Software Enterprise
+
+[Syllabus](https://github.com/jheinem1/notes/tree/main/vault/assets/ser216_syllabus.pdf)
+
+| Instructor       | Tyler Baron                                                                             |
+|------------------|-----------------------------------------------------------------------------------------|
+| **Office Hours** | 2:45-4:45 PM on Tues. or by appointment (scheduled via slack/email) @ Peralta Room 230X |
+
+## Overview
+
+- First course in Software Enterprise
+- Hybrid lecture-lab-project environment
+- Will use [[ser216.uml]]
+
+## Lectures & Slides
+
+### Module 1 - Introduction to Software Engineering
+
+- Part 1
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/M1.1.IntroductionToSoftwareEngg1.pdf)
+  - [Lecture](https://youtu.be/cWmXZ_j1ogc)
+  - [[Notes|ser216.introduction]]
+- Part 2
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/M1.2.IntroductionToSoftwareEngg2.pdf)
+  - [Lecture](https://youtu.be/geZBWiWnbSE)
+  - [[Notes|ser216.introduction]]
+
+### Module 2 - Diagrams
+
+- Part 1 - Use-Case Diagrams
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-2-1-uml-use-case-diagrams.pdf)
+  - [Lecture](https://youtu.be/Q6K04A_Sdis)
+  - [[Notes|ser216.uml.diagrams.use-case]]
+- Part 2 - Class Diagrams
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-2-2-uml-class-diagrams.pdf)
+  - [Lecture](https://youtu.be/e8h4DchH8fU)
+  - [[Notes|ser216.uml.diagrams.class]]
+- Part 3 - State Diagrams
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-2-3-uml-state-diagrams.pdf)
+  - [Lecture](https://youtu.be/ALh8Z00iAkw)
+  - [[Notes|ser216.uml.diagrams.state]]
+- Part 3 - Activity Diagrams
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-2-4-uml-activity-diagrams.pdf)
+  - [Lecture](https://youtu.be/3Fyl_6K7K2w)
+  - [[Notes|ser216.uml.diagrams.activity]]
+
+### Module 3 - Javadoc
+
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-5-javadoc-tutorial.pdf)
+- [Lecture](https://youtu.be/z1ojWWTc2so)
+- [[Notes|ser216.javadoc]]
+
+### Module 4 - PSP
+
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-3-personal-software-process.pdf)
+- [Lecture](https://youtu.be/Mug1__wafPk)
+- [[Notes|ser216.personal-software-process]]
+
+### Module 5 - SDLC
+
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-4-sdlc.pdf)
+- [Lecture](https://youtu.be/vDaVd-XlSyU)
+- [[Notes|ser216.software-development-lifecycle]]
+
+### Module 6 - Process Measurement
+
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-6-process-measurement-1.pdf)
+- [Lecture](https://youtu.be/v3d0iVzLTRA)
+- [[Notes|ser216.process-measurement]]
+
+### Module 7 - Exception Handling
+
+- Part 1
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-8-1-exception-handling-part-1.pdf)
+  - [Lecture](https://youtu.be/otKdX2pQGCs)
+  - [[Notes|ser216.exception-handling]]
+- Part 2
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-8-2-exception-handling-part-2.pdf)
+  - [Lecture](https://youtu.be/VhP8Ou2JCwQ)
+  - [[Notes|ser216.exception-handling]]
+
+### Midterm
+
+- Which [[SDLC|ser216.software-development-lifecycle]] process is most effective?
+- Basic [[javadoc|ser216.javadoc]] tags
+  - For example, writing javadoc comments for an existing class/method
+- `try`/`catch`/`finally` in [[exception-handling|ser216.exception-handling]]
+  - No need to know specific types of exceptions
+- [[ser216.midterm]]
+
+### Module 8 - Software Testing
+
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-7-software-testing-overview.pdf)
+- [Lecture](https://youtu.be/MRtgEJRgVqI)
+- [[Notes|ser216.software-testing]]
+
+### Module 9 - JavaFX
+
+- Part 1 - Basics
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-9-1-java-fx-part-1.pdf)
+  - [Lecture](https://youtu.be/opuj2pcX6sQ)
+  - [[Notes|ser216.javafx]]
+- Part 2 - Layouts
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-9-2-java-fx-part-2.pdf)
+  - [Lecture](/Users/jhein/Downloads/M9.2.JavaFX-Part2.pdf)
+  - [[Notes|ser216.javafx]]
+
+### Module 10 - Event-Driven Programming
+
+- Part 1 - Delegation Model and Listeners
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-9-3-event-driven-programming-part-1.pdf)
+  - [Lecture](https://youtu.be/j9kByTiuHZw)
+  - [[Notes|ser216.event-driven-programming]]
+- Part 2 - Anonymous Classes and Observable Objects
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-9-4-event-driven-programming-part-2.pdf)
+  - [Lecture](https://youtu.be/E_AQU-gz0L4)
+  - [[Notes|ser216.event-driven-programming]]
+
+### Module 11 - Multithreading & Networking
+
+- Part 1 - Multithreading
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-13-1-multithreading.pdf)
+  - [Lecture](https://youtu.be/5cfIOAnUozs)
+  - [[Notes|ser216.multithreading]]
+- Part 2 - Networking
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-13-2-network-programming.pdf)
+  - [Lecture](https://youtu.be/Y0vpsa8u44o)
+  - [[Notes|ser216.network-programming]]
+
+### Module 12 - Software Quality
+
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-10-software-quality.pdf)
+- [Lecture](https://youtu.be/Wc__OAGQ5iY)
+- [[Notes|ser216.software-quality]]
+
+### Module 13 - Unit Testing
+
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-12-unit-testing.pdf)
+- [Lecture](https://youtu.be/OxCmGmqMYDs)
+- [[Notes - Unit Testing|ser216.unit-testing]]
+- [[Notes - JUnit|ser216.junit]]
+
+### Module 14 - Code Analysis
+
+- [Video](https://player.mediaamp.io/p/U8-EDC/HOo9GXupLYen/embed/select/media/aJ97UtwXAoHF?form=html)
+
+### Module 15 - Integration, System, and Acceptance Testing
+
+- Part 1 - Integration Testing
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets\m-14-integration-testing.pdf)
+  - [Lecture](https://youtu.be/Jvu-Oo2gHKY)
+  - [[Notes|ser216.integration-testing]]
+- Part 2 - System & Acceptance Testing
+  - [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-17-system-testing.pdf)
+  - [Lecture](https://youtu.be/0OpoavgtUWo)
+  - [[Notes|ser216.system-testing]]
+
+### Module 16
+
+- [Slides](https://github.com/jheinem1/notes/tree/main/vault/assets/m-18-1-software-test-plan.pdf)
+- [Lecture](https://youtu.be/spPsmPZxZ1c)
+- [[Notes|ser216.software-test-plan]]

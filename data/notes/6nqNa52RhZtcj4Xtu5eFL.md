@@ -1,0 +1,54 @@
+
+The change in energy when a force causes a displacement of an object. For example, carrying a refrigerator up a flight of stairs.
+
+If a *constant* force $F$ displaces an object a distance $d$ in the direction of the force, the work done is $\text{work}=\text{force}*\text{distance}$.
+
+Calculus deals with **variable** forces:
+![](/assets/images/2022-02-08-23-00-37.png)
+
+## Definition
+The work done by a variable force $F$ in moving an object along a line from $x=a$ to $x=b$ in the direction of the force is
+$$
+W=\int_a^b{F(x)}{dx}\text.
+$$
+
+## Lifting problems
+![](/assets/images/2022-02-08-23-02-48.png)
+
+The work required to lift this chain is
+$$
+W=\int_0^L{\rho g(L-y)}{dy}
+$$
+$L$ is the distance to be lifted, $\rho$ is the [[mat266.mass]] of the object, and $g$ represents gravity.
+
+($g$ being gravity is almost always $9.8$)
+
+## Pumping problems
+Suppose a fluid such as water is pumped out of a tank to a height $h$ above the bottom of the tank. How much work is required, assuming the tank is full of water?
+![](/assets/images/2022-02-08-23-13-55.png)
+### Procedure
+1. Draw a $y$-axis in the vertical direction
+2. For $a\leq y\leq b$, find the cross-sectional area $A(y)$ of the horizontal slices and the distance $D(y)$ the slices must be lifted
+3. The work required to lift the water is
+$$
+W=\int_a^b{\rho gA(y)D(y)}{dy}\text.
+$$
+### Example
+![](/assets/images/2022-02-08-23-19-15.png)
+
+The resulting integral is
+$$
+W=\int_0^{10}{\rho gA(y)D(y)}{dy}
+$$
+$$
+A(y)=\pi r^2=\pi 5^2=25\pi
+$$
+$$
+D(y)=15-y
+$$
+$$
+W=\int_0^{10}{\rho*(9.8)*(25\pi)(15-y)*}{dy}
+$$
+$$
+=25\pi\rho(9.8)\int_0^{10}{(15-y)}{dy}
+$$

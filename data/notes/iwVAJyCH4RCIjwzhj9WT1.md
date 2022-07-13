@@ -1,0 +1,30 @@
+
+Insertion Sort works by creating a sorted, but not final section up to the position `j` in an array. Unlike [[ser222.sorting.selection-sort]], Insertion Sort has a best-case-scenario of $\Omega(n)$ sorting time.
+
+![](/assets/images/2022-02-16-11-45-04.png)
+
+Insertion sort performs best with partially sorted inputs, and worst with reversed inputs.
+
+One of the "benefits" of insertion sort is that the sorted region is always 1 or greater elements- even before the algorithm starts.1
+## Steps
+1. Pick some element at position `j`
+2. Insert the element into the sorted position in the sorted region
+3. Repeat for all elements in the list
+
+## Implementation
+```java
+public static void sort(Comparable[] array) {
+    for (int i = 1; i < array.length; i++)
+        for (int j = i; j > 0 && less(array[j], array[j-1]); j--)
+            exch(array, j, j - 1);
+}
+```
+## Big-Oh
+Worst-case-scenario:
+$$
+O(N^2)
+$$
+Best-case-scenario:
+$$
+\Omega(n)
+$$

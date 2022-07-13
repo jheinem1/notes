@@ -1,0 +1,43 @@
+<h1 id="junit"><a aria-hidden="true" class="anchor-heading" href="#junit"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>JUnit</h1>
+<p>Java framework for writing and running <a href="/notes/notes/x622kuaq03hyctghgiabbqm">unit tests</a>.</p>
+<h2 id="classes"><a aria-hidden="true" class="anchor-heading" href="#classes"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Classes</h2>
+<div class="mermaid">
+  classDiagram
+    class TestResult
+    class Test {
+        run(TestResult)
+    }
+    class TestSuite {
+        run(TestResult)
+        addTest()
+    }
+    class TestCase {
+        run(TestResult)
+        setUp()
+        tearDown()
+        runTest()
+    }
+    class ConcreteTestCase {
+        setUp()
+        tearDown()
+        runTest()
+    }
+    class UnitToBeTested
+    
+    ConcreteTestCase -- UnitToBeTested
+    TestCase &#x3C;|-- ConcreteTestCase
+    Test &#x3C;|-- TestCase
+    Test &#x3C;|-- TestSuite
+    TestResult &#x3C;.. Test
+    TestSuite *-- "*" Test 
+</div>
+<h2 id="other-features"><a aria-hidden="true" class="anchor-heading" href="#other-features"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Other features</h2>
+<ul>
+<li>GUI interface</li>
+<li><a href="https://code.visualstudio.com/docs/java/java-testing">Integration with Visual Studio Code</a></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/T2ptecH0AHZvseJr1aUvN">SER-216</a></li>
+</ul>

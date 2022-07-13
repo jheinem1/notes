@@ -1,0 +1,118 @@
+<h1 id="event-driven-programming"><a aria-hidden="true" class="anchor-heading" href="#event-driven-programming"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Event Driven Programming</h1>
+<h2 id="procedural-vs-event-driven-programming"><a aria-hidden="true" class="anchor-heading" href="#procedural-vs-event-driven-programming"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Procedural vs event-driven programming</h2>
+<ul>
+<li>Procedural code is executed in procedural order- by line
+<ul>
+<li>This is ideal for code that does not need to wait for other code to finish</li>
+</ul>
+</li>
+<li><em>Event-driven</em> code is executed when an event occurs
+<ul>
+<li>This is ideal for handling user input and other events that may occur at any time</li>
+</ul>
+</li>
+</ul>
+<h2 id="gui-events"><a aria-hidden="true" class="anchor-heading" href="#gui-events"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>GUI events</h2>
+<ul>
+<li>Source object (e.g. button)</li>
+<li>Event object (e.g. mouse click)</li>
+<li>Listener/handler object
+<ul>
+<li>Contains a method for processing the event</li>
+<li>In languages that support functional programming, this can just be a private function or lambda expression</li>
+</ul>
+</li>
+</ul>
+<div class="mermaid">
+  flowchart LR
+    button[Button\n\nClicking a button fires an action event] --> event[Event\n\nAn event is an object]
+    event --> handler[Handler\n\nThe event handler proecesses the event]
+</div>
+<h2 id="example-of-java-event-handling"><a aria-hidden="true" class="anchor-heading" href="#example-of-java-event-handling"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Example of java event handling</h2>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HandleEvent</span> <span class="token keyword">extends</span> <span class="token class-name">Application</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token class-name">Stage</span> primaryStage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token comment">// "okButton" is a button object</span>
+        <span class="token comment">// "cancelButton" is a button object</span>
+        <span class="token class-name">OKHandlerClass</span> handler1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OKHandlerClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        okButton<span class="token punctuation">.</span><span class="token function">setOnAction</span><span class="token punctuation">(</span>handler1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">CancelHandlerClass</span> handler2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CancelHandlerClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cancelButton<span class="token punctuation">.</span><span class="token function">setOnAction</span><span class="token punctuation">(</span>handler2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        primaryStage<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OKHandlerClass</span> <span class="token keyword">implements</span> <span class="token class-name">EventHandler</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">ActionEvent</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token class-name">ActionEvent</span> event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment">// will be called when the "okButton" is clicked</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CancelHandlerClass</span> <span class="token keyword">implements</span> <span class="token class-name">EventHandler</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">ActionEvent</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token class-name">ActionEvent</span> event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment">// will be called when the "cancelButton" is clicked</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="events"><a aria-hidden="true" class="anchor-heading" href="#events"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Events</h2>
+<ul>
+<li>An event is a type of signal to the program that something has happened</li>
+<li>An event is often generated by external entities (e.g. a user or another program)</li>
+</ul>
+<h2 id="event-classes"><a aria-hidden="true" class="anchor-heading" href="#event-classes"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Event classes</h2>
+<div class="mermaid">
+  classDiagram
+    MouseEvent --> InputEvent
+    KeyEvent --> InputEvent
+
+    ActionEvent --> Event
+    InputEvent --> Event
+    WindowEvent --> Event
+
+    Event --> EventObject
+</div>
+<p>These classes are found in the JavaFX event package. Subclasses of <code>EventObject</code> deal with events such as...</p>
+<ul>
+<li>Button actions</li>
+<li>Window events</li>
+<li>Mouse movements</li>
+<li>Keystrokes</li>
+</ul>
+<h2 id="common-events"><a aria-hidden="true" class="anchor-heading" href="#common-events"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Common events</h2>
+<p><img src="/notes/assets/images/2022-03-29-14-03-22.png"></p>
+<h2 id="the-delegation-model"><a aria-hidden="true" class="anchor-heading" href="#the-delegation-model"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>The delegation model</h2>
+<pre class="language-java"><code class="language-java"><span class="token keyword">var</span> okButton <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token string">"OK"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> handler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OKHandlerClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+okButton<span class="token punctuation">.</span><span class="token function">setOnAction</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="inner-class-listeners"><a aria-hidden="true" class="anchor-heading" href="#inner-class-listeners"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Inner class listeners</h2>
+<ul>
+<li>A listener class is designed to create a listener object for a specific event</li>
+<li>Because the listener class is only designed for a specific event, it is not reusable</li>
+<li>This makes it ideal to use a private or inner class to handle the event</li>
+<li>Because the listener class will only be used for one event, it can also be declared as a static class to avoid the need to instantiate it</li>
+</ul>
+<h2 id="inner-classes"><a aria-hidden="true" class="anchor-heading" href="#inner-classes"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Inner classes</h2>
+<ul>
+<li>An inner class is a class inside another class</li>
+<li>This can make programs simple and allowing access to the internal state of the classes, eliminating the need to pass the parent class as a parameter</li>
+</ul>
+<h2 id="anonymous-inner-classes"><a aria-hidden="true" class="anchor-heading" href="#anonymous-inner-classes"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Anonymous inner classes</h2>
+<ul>
+<li>Must always extend a superclass or implement an interface</li>
+<li>Cannot have an explicit 'extends' or 'implements' clause</li>
+<li>Must implement all abstract methods of the superclass</li>
+<li>Always uses the no-arg constructor from its superclass to create an instance</li>
+<li>Compiled as <code>OuterClassName$n.class</code> (where <code>n</code> is a number)</li>
+<li><img src="/notes/assets/images/2022-04-02-15-34-02.png"></li>
+</ul>
+<h2 id="lambda-expressions"><a aria-hidden="true" class="anchor-heading" href="#lambda-expressions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Lambda expressions</h2>
+<ul>
+<li><img src="/notes/assets/images/2022-04-02-15-35-18.png"></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/T2ptecH0AHZvseJr1aUvN">SER-216</a></li>
+</ul>

@@ -1,0 +1,118 @@
+
+- Essentially [[ser222.undirected-graphs]], but with edges that have a clearly defined direction
+    - ![](/assets/images/2022-04-20-10-35-02.png)
+- Interestingly, these can be used for things like crafting recipes in games, where materials have to exist in a certain order relative to each other
+    - ![](/assets/images/2022-04-20-11-19-37.png)
+
+## Terminology
+
+- `V` is a **Direct Predecessor** of `W` if there is a path/edge from `V` to `W`
+- `V` is a **Direct Successor** of `W` if there is a path/edge from `W` to `V`
+- `V` is a **Predecessor** of `W` if `V` is a direct predecessor of `W` or a predecessor of a direct predecessor of `W`
+- `V` is a **Successor** of `W` if `V` is a direct successor of `W` or a successor of a direct successor of `W`
+
+## Directed graph ADT
+
+```java
+public interface Diagraph {
+    int V(); // number of vertices
+    int E(); // number of edges
+    void addEdge(int v, int w); // add edge v->w
+    Iterable<Integer> adj(int v); // vertices connected to v from edges v->x
+    Digraph reverse(); // reverse of digraph
+    String toString(); // string representation of digraph
+}
+```
+
+## Implementation
+
+```java
+public class DigraphImplementation implements Digraph {
+    private final int V;
+    private int E;
+    private LinkedList<Integer>[] adj;
+
+    /**
+     * Initializes an empty digraph with `V` vertices.
+     * @param V the number of vertices
+     */
+    public Digraph(int V) {
+        this.V = V;
+        this.E = 0;
+        adj = (LinkedList<Integer>[]) new LinkedList[V];
+        for (int v = 0; v < V; v++)
+            adj[v] = new LinkedList<Integer>();
+    }
+
+    /**
+     * Reads a digraph from an input stream.
+     * @param in the input stream
+     */
+    public Digraph(In in) {
+        this(in.readInt());
+        int E = in.readInt();
+        for (int i = 0; i < E; i++) {
+            int v = in.readInt();
+            int w = in.readInt();
+            addEdge(v, w);
+        }
+    }
+
+    /**
+     * Returns the number of vertices in the digraph.
+     * @return the number of vertices in the digraph
+     */
+    public int V() {
+        return V;
+    }
+
+    /**
+     * Returns the number of edges in the digraph.
+     * @return the number of edges in the digraph
+     */
+    public int E() {
+        return E;
+    }
+
+    /**
+     * Adds the directed edge v->w to the digraph.
+     * @param v the tail vertex
+     * @param w the head vertex
+     */
+    public void addEdge(int v, int w) {
+        adj[v].add(w);
+        E++;
+    }
+
+    /**
+     * Returns the vertices adjacent from vertex `v` in the digraph.
+     * @param v the vertex
+     * @return the vertices adjacent from vertex `v` in the digraph
+     */
+    public Iterable<Integer> adj(int v) {
+        return adj[v];
+    }
+
+    /**
+     * Returns the reverse of the digraph.
+     * @return the reverse of the digraph
+     */
+    public Digraph reverse() {
+        Digraph r = new DigraphImplementation(V);
+        for (int v = 0; v < V; v++)
+            for (int w : adj(v))
+                r.addEdge(w, v);
+        return r;
+    }
+}
+```
+
+## Problems
+
+- [[ser222.directed-graphs.problems.directed-search]]
+- [[ser222.directed-graphs.problems.scheduling]]
+- [[ser222.directed-graphs.problems.directed-cycle]]
+
+## Sorting
+
+[[Topological Sorting|ser222.directed-graphs.topological-sort]] is a common method to produce ordered graphs.

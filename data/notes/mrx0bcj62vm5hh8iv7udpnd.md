@@ -1,0 +1,255 @@
+
+## Extending arrays
+
+- In an array, an index corresponds to some value
+- It would be useful to extend this idea
+    - Mapping any type of key to values
+- This is a symbol table
+    -  Insert: `put(K, V)`
+        - Associates a key with a value
+    - Search: `get(K)`
+        - Returns the value associated with the key
+        - If no value is associated with the key, returns `null`
+- Symbol tables are often implemented as **Dictionaries**, **Hash Tables**, or **Maps**
+
+## API
+
+```java
+public interface SymbolTable<K, V> {
+    /**
+     * Put key-value pair into the symbol table.
+     * @param key the key
+     * @param val the value
+     * @return the previous value associated with key, or {@code null} if there was no mapping for key.
+    */
+    void put(K key, V value);
+    /**
+     * Get the value associated with the given key.
+     * @param key the key
+     * @return the value associated with the given key if present, or {@code null} if no value is present.
+    */
+    V get(K key);
+    /**
+     * Remove the key (and its associated value) from the symbol table.
+     * @param key the key
+     * @return the value associated with the given key if present, or {@code null} if no value is present.
+    */
+    void delete(K key);
+    /**
+     * Does the symbol table contain the given key?
+     * @return {@code true} if the symbol table is empty, {@code false} otherwise
+    */
+    boolean contains(K key);
+    /**
+     * Is the symbol table empty?
+     * @return {@code true} if the symbol table is empty, {@code false} otherwise
+    */
+    boolean isEmpty();
+    /**
+     * Return the number of key-value mappings in the symbol table.
+     * @return the number of key-value mappings in the symbol table
+    */
+    int size();
+    /**
+     * Return all keys in the symbol table as an {@code Iterable}.
+     * To iterate over all of the keys in the symbol table named {@code st},
+     * use the foreach notation: {@code for (Key key : st.keys())}.
+     * @return all keys in the symbol table as an {@code Iterable}
+    */
+    Iterable<K> keys();
+}
+```
+
+- A key *cannot* refer to multiple values withing
+
+## Applications in compilers
+
+- As a standard part of most compilers, a symbol table of variables is built
+- The compiler indexes each variable in a method and uses it as a key to store the assigned value
+
+```java
+void compute_z() {
+    int x = 2;
+    int y = x + 5;
+    int z = (y + x) * 2;
+    System.out.println(z);
+}
+```
+
+Variable | Value
+---------|------------------
+x        | Constant: 2
+y        | Expr: x + 5
+z        | Expr: (y + x) * 2
+
+## Ordered API
+
+Ordered symbol tables are a special case of symbol tables that sort keys.
+
+```java
+public interface OrderedSymbolTable<Key extends Comparable<Key>, Value> {
+    void put(Key key, Value, value);
+    Value get(Key key);
+    void delete(Key key);
+    boolean contains(Key key);
+    boolean isEmpty();
+    int size();
+    Key min();
+    Key max();
+    Key floor(Key key);
+    Key ceiling(Key key);
+    int rank(Key key);
+    Key select(int k);
+    void deleteMin();
+    void deleteMax();
+    int size(Key lo, Key hi);
+    Iterable<Key> keys(Key lo, Key hi);
+    Iterable<Key> keys();
+}
+```
+
+## Implementation with a binary search tree
+
+We can use a [[ser222.binary-search-tree]] to implement an ordered symbol table.
+
+For the purposes of demonstrating this implementation, we will use a simple `Node` class for the binary search tree.
+
+```java
+interface Node<K, V> {
+    K key;
+    V value;
+    Node<K, V> left;
+    Node<K, V> right;
+}
+```
+
+### Get value implementation
+
+- Since the symbol table is ordered, we can take advantage of the $O(log n)$ time complexity of searching for a key
+- We can start by comparing the key to the root node of the tree
+    - If the key is less than the root node, we can recursively search the left subtree
+    - If the key is greater than the root node, we can recursively search the right subtree
+
+```java
+public V get(K key) {
+    Node<K, V> x = root;
+    while (x != null) {
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) x = x.left;
+        else if (cmp > 0) x = x.right;
+        else return x.value;
+    }
+    return null;
+}
+```
+
+### Put value implementation
+
+- To insert a new key into the symbol table, we can start by comparing the key to the root node of the tree
+    - If the key is less than the root node, we can recursively search the left subtree
+    - If the key is greater than the root node, we can recursively search the right subtree
+    - If the key is equal to the root node, we can update the value
+
+```java
+public void put(K key, V value) {
+    root = put(root, key, value);
+}
+
+private Node put(Node x, K key, V value) {
+    if (x == null) return new Node<K, V>(key, value, null, null);
+    int cmp = key.compareTo(x.key);
+    if (cmp < 0) x.left = put(x.left, key, value);
+    else if (cmp > 0) x.right = put(x.right, key, value);
+    else x.value = value;
+    return x;
+}
+```
+
+### Min value implementation
+
+- Because the binary search tree is ordered, we can use the leftmost node as the minimum value
+
+```java
+public K min() {
+    return min(root).key;
+}
+
+private Node min(Node x) {
+    if (x.left == null) return x;
+    return min(x.left);
+}
+```
+
+### DeleteMin implementation
+
+- This is almost identical to the delete implementation, except that we need to update the root node
+
+```java
+public void deleteMin() {
+    root = deleteMin(root);
+}
+
+private Node deleteMin(Node x) {
+    if (x.left == null)
+        if (x.right != null) return x.right;
+        else return null;
+    x.left = deleteMin(x.left);
+    return x;
+}
+```
+
+### Delete implementation
+
+- This is much more complicated, as there are three different cases that must be handled
+    - The node to be deleted has no children
+    - The node to be deleted has one child
+    - The node to be deleted has two children
+
+```java
+public void delete(K key) {
+    root = delete(root, key);
+}
+
+private Node delete(Node x, K key) {
+    if (x == null) return null;
+    int cmp = key.compareTo(x.key);
+    if (cmp < 0) x.left = delete(x.left, key);
+    else if (cmp > 0) x.right = delete(x.right, key);
+    else {
+        if (x.right == null) return x.left;
+        if (x.left == null) return x.right;
+        Node t = x;
+        x = min(t.right);
+        x.right = deleteMin(t.right);
+        x.left = t.left;
+    }
+    return x;
+}
+```
+
+### Keys iterator implementation
+
+```java
+public Iterable<Key> keys(K lo, K hi) {
+    Queue<Key> queue = new Queue<Key>();
+    keys(root, queue, lo, hi);
+    return queue;
+}
+
+private void keys(Node x, Queue<Key> queue, K lo, K hi) {
+    if (x == null) return;
+    int cmplo = lo.compareTo(x.key);
+    int cmphi = hi.compareTo(x.key);
+    if (cmplo < 0) keys(x.left, queue, lo, hi);
+    if (cmplo <= 0 && cmphi >= 0) queue.enqueue(x.key);
+    if (cmphi > 0) keys(x.right, queue, lo, hi);
+}
+```
+
+### Performance
+
+Algorithm                                 | Average Search | Average Insert | Support ordered operations?
+------------------------------------------|----------------|----------------|----------------------------
+Sequential search (unordered linked list) | $\frac{n}{2}$  | $n$            | No
+Binary search (ordered array)             | $\log n$       | $n$            | Yes
+Binary search (binary search tree)        | $1.39\log n$   | $1.39\log n$   | Yes

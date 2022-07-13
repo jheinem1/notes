@@ -1,0 +1,64 @@
+<h1 id="heap"><a aria-hidden="true" class="anchor-heading" href="#heap"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Heap</h1>
+<ul>
+<li>A heap is a data structure that is a complete <a href="/notes/notes/pswkhuweiczpfii3orp1cji">Binary Tree</a></li>
+<li>A binary tree is <em>heap-ordered</em> if each node is larger than or equal to the keys in its left and right subtrees</li>
+<li>This means the largest element is always at the root of the tree in a max heap
+<ul>
+<li>This can be reversed for a min heap</li>
+</ul>
+</li>
+</ul>
+<p><strong>This assumes that the heap is a max heap.</strong></p>
+<h2 id="array-mapping"><a aria-hidden="true" class="anchor-heading" href="#array-mapping"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Array mapping</h2>
+<ul>
+<li>Although the tree could be represented as a linked structure, we can use an array to represent the tree
+<ul>
+<li>This makes it easier to implement the heap operations</li>
+</ul>
+</li>
+<li>A complete binary tree is one where every level is full except for the last level</li>
+<li>This will make accessing other nodes fast</li>
+</ul>
+<h2 id="heap-operations"><a aria-hidden="true" class="anchor-heading" href="#heap-operations"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Heap operations</h2>
+<h3 id="swim"><a aria-hidden="true" class="anchor-heading" href="#swim"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Swim</h3>
+<ul>
+<li>Suppose we insert a new element <code>k</code> into the heap
+<ul>
+<li>This element could be larger than its parent</li>
+</ul>
+</li>
+<li>We need to "swim" the element up to its correct position</li>
+</ul>
+<pre class="language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">swim</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>k <span class="token operator">></span> <span class="token number">1</span> <span class="token operator">&#x26;&#x26;</span> <span class="token function">less</span><span class="token punctuation">(</span>k <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">exch</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> k <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        k <span class="token operator">=</span> k <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="sink"><a aria-hidden="true" class="anchor-heading" href="#sink"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Sink</h3>
+<ul>
+<li>Suppose we insert a new element 'k' into the heap
+<ul>
+<li>This element could be smaller than its children</li>
+</ul>
+</li>
+<li>We need to "sink" the element down to its correct position</li>
+</ul>
+<pre class="language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">sink</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> k <span class="token operator">&#x3C;=</span> <span class="token class-name">N</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> k<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">&#x3C;</span> <span class="token class-name">N</span> <span class="token operator">&#x26;&#x26;</span> <span class="token function">less</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> j<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">less</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token function">exch</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        k <span class="token operator">=</span> j<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/6qkeo055xhvi09f68l050au">Binary Search Tree</a></li>
+<li><a href="/notes/notes/rm3v8zh3u4s8ccf2tdk0grn">Priority Queue</a></li>
+<li><a href="/notes/notes/ck1jy0xrmrn7rioctj6uwal">ADJ for Algorithms: Analysis</a></li>
+</ul>

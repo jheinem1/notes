@@ -1,0 +1,339 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link rel="icon" href="/favicon.ico"/><title>Personal Software Process (PSP)</title><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="description" content="Fun SWE Stuffs"/><meta property="og:title" content="Personal Software Process (PSP)"/><meta property="og:description" content="Fun SWE Stuffs"/><meta property="og:url" content="https://jheinem1.github.io/notes/notes/notes/W2Uztec6OudwNRjFuz7CG/"/><meta property="og:type" content="article"/><meta property="article:published_time" content="2/1/2022"/><meta property="article:modified_time" content="3/3/2022"/><link rel="canonical" href="https://jheinem1.github.io/notes/notes/notes/W2Uztec6OudwNRjFuz7CG/"/><meta name="next-head-count" content="14"/><link rel="preload" href="/notes/_next/static/css/3092aab0aa1f4483.css" as="style"/><link rel="stylesheet" href="/notes/_next/static/css/3092aab0aa1f4483.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/notes/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/notes/_next/static/chunks/webpack-9598d1b7297c7767.js" defer=""></script><script src="/notes/_next/static/chunks/framework-bb5c596eafb42b22.js" defer=""></script><script src="/notes/_next/static/chunks/main-0d50381774b20f5a.js" defer=""></script><script src="/notes/_next/static/chunks/pages/_app-639b01fffdc48b4b.js" defer=""></script><script src="/notes/_next/static/chunks/155-3a6c02d7e042edb7.js" defer=""></script><script src="/notes/_next/static/chunks/373-9c38fabb487d5920.js" defer=""></script><script src="/notes/_next/static/chunks/pages/notes/%5Bid%5D-b20175c77adb354a.js" defer=""></script><script src="/notes/_next/static/6OLHRUVaQc4LDSgOkhFGt/_buildManifest.js" defer=""></script><script src="/notes/_next/static/6OLHRUVaQc4LDSgOkhFGt/_ssgManifest.js" defer=""></script><script src="/notes/_next/static/6OLHRUVaQc4LDSgOkhFGt/_middlewareManifest.js" defer=""></script></head><body><div id="__next" data-reactroot=""><section class="ant-layout" style="width:100%;min-height:100%"><header class="ant-layout-header" style="position:fixed;isolation:isolate;z-index:1;width:100%;border-bottom:1px solid #d4dadf;height:64px;padding:0 24px 0 2px"><div class="ant-row ant-row-center" style="max-width:992px;justify-content:space-between;margin:0 auto"><div style="display:flex" class="ant-col ant-col-xs-20 ant-col-sm-4"></div><div class="ant-col gutter-row ant-col-xs-0 ant-col-sm-20 ant-col-md-20 ant-col-lg-19"><div class="ant-select ant-select-lg ant-select-auto-complete ant-select-single ant-select-allow-clear ant-select-show-search" style="width:100%"><div class="ant-select-selector"><span class="ant-select-selection-search"><input type="search" autoComplete="off" class="ant-select-selection-search-input" role="combobox" aria-haspopup="listbox" aria-owns="undefined_list" aria-autocomplete="list" aria-controls="undefined_list" aria-activedescendant="undefined_list_0" value=""/></span><span class="ant-select-selection-placeholder">For full text search please use the &#x27;?&#x27; prefix. e.g. ? Onboarding</span></div></div></div><div style="display:none;align-items:center;justify-content:center" class="ant-col ant-col-xs-4 ant-col-sm-4 ant-col-md-0 ant-col-lg-0"><span role="img" aria-label="menu" style="font-size:24px" tabindex="-1" class="anticon anticon-menu"><svg viewBox="64 64 896 896" focusable="false" data-icon="menu" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path></svg></span></div></div></header><section class="ant-layout site-layout" style="margin-top:64px"><section class="ant-layout site-layout" style="flex-direction:row"><section class="ant-layout site-layout-sidebar" style="flex:0 0 auto;width:calc(max((100% - 992px) / 2, 0px) + 200px);min-width:200px;padding-left:calc((100% - 992px) / 2)"><aside class="ant-layout-sider ant-layout-sider-dark" style="position:fixed;overflow:auto;height:calc(100vh - 64px);flex:0 0 200px;max-width:200px;min-width:200px;width:200px"><div class="ant-layout-sider-children"></div></aside></section><section class="ant-layout side-layout-main" style="max-width:1200px;display:initial"><main class="ant-layout-content main-content" role="main" style="padding:0 24px"><div class="ant-row"><div class="ant-col ant-col-24"><div class="ant-row" style="margin-left:-10px;margin-right:-10px"><div style="padding-left:10px;padding-right:10px" class="ant-col ant-col-xs-24 ant-col-md-18"><div><h1 id="personal-software-process-psp"><a aria-hidden="true" class="anchor-heading" href="#personal-software-process-psp"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Personal Software Process (PSP)</h1>
+<p>Software now controls most systems- business, finance, military, etc. The cost, schedule and quality of software is now a critical business concern.</p>
+<h2 id="big-projects-frequently-fail"><a aria-hidden="true" class="anchor-heading" href="#big-projects-frequently-fail"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Big projects frequently fail</h2>
+<ul>
+<li>With increased scale, projects are more troubled</li>
+<li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Project Size</th><th>People</th><th>Time (Months)</th><th>Success Rate</th></tr></thead><tbody><tr><td>Less than $750K</td><td>6</td><td>6</td><td>55%</td></tr><tr><td>$750K to $1.5M</td><td>12</td><td>9</td><td>33%</td></tr><tr><td>$1.5M to $3M</td><td>25</td><td>12</td><td>25%</td></tr><tr><td>$3M to $6M</td><td>40</td><td>18</td><td>15%</td></tr><tr><td>$6M to $10M</td><td>+250</td><td>+24</td><td>8%</td></tr><tr><td>Over $10M</td><td>+500</td><td>+36</td><td>0%</td></tr></tbody></table>
+</li>
+<li>This is a problem of scale- current practices do not scale up</li>
+</ul>
+<h2 id="why-projects-fail"><a aria-hidden="true" class="anchor-heading" href="#why-projects-fail"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Why projects fail</h2>
+<ul>
+<li>Large and small projects fail for four reasons
+<ul>
+<li>Project commitments are unrealistic</li>
+<li>The larger the project, the less influence engineers have</li>
+<li>If engineers don't have anything to say, nobody will listen</li>
+<li>Larger projects are harder to control</li>
+</ul>
+</li>
+<li>Today, few developers have personal plans
+<ul>
+<li>Without plans, you cannot know job status</li>
+<li>If you don't know where you are, management can't understand job status</li>
+<li>If management doesn't understand job status, they can't manage projects</li>
+</ul>
+</li>
+<li>Quality problems get worse at scale
+<ul>
+<li>If any part has quality problems, the system will have quality problems</li>
+<li>If developers do not manage quality, their teams cannot manage quality</li>
+<li>When unmanaged, quality will always be poor</li>
+</ul>
+</li>
+<li>To be effective, teams need leadership and coaching
+<ul>
+<li>Leaders build team motivation and commitment</li>
+<li>Coaching develops team cohesion</li>
+<li>Cohesive, motivated, and committed teams do the best work</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="psp-principles"><a aria-hidden="true" class="anchor-heading" href="#psp-principles"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>PSP Principles</h2>
+<ul>
+<li>The quality of a software system is determined by the <em>quality of its worst components</em></li>
+<li>The quality of a software component is governed by the individual who developed it</li>
+<li>The quality of a software component is governed by the quality of the process used to develop it</li>
+<li>The key to quality is the individual developer’s skill, commitment, and personal process discipline</li>
+<li>As a software professional, you are responsible for your personal process</li>
+<li>You should measure, track, and analyze your work</li>
+<li>You should learn from your performance variations</li>
+<li>You should incorporate lessons learned into your personal practices</li>
+</ul>
+<h2 id="what-does-psp-provide"><a aria-hidden="true" class="anchor-heading" href="#what-does-psp-provide"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>What does PSP provide?</h2>
+<ul>
+<li>A stable, mature PSP allows you to...
+<ul>
+<li>Estimate and plan your work</li>
+<li>Meet your commitments</li>
+<li>Resist unreasonable commitment pressures</li>
+</ul>
+</li>
+<li>You will also...
+<ul>
+<li>Understand your current performance</li>
+<li>Be better equipped to improve your capability</li>
+</ul>
+</li>
+<li>The PSP provides…
+<ul>
+<li>A proven basis for developing and using an industrial-strength personal process</li>
+<li>A discipline that shows you how to improve your personal process</li>
+<li>The data to continually improve the productivity, quality, and predictability of your work</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-the-psp"><a aria-hidden="true" class="anchor-heading" href="#what-is-the-psp"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>What is the PSP?</h2>
+<ul>
+<li>The PSP is a personal process for developing software or for doing any other defined activity</li>
+<li>The PSP includes...
+<ul>
+<li>Defined steps</li>
+<li>Forms</li>
+<li>Standards</li>
+</ul>
+</li>
+<li>It provides a measurement and analysis framework for characterizing and managing your personal work</li>
+<li>It is also a defined procedure that helps you to improve your personal preference</li>
+</ul>
+<h2 id="the-psp-process-flow"><a aria-hidden="true" class="anchor-heading" href="#the-psp-process-flow"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>The PSP process flow</h2>
+<p><img src="/notes/assets/images/psp-process-flow.drawio.png"></p>
+<h2 id="learning-the-psp"><a aria-hidden="true" class="anchor-heading" href="#learning-the-psp"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Learning the PSP</h2>
+<ul>
+<li>The PSP is introduced in six upward-compatible steps</li>
+<li>You write one or more module-sized programs at each step</li>
+<li>You gather and analyze data on your work</li>
+<li>You use the results to improve your personal performance</li>
+<li>PSP0: You establish a measured performance baseline.</li>
+<li>PSP1: You make size, resource, and schedule plans.</li>
+<li>PSP2: You practice defect and yield management.
+<img src="/notes/assets/images/2022-02-03-13-56-11.png"></li>
+</ul>
+<hr>
+<h2 id="phase-order"><a aria-hidden="true" class="anchor-heading" href="#phase-order"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Phase order</h2>
+<ul>
+<li>The PSP looks like a waterfall process, but it's not
+<ul>
+<li>The phase order is determined by the dependencies between phases</li>
+</ul>
+</li>
+<li>Start with a plan</li>
+<li>
+<div class="mermaid">
+  flowchart BT
+    Plan --> Design
+    Design --> Code
+    Code --> Compile
+    Compile --> Test
+</div>
+</li>
+</ul>
+<h2 id="process-flow"><a aria-hidden="true" class="anchor-heading" href="#process-flow"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Process flow</h2>
+<ul>
+<li>When programs are small or well understood, you can execute the phases in order...
+<ol>
+<li>Produce a plan</li>
+<li>Design all modules</li>
+<li>Code all modules</li>
+<li>Compile the coded program</li>
+<li>Summarize the project data during the postmortem</li>
+</ol>
+</li>
+</ul>
+<p><a aria-hidden="true" class="block-anchor anchor-heading" id="^process-flow" href="#^process-flow"><svg viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a></p><div class="mermaid">
+  flowchart LR
+    Requirements((Requirements)) --> Plan
+    Plan --> Design
+    Design --> Code
+    Code --> Compile
+    Compile --> Test
+    Test --> Postmortem
+    Postmortem --> Program((Program and\nProject Data))
+</div><p></p>
+<p></p>
+<h2 id="cyclic-process-flow"><a aria-hidden="true" class="anchor-heading" href="#cyclic-process-flow"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Cyclic Process flow</h2>
+<ul>
+<li>Large programs or those that are not well understood may require an iterative approach</li>
+<li>Two modules are identified during the design- A and B</li>
+<li>Each module is separately coded, compiled, and tested</li>
+</ul>
+<div class="mermaid">
+  flowchart LR
+    Requirements((Requirements)) --> Plan
+    Plan --> Design
+    Design --> Code
+    subgraph Module A
+        Code --> Compile
+        Compile --> Test
+    end
+    Test --> Code2
+    subgraph Module B
+        Code2[Code] --> Compile2[Compile]
+        Compile2 --> Test2[Test]
+    end
+    Test2 --> Postmortem
+    Postmortem --> Program((Program and\nProject Data))
+</div>
+<ul>
+<li>There can be more than two cycles &#x26; modules</li>
+</ul>
+<h2 id="process-scripts"><a aria-hidden="true" class="anchor-heading" href="#process-scripts"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Process scripts</h2>
+<ul>
+<li>Process scripts provide "expert-level" guidance on how to use the process
+<ul>
+<li>They are one or two pages long</li>
+<li>They describe...
+<ul>
+<li>Purpose</li>
+<li>Entry criteria</li>
+<li>General guidelines</li>
+<li>Steps</li>
+<li>Exit criteria</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="psp-scripts"><a aria-hidden="true" class="anchor-heading" href="#psp-scripts"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>PSP Scripts</h2>
+<ul>
+<li>Planning
+<ul>
+<li>Estimate the development time</li>
+</ul>
+</li>
+<li>Development
+<ul>
+<li>Develop the product using your current methods</li>
+</ul>
+</li>
+<li>Postmortem
+<ul>
+<li>Complete the project plan summary with the time spent</li>
+<li>Defects found and injected in each phase</li>
+</ul>
+</li>
+<li>Design
+<ul>
+<li>Design the program using your current design methods</li>
+</ul>
+</li>
+<li>Coding
+<ul>
+<li>Implement the program</li>
+</ul>
+</li>
+<li>Compile
+<ul>
+<li>Compile until defect-free</li>
+</ul>
+</li>
+<li>Test
+<ul>
+<li>Test the program and fix all defects</li>
+</ul>
+</li>
+<li>Record defects in the defect log and time per phase in the time log</li>
+</ul>
+<h2 id="using-process-scripts"><a aria-hidden="true" class="anchor-heading" href="#using-process-scripts"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Using Process Scripts</h2>
+<ul>
+<li>Process scripts guide you through the process</li>
+<li>You should
+<ul>
+<li>Check the entry criteria before starting a phase</li>
+<li>Record the phase start time</li>
+<li>Perform the phase steps and instructions</li>
+<li>Record defects as they are found and corrected</li>
+<li>Check the exit criteria before ending a phase</li>
+<li>Record the phase end time</li>
+<li>Go to the next phase</li>
+</ul>
+</li>
+<li>Force yourself to use this paradigm until it becomes a habit</li>
+</ul>
+<h2 id="psp-measures-and-forms"><a aria-hidden="true" class="anchor-heading" href="#psp-measures-and-forms"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>PSP Measures and Forms</h2>
+<ul>
+<li>PSP measures...
+<ul>
+<li>Time
+<ul>
+<li>Track time in phase</li>
+</ul>
+</li>
+<li>Defects
+<ul>
+<li>Record defects as they are found and fixed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PSP has four forms:
+<ul>
+<li>PSP Project Plan Summary
+<ul>
+<li>Summarizes planned and actual time and defects by phase</li>
+</ul>
+</li>
+<li>PSP Time Recording Log
+<ul>
+<li>Used to record time</li>
+</ul>
+</li>
+<li>PSP Defect Recording Log
+<ul>
+<li>Used to record defects</li>
+</ul>
+</li>
+<li>PSP Defect Type Standard
+<ul>
+<li>Used to define standard defect types</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/T2ptecH0AHZvseJr1aUvN">SER-216</a></li>
+<li><a href="/notes/notes/rcoqh0i3x689pwd6hbbul90">Midterm</a></li>
+<li><a href="/notes/notes/ZhGGm9kGNKf0yA24FVEMz">Process Measurement</a></li>
+</ul></div></div><div style="padding-left:10px;padding-right:10px" class="ant-col ant-col-xs-0 ant-col-md-6"><div><div class=""><div class="ant-anchor-wrapper dendron-toc" style="max-height:calc(100vh - 64px);z-index:1"><div class="ant-anchor"><div class="ant-anchor-ink"><span class="ant-anchor-ink-ball"></span></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#big-projects-frequently-fail" title="Big projects frequently fail">Big projects frequently fail</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#why-projects-fail" title="Why projects fail">Why projects fail</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#psp-principles" title="PSP Principles">PSP Principles</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#what-does-psp-provide" title="What does PSP provide?">What does PSP provide?</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#what-is-the-psp" title="What is the PSP?">What is the PSP?</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#the-psp-process-flow" title="The PSP process flow">The PSP process flow</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#learning-the-psp" title="Learning the PSP">Learning the PSP</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#phase-order" title="Phase order">Phase order</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#process-flow" title="Process flow">Process flow</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#cyclic-process-flow" title="Cyclic Process flow">Cyclic Process flow</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#process-scripts" title="Process scripts">Process scripts</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#psp-scripts" title="PSP Scripts">PSP Scripts</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#using-process-scripts" title="Using Process Scripts">Using Process Scripts</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#psp-measures-and-forms" title="PSP Measures and Forms">PSP Measures and Forms</a></div></div></div></div></div></div></div></div></div></main><div class="ant-divider ant-divider-horizontal" role="separator"></div><footer class="ant-layout-footer" style="padding:0 24px 24px"></footer></section></section></section></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"note":{"id":"W2Uztec6OudwNRjFuz7CG","title":"Personal Software Process (PSP)","desc":"","updated":1646334846986,"created":1643747560086,"custom":{},"fname":"ser216.personal-software-process","type":"note","vault":{"fsPath":"vault"},"contentHash":"069521a8ba10984a83a1c1be1f658e90","links":[{"from":{"fname":"ser216","vaultName":"vault"},"type":"backlink","position":{"start":{"line":58,"column":3,"offset":2270},"end":{"line":58,"column":45,"offset":2312},"indent":[]},"value":"ser216.personal-software-process","alias":"Notes"},{"from":{"fname":"ser216.midterm","vaultName":"vault"},"type":"backlink","position":{"start":{"line":30,"column":1,"offset":725},"end":{"line":30,"column":52,"offset":776},"indent":[]},"value":"ser216.personal-software-process"},{"from":{"fname":"ser216.process-measurement","vaultName":"vault"},"type":"backlink","position":{"start":{"line":30,"column":13,"offset":1182},"end":{"line":30,"column":53,"offset":1222},"indent":[]},"value":"ser216.personal-software-process","alias":"PSP"},{"from":{"fname":"ser216.process-measurement","vaultName":"vault"},"type":"backlink","position":{"start":{"line":39,"column":20,"offset":1524},"end":{"line":39,"column":60,"offset":1564},"indent":[]},"value":"ser216.personal-software-process","alias":"PSP"},{"from":{"fname":"ser216.process-measurement","vaultName":"vault"},"type":"backlink","position":{"start":{"line":58,"column":64,"offset":2485},"end":{"line":58,"column":104,"offset":2525},"indent":[]},"value":"ser216.personal-software-process","alias":"PSP"},{"from":{"fname":"ser216.process-measurement","vaultName":"vault"},"type":"backlink","position":{"start":{"line":105,"column":17,"offset":4915},"end":{"line":105,"column":57,"offset":4955},"indent":[]},"value":"ser216.personal-software-process","alias":"PSP"},{"from":{"fname":"ser216.process-measurement","vaultName":"vault"},"type":"backlink","position":{"start":{"line":123,"column":7,"offset":5459},"end":{"line":123,"column":47,"offset":5499},"indent":[]},"value":"ser216.personal-software-process","alias":"PSP"}],"anchors":{"big-projects-frequently-fail":{"type":"header","text":"Big projects frequently fail","value":"big-projects-frequently-fail","line":10,"column":0,"depth":2},"why-projects-fail":{"type":"header","text":"Why projects fail","value":"why-projects-fail","line":23,"column":0,"depth":2},"psp-principles":{"type":"header","text":"PSP Principles","value":"psp-principles","line":45,"column":0,"depth":2},"what-does-psp-provide":{"type":"header","text":"What does PSP provide?","value":"what-does-psp-provide","line":56,"column":0,"depth":2},"what-is-the-psp":{"type":"header","text":"What is the PSP?","value":"what-is-the-psp","line":70,"column":0,"depth":2},"the-psp-process-flow":{"type":"header","text":"The PSP process flow","value":"the-psp-process-flow","line":80,"column":0,"depth":2},"learning-the-psp":{"type":"header","text":"Learning the PSP","value":"learning-the-psp","line":84,"column":0,"depth":2},"phase-order":{"type":"header","text":"Phase order","value":"phase-order","line":97,"column":0,"depth":2},"process-flow":{"type":"header","text":"Process flow","value":"process-flow","line":110,"column":0,"depth":2},"cyclic-process-flow":{"type":"header","text":"Cyclic Process flow","value":"cyclic-process-flow","line":132,"column":0,"depth":2},"process-scripts":{"type":"header","text":"Process scripts","value":"process-scripts","line":158,"column":0,"depth":2},"psp-scripts":{"type":"header","text":"PSP Scripts","value":"psp-scripts","line":169,"column":0,"depth":2},"using-process-scripts":{"type":"header","text":"Using Process Scripts","value":"using-process-scripts","line":188,"column":0,"depth":2},"psp-measures-and-forms":{"type":"header","text":"PSP Measures and Forms","value":"psp-measures-and-forms","line":201,"column":0,"depth":2},"^process-flow":{"type":"block","value":"process-flow","line":130,"column":0}},"children":[],"parent":"T2ptecH0AHZvseJr1aUvN","data":{}},"body":"\u003ch1 id=\"personal-software-process-psp\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#personal-software-process-psp\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003ePersonal Software Process (PSP)\u003c/h1\u003e\n\u003cp\u003eSoftware now controls most systems- business, finance, military, etc. The cost, schedule and quality of software is now a critical business concern.\u003c/p\u003e\n\u003ch2 id=\"big-projects-frequently-fail\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#big-projects-frequently-fail\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003eBig projects frequently fail\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eWith increased scale, projects are more troubled\u003c/li\u003e\n\u003cli\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003eProject Size\u003c/th\u003e\u003cth\u003ePeople\u003c/th\u003e\u003cth\u003eTime (Months)\u003c/th\u003e\u003cth\u003eSuccess Rate\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eLess than $750K\u003c/td\u003e\u003ctd\u003e6\u003c/td\u003e\u003ctd\u003e6\u003c/td\u003e\u003ctd\u003e55%\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e$750K to $1.5M\u003c/td\u003e\u003ctd\u003e12\u003c/td\u003e\u003ctd\u003e9\u003c/td\u003e\u003ctd\u003e33%\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e$1.5M to $3M\u003c/td\u003e\u003ctd\u003e25\u003c/td\u003e\u003ctd\u003e12\u003c/td\u003e\u003ctd\u003e25%\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e$3M to $6M\u003c/td\u003e\u003ctd\u003e40\u003c/td\u003e\u003ctd\u003e18\u003c/td\u003e\u003ctd\u003e15%\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e$6M to $10M\u003c/td\u003e\u003ctd\u003e+250\u003c/td\u003e\u003ctd\u003e+24\u003c/td\u003e\u003ctd\u003e8%\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eOver $10M\u003c/td\u003e\u003ctd\u003e+500\u003c/td\u003e\u003ctd\u003e+36\u003c/td\u003e\u003ctd\u003e0%\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003c/li\u003e\n\u003cli\u003eThis is a problem of scale- current practices do not scale up\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"why-projects-fail\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#why-projects-fail\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003eWhy projects fail\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eLarge and small projects fail for four reasons\n\u003cul\u003e\n\u003cli\u003eProject commitments are unrealistic\u003c/li\u003e\n\u003cli\u003eThe larger the project, the less influence engineers have\u003c/li\u003e\n\u003cli\u003eIf engineers don't have anything to say, nobody will listen\u003c/li\u003e\n\u003cli\u003eLarger projects are harder to control\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eToday, few developers have personal plans\n\u003cul\u003e\n\u003cli\u003eWithout plans, you cannot know job status\u003c/li\u003e\n\u003cli\u003eIf you don't know where you are, management can't understand job status\u003c/li\u003e\n\u003cli\u003eIf management doesn't understand job status, they can't manage projects\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eQuality problems get worse at scale\n\u003cul\u003e\n\u003cli\u003eIf any part has quality problems, the system will have quality problems\u003c/li\u003e\n\u003cli\u003eIf developers do not manage quality, their teams cannot manage quality\u003c/li\u003e\n\u003cli\u003eWhen unmanaged, quality will always be poor\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eTo be effective, teams need leadership and coaching\n\u003cul\u003e\n\u003cli\u003eLeaders build team motivation and commitment\u003c/li\u003e\n\u003cli\u003eCoaching develops team cohesion\u003c/li\u003e\n\u003cli\u003eCohesive, motivated, and committed teams do the best work\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch2 id=\"psp-principles\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#psp-principles\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003ePSP Principles\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eThe quality of a software system is determined by the \u003cem\u003equality of its worst components\u003c/em\u003e\u003c/li\u003e\n\u003cli\u003eThe quality of a software component is governed by the individual who developed it\u003c/li\u003e\n\u003cli\u003eThe quality of a software component is governed by the quality of the process used to develop it\u003c/li\u003e\n\u003cli\u003eThe key to quality is the individual developer’s skill, commitment, and personal process discipline\u003c/li\u003e\n\u003cli\u003eAs a software professional, you are responsible for your personal process\u003c/li\u003e\n\u003cli\u003eYou should measure, track, and analyze your work\u003c/li\u003e\n\u003cli\u003eYou should learn from your performance variations\u003c/li\u003e\n\u003cli\u003eYou should incorporate lessons learned into your personal practices\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"what-does-psp-provide\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#what-does-psp-provide\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003eWhat does PSP provide?\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eA stable, mature PSP allows you to...\n\u003cul\u003e\n\u003cli\u003eEstimate and plan your work\u003c/li\u003e\n\u003cli\u003eMeet your commitments\u003c/li\u003e\n\u003cli\u003eResist unreasonable commitment pressures\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eYou will also...\n\u003cul\u003e\n\u003cli\u003eUnderstand your current performance\u003c/li\u003e\n\u003cli\u003eBe better equipped to improve your capability\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eThe PSP provides…\n\u003cul\u003e\n\u003cli\u003eA proven basis for developing and using an industrial-strength personal process\u003c/li\u003e\n\u003cli\u003eA discipline that shows you how to improve your personal process\u003c/li\u003e\n\u003cli\u003eThe data to continually improve the productivity, quality, and predictability of your work\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"what-is-the-psp\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#what-is-the-psp\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003eWhat is the PSP?\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eThe PSP is a personal process for developing software or for doing any other defined activity\u003c/li\u003e\n\u003cli\u003eThe PSP includes...\n\u003cul\u003e\n\u003cli\u003eDefined steps\u003c/li\u003e\n\u003cli\u003eForms\u003c/li\u003e\n\u003cli\u003eStandards\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eIt provides a measurement and analysis framework for characterizing and managing your personal work\u003c/li\u003e\n\u003cli\u003eIt is also a defined procedure that helps you to improve your personal preference\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"the-psp-process-flow\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#the-psp-process-flow\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003eThe PSP process flow\u003c/h2\u003e\n\u003cp\u003e\u003cimg src=\"/notes/assets/images/psp-process-flow.drawio.png\"\u003e\u003c/p\u003e\n\u003ch2 id=\"learning-the-psp\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#learning-the-psp\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003eLearning the PSP\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eThe PSP is introduced in six upward-compatible steps\u003c/li\u003e\n\u003cli\u003eYou write one or more module-sized programs at each step\u003c/li\u003e\n\u003cli\u003eYou gather and analyze data on your work\u003c/li\u003e\n\u003cli\u003eYou use the results to improve your personal performance\u003c/li\u003e\n\u003cli\u003ePSP0: You establish a measured performance baseline.\u003c/li\u003e\n\u003cli\u003ePSP1: You make size, resource, and schedule plans.\u003c/li\u003e\n\u003cli\u003ePSP2: You practice defect and yield management.\n\u003cimg src=\"/notes/assets/images/2022-02-03-13-56-11.png\"\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch2 id=\"phase-order\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#phase-order\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003ePhase order\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eThe PSP looks like a waterfall process, but it's not\n\u003cul\u003e\n\u003cli\u003eThe phase order is determined by the dependencies between phases\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eStart with a plan\u003c/li\u003e\n\u003cli\u003e\n\u003cdiv class=\"mermaid\"\u003e\n  flowchart BT\n    Plan --\u003e Design\n    Design --\u003e Code\n    Code --\u003e Compile\n    Compile --\u003e Test\n\u003c/div\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"process-flow\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#process-flow\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003eProcess flow\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eWhen programs are small or well understood, you can execute the phases in order...\n\u003col\u003e\n\u003cli\u003eProduce a plan\u003c/li\u003e\n\u003cli\u003eDesign all modules\u003c/li\u003e\n\u003cli\u003eCode all modules\u003c/li\u003e\n\u003cli\u003eCompile the coded program\u003c/li\u003e\n\u003cli\u003eSummarize the project data during the postmortem\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca aria-hidden=\"true\" class=\"block-anchor anchor-heading\" id=\"^process-flow\" href=\"#^process-flow\"\u003e\u003csvg viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003e\u003c/p\u003e\u003cdiv class=\"mermaid\"\u003e\n  flowchart LR\n    Requirements((Requirements)) --\u003e Plan\n    Plan --\u003e Design\n    Design --\u003e Code\n    Code --\u003e Compile\n    Compile --\u003e Test\n    Test --\u003e Postmortem\n    Postmortem --\u003e Program((Program and\\nProject Data))\n\u003c/div\u003e\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e\u003c/p\u003e\n\u003ch2 id=\"cyclic-process-flow\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#cyclic-process-flow\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003eCyclic Process flow\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eLarge programs or those that are not well understood may require an iterative approach\u003c/li\u003e\n\u003cli\u003eTwo modules are identified during the design- A and B\u003c/li\u003e\n\u003cli\u003eEach module is separately coded, compiled, and tested\u003c/li\u003e\n\u003c/ul\u003e\n\u003cdiv class=\"mermaid\"\u003e\n  flowchart LR\n    Requirements((Requirements)) --\u003e Plan\n    Plan --\u003e Design\n    Design --\u003e Code\n    subgraph Module A\n        Code --\u003e Compile\n        Compile --\u003e Test\n    end\n    Test --\u003e Code2\n    subgraph Module B\n        Code2[Code] --\u003e Compile2[Compile]\n        Compile2 --\u003e Test2[Test]\n    end\n    Test2 --\u003e Postmortem\n    Postmortem --\u003e Program((Program and\\nProject Data))\n\u003c/div\u003e\n\u003cul\u003e\n\u003cli\u003eThere can be more than two cycles \u0026#x26; modules\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"process-scripts\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#process-scripts\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003eProcess scripts\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eProcess scripts provide \"expert-level\" guidance on how to use the process\n\u003cul\u003e\n\u003cli\u003eThey are one or two pages long\u003c/li\u003e\n\u003cli\u003eThey describe...\n\u003cul\u003e\n\u003cli\u003ePurpose\u003c/li\u003e\n\u003cli\u003eEntry criteria\u003c/li\u003e\n\u003cli\u003eGeneral guidelines\u003c/li\u003e\n\u003cli\u003eSteps\u003c/li\u003e\n\u003cli\u003eExit criteria\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"psp-scripts\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#psp-scripts\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003ePSP Scripts\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003ePlanning\n\u003cul\u003e\n\u003cli\u003eEstimate the development time\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eDevelopment\n\u003cul\u003e\n\u003cli\u003eDevelop the product using your current methods\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003ePostmortem\n\u003cul\u003e\n\u003cli\u003eComplete the project plan summary with the time spent\u003c/li\u003e\n\u003cli\u003eDefects found and injected in each phase\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eDesign\n\u003cul\u003e\n\u003cli\u003eDesign the program using your current design methods\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eCoding\n\u003cul\u003e\n\u003cli\u003eImplement the program\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eCompile\n\u003cul\u003e\n\u003cli\u003eCompile until defect-free\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eTest\n\u003cul\u003e\n\u003cli\u003eTest the program and fix all defects\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eRecord defects in the defect log and time per phase in the time log\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"using-process-scripts\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#using-process-scripts\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003eUsing Process Scripts\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eProcess scripts guide you through the process\u003c/li\u003e\n\u003cli\u003eYou should\n\u003cul\u003e\n\u003cli\u003eCheck the entry criteria before starting a phase\u003c/li\u003e\n\u003cli\u003eRecord the phase start time\u003c/li\u003e\n\u003cli\u003ePerform the phase steps and instructions\u003c/li\u003e\n\u003cli\u003eRecord defects as they are found and corrected\u003c/li\u003e\n\u003cli\u003eCheck the exit criteria before ending a phase\u003c/li\u003e\n\u003cli\u003eRecord the phase end time\u003c/li\u003e\n\u003cli\u003eGo to the next phase\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eForce yourself to use this paradigm until it becomes a habit\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"psp-measures-and-forms\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading\" href=\"#psp-measures-and-forms\"\u003e\u003csvg aria-hidden=\"true\" viewBox=\"0 0 16 16\"\u003e\u003cuse xlink:href=\"#svg-link\"\u003e\u003c/use\u003e\u003c/svg\u003e\u003c/a\u003ePSP Measures and Forms\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003ePSP measures...\n\u003cul\u003e\n\u003cli\u003eTime\n\u003cul\u003e\n\u003cli\u003eTrack time in phase\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eDefects\n\u003cul\u003e\n\u003cli\u003eRecord defects as they are found and fixed\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003ePSP has four forms:\n\u003cul\u003e\n\u003cli\u003ePSP Project Plan Summary\n\u003cul\u003e\n\u003cli\u003eSummarizes planned and actual time and defects by phase\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003ePSP Time Recording Log\n\u003cul\u003e\n\u003cli\u003eUsed to record time\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003ePSP Defect Recording Log\n\u003cul\u003e\n\u003cli\u003eUsed to record defects\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003ePSP Defect Type Standard\n\u003cul\u003e\n\u003cli\u003eUsed to define standard defect types\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cstrong\u003eBacklinks\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"/notes/notes/T2ptecH0AHZvseJr1aUvN\"\u003eSER-216\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/notes/notes/rcoqh0i3x689pwd6hbbul90\"\u003eMidterm\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/notes/notes/ZhGGm9kGNKf0yA24FVEMz\"\u003eProcess Measurement\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e","noteIndex":{"id":"6YxiIDvTOeKoHyAaqqzY9","title":"Notes","desc":"","updated":1655764869385,"created":1641245237998,"custom":{"nav_order":0,"permalink":"/"},"fname":"root","type":"note","vault":{"fsPath":"vault"},"contentHash":"fc07e211d902512814feeef3187746c9","links":[{"type":"wiki","from":{"fname":"root","id":"6YxiIDvTOeKoHyAaqqzY9","vaultName":"vault"},"value":"typescript","alias":"typescript","position":{"start":{"line":4,"column":3,"offset":22},"end":{"line":4,"column":17,"offset":36},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"typescript"}},{"type":"wiki","from":{"fname":"root","id":"6YxiIDvTOeKoHyAaqqzY9","vaultName":"vault"},"value":"luau","alias":"luau","position":{"start":{"line":5,"column":3,"offset":39},"end":{"line":5,"column":11,"offset":47},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"luau"}},{"type":"wiki","from":{"fname":"root","id":"6YxiIDvTOeKoHyAaqqzY9","vaultName":"vault"},"value":"ser222","alias":"SER 222 - Data Structures \u0026 Algorithms","position":{"start":{"line":9,"column":3,"offset":67},"end":{"line":9,"column":52,"offset":116},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"ser222"}},{"type":"wiki","from":{"fname":"root","id":"6YxiIDvTOeKoHyAaqqzY9","vaultName":"vault"},"value":"ser216","alias":"SER 216 - \"Software Enterprise\" aka Intro to Software Design","position":{"start":{"line":10,"column":3,"offset":119},"end":{"line":10,"column":74,"offset":190},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"ser216"}},{"type":"wiki","from":{"fname":"root","id":"6YxiIDvTOeKoHyAaqqzY9","vaultName":"vault"},"value":"mat266","alias":"MAT 266 - Calc For Engineers II","position":{"start":{"line":11,"column":3,"offset":193},"end":{"line":11,"column":45,"offset":235},"indent":[]},"xvault":false,"sameFile":false,"to":{"fname":"mat266"}}],"anchors":{"personal-notes":{"type":"header","text":"Personal Notes","value":"personal-notes","line":8,"column":0,"depth":2},"spring-2022":{"type":"header","text":"Spring 2022","value":"spring-2022","line":13,"column":0,"depth":2}},"children":["fuqi18m0n2cda123o2f3003","cCj8dvgLOLu6CEaNoWdD6","T2ptecH0AHZvseJr1aUvN","TzkCyXooADlBmPWjKo0ds","jwgm1vmw3r5kati1c6uw5pr"],"parent":null,"data":{},"body":"\n## Personal Notes\n\n- [[typescript]]\n- [[luau]]\n\n## Spring 2022\n\n- [[SER 222 - Data Structures \u0026 Algorithms|ser222]]\n- [[SER 216 - \"Software Enterprise\" aka Intro to Software Design|ser216]]\n- [[MAT 266 - Calc For Engineers II|mat266]]"},"collectionChildren":null,"customHeadContent":null,"config":{"version":4,"useFMTitle":true,"useNoteTitleForLink":true,"mermaid":true,"useKatex":true,"dev":{"enablePreviewV2":true},"site":{"copyAssets":true,"siteHierarchies":["root"],"siteRootDir":"docs","usePrettyRefs":true,"title":"James' Class Notes","description":"Fun SWE Stuffs","siteLastModified":true,"gh_edit_branch":"main","duplicateNoteBehavior":{"action":"useVault","payload":["vault"]},"siteUrl":"https://jheinem1.github.io/notes","assetsPrefix":"/notes","usePrettyLinks":true,"siteNotesDir":"notes","siteFaviconPath":"favicon.ico","gh_edit_link":true,"gh_edit_link_text":"Edit this page on GitHub","gh_root":"docs/","gh_edit_view_mode":"edit","writeStubs":true,"siteIndex":"root"},"commands":{"lookup":{"note":{"selectionMode":"extract","confirmVaultOnCreate":false,"leaveTrace":false,"bubbleUpCreateNew":true,"fuzzThreshold":0.2,"vaultSelectionModeOnCreate":"smart"}},"randomNote":{},"insertNote":{"initialValue":"templates"},"insertNoteLink":{"aliasMode":"none","enableMultiSelect":false},"insertNoteIndex":{"enableMarker":false},"enableSmartRefs":true,"copyNoteLink":{},"templateHierarchy":"template"},"workspace":{"vaults":[{"fsPath":"vault"}],"journal":{"dailyDomain":"daily","name":"journal","dateFormat":"y.MM.dd","addBehavior":"childOfDomain"},"scratch":{"name":"scratch","dateFormat":"y.MM.dd.HHmmss","addBehavior":"asOwnDomain"},"task":{"name":"","dateFormat":"","addBehavior":"childOfCurrent","statusSymbols":{"":" ","wip":"w","done":"x","assigned":"a","moved":"m","blocked":"b","delegated":"l","dropped":"d","pending":"y"},"prioritySymbols":{"H":"high","M":"medium","L":"low"},"todoIntegration":false,"createTaskSelectionType":"selection2link","taskCompleteStatus":["done","x"]},"graph":{"zoomSpeed":1,"createStub":false},"enableAutoCreateOnDefinition":false,"enableXVaultWikiLink":false,"enableRemoteVaultInit":true,"enableUserTags":true,"enableHashTags":true,"workspaceVaultSyncMode":"noCommit","enableAutoFoldFrontmatter":false,"enableEditorDecorations":true,"maxPreviewsCached":10,"maxNoteLength":204800,"enableHandlebarTemplates":true,"enableFullHierarchyNoteTitle":false},"preview":{"enableFMTitle":true,"enableNoteTitleForLink":true,"enableMermaid":true,"enablePrettyRefs":true,"enableKatex":true,"automaticallyShowPreview":false,"enableFrontmatterTags":true,"enableHashesForFMTags":false},"publishing":{"enableFMTitle":true,"enableNoteTitleForLink":true,"enableMermaid":true,"enablePrettyRefs":true,"enableKatex":true,"copyAssets":true,"siteHierarchies":["root"],"writeStubs":false,"siteRootDir":"docs","seo":{"title":"Dendron","description":"Personal Knowledge Space"},"github":{"enableEditLink":true,"editLinkText":"Edit this page on GitHub","editBranch":"main","editViewMode":"tree"},"enableSiteLastModified":true,"enableFrontmatterTags":true,"enableHashesForFMTags":false,"enableRandomlyColoredTags":true,"enableTaskNotes":true,"enablePrettyLinks":true}}},"__N_SSG":true},"page":"/notes/[id]","query":{"id":"W2Uztec6OudwNRjFuz7CG"},"buildId":"6OLHRUVaQc4LDSgOkhFGt","assetPrefix":"/notes","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

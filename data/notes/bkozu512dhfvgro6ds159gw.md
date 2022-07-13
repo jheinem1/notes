@@ -1,0 +1,2 @@
+
+A type used specifically for Roblox's [[luau.libraries.roblox.types.vector3]] type. This allows better behavior for situations like table keys. There is no way to get a value of this type in vanilla luau.

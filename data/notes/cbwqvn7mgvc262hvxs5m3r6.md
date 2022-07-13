@@ -1,0 +1,11 @@
+
+- The main difference in using [[ADJ|ser222.analysis-design-justification]] for algorithms is that the result of [[ADJ|ser222.analysis-design-justification]] will include pseudocode in the [[design|ser222.algorithms.adj.design]] portion.
+- Although you may not be at the step of justifying a solution, you should start thinking about [[justification|ser222.algorithms.adj.justification]]
+    - It takes a long time and will have a different "flavor" than previous examples
+    - In previous problems, you will probably be given a finite amount of solutions, however algorithms have an infinite number of solutions
+
+## Outline
+
+- [[Analysis|ser222.algorithms.adj.analysis]]
+- [[Design|ser222.algorithms.adj.design]]
+- [[Justification|ser222.algorithms.adj.justification]]

@@ -1,0 +1,56 @@
+<h1 id="comparable"><a aria-hidden="true" class="anchor-heading" href="#comparable"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Comparable</h1>
+<ul>
+<li>Normally, numbers are compared using <code>&#x3C;</code>, <code>></code>, and <code>==</code>
+<ul>
+<li>However, we need to extend this to objects</li>
+</ul>
+</li>
+<li>Java supports a <code>Comparable</code> interface which defines a method called <code>compareTo</code>
+<ul>
+<li><code>compareTo</code> returns
+<ul>
+<li><code>-1</code> if <code>v</code> is less than <code>w</code> in <code>compareTo(v, w)</code></li>
+<li><code>0</code> if <code>v</code> is equal to <code>w</code> in <code>compareTo(v, w)</code></li>
+<li><code>1</code> if <code>v</code> is greater than <code>w</code> in <code>compareTo(v, w)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Should throw exception if wrong types used
+<ul>
+<li>May also throw error if <code>null</code> passed as argument</li>
+</ul>
+</li>
+</ul>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Date</span> <span class="token keyword">implements</span> <span class="token class-name">Comparable</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Date</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span> 
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> month<span class="token punctuation">,</span> day<span class="token punctuation">,</span> year<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span> d<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        month <span class="token operator">=</span> m<span class="token punctuation">;</span>
+        day <span class="token operator">=</span> d<span class="token punctuation">;</span>
+        year <span class="token operator">=</span> y<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token class-name">Date</span> that<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>that<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ClassCastException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>year <span class="token operator">&#x3C;</span> that<span class="token punctuation">.</span>year<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>year <span class="token operator">></span> that<span class="token punctuation">.</span>year<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>month <span class="token operator">&#x3C;</span> that<span class="token punctuation">.</span>month<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>month <span class="token operator">></span> that<span class="token punctuation">.</span>month<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>day <span class="token operator">&#x3C;</span> that<span class="token punctuation">.</span>day<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>day <span class="token operator">></span> that<span class="token punctuation">.</span>day<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/H4F7XnqFDxFSpMKPmz29Q">Sorting</a></li>
+</ul>

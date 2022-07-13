@@ -1,0 +1,10 @@
+<h1 id="reference-counting"><a aria-hidden="true" class="anchor-heading" href="#reference-counting"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Reference Counting</h1>
+<p>A garbage collection method that involves storing the number of references to each object.</p>
+<p>Every time a reference to an object is dumped from the stack, the reference count is decremented. When the reference count reaches zero, the object can be safely garbage collected.</p>
+<p>Likewise, when a reference to an object is loaded into the stack, the reference count is incremented.</p>
+<p>This is a much more performant alternative to <a href="/notes/notes/3110043843">Directed Search</a>, but does not handle objects linked to each other outside the stack, which has to be handled separately in languages where this situation can occur.</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/3110043843">Directed Search</a></li>
+</ul>

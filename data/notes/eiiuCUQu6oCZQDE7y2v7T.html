@@ -1,0 +1,17 @@
+<h1 id="recursion"><a aria-hidden="true" class="anchor-heading" href="#recursion"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Recursion</h1>
+<p>A method of solving a problem where the solution depends on solutions to smaller instances of the same problem.</p>
+<p>4 Steps:</p>
+<ol>
+<li>Identify size <code>n</code> problem</li>
+<li>Identify terminating step&#x3C;s></li>
+<li>Solve size <code>m</code> problem (<code>m &#x3C; n</code>)</li>
+</ol>
+<pre class="language-typescript"><code class="language-TypeScript"><span class="token keyword">function</span> <span class="token function">factorial</span><span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword control-flow">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">else</span>
+        <span class="token keyword control-flow">return</span> <span class="token function">factorial</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> n<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token function">factorial</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 120</span>
+</code></pre>

@@ -1,0 +1,49 @@
+
+## Object-Oriented Programming
+- Classes are a framework for creating objects that defines the data and behavior they contain
+- Classes are instanced to create objects
+- Objects are characterized by...
+    - State
+    - Behavior
+    - Identity
+## Reference Representation
+- When a variable is created, it will store the data that represents the number
+- In contrast, *object* variables do not contain the data representing the object, just a reference to the object
+- Hence, object values are always references
+```Java
+int value = 5;
+Counter c1 = new Counter("First");
+```
+(very simplified)
+
+0x00|...
+|-|-|
+0x01|5
+0x02|0x04
+0x02|0x04
+0x03|...
+0x04|"First
+0x05|0
+## Counter Class
+```Java
+//from Sedgewick and Wayne
+public class Counter {
+    private final String name; // counter name
+    private int count = 0; // current value
+    public Counter(String id) {
+        name = id;
+    }
+    public void increment() {
+        count++;
+    }
+    public int tally() {
+        return count;
+    }
+    public String toString() {
+        return count + " " + name;
+    }
+}
+```
+## "Common" Methods
+- All classes in Java are a subclass of `Object`
+- `Object` contains several methods (such as toString) that can be overwridden to give a tighter integration with existing functionality

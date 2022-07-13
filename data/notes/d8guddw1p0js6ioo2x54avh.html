@@ -1,0 +1,153 @@
+<h1 id="exception-handling"><a aria-hidden="true" class="anchor-heading" href="#exception-handling"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Exception Handling</h1>
+<h2 id="motivations"><a aria-hidden="true" class="anchor-heading" href="#motivations"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Motivations</h2>
+<p>When a program runs into a runtime error, the program terminates abnormally.</p>
+<p>The purpose of exception handling is to handle these errors (either continue running or terminate) gracefully.</p>
+<h2 id="examples"><a aria-hidden="true" class="anchor-heading" href="#examples"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Examples</h2>
+<ul>
+<li>Examples of exceptions
+<ul>
+<li><a href="/notes/notes/d99lec0bbbxscj87idyanli">Quotient</a></li>
+<li><a href="/notes/notes/scdu0vrtzjm447jvasna8pv">Quotient with If</a></li>
+<li><a href="/notes/notes/v6kw6lwqfc80oao97j9klcb">Quotient with Exception</a></li>
+</ul>
+</li>
+<li>Exception advantages
+<ul>
+<li><a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">ser216.exception-handling.examples.quotient-with-method (Private)</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="exception-types"><a aria-hidden="true" class="anchor-heading" href="#exception-types"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Exception Types</h2>
+<p><img src="/notes/assets/images/2022-02-22-13-54-59.png"></p>
+<h3 id="system-errors"><a aria-hidden="true" class="anchor-heading" href="#system-errors"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>System Errors</h3>
+<ul>
+<li>Thrown by JVM and represented in the <code>Error</code> class</li>
+<li>This class describes internal system errors, which rarely occur
+<ul>
+<li>If these errors do occur, handling them is often futile- the operation cannot continue</li>
+</ul>
+</li>
+</ul>
+<p><img src="/notes/assets/images/2022-02-22-13-57-31.png"></p>
+<h3 id="exceptions"><a aria-hidden="true" class="anchor-heading" href="#exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Exceptions</h3>
+<ul>
+<li>Errors caused by your program and external circumstances</li>
+<li>These can be caught and handled</li>
+</ul>
+<p><img src="/notes/assets/images/2022-02-22-13-58-28.png"></p>
+<h3 id="runtime-exceptions"><a aria-hidden="true" class="anchor-heading" href="#runtime-exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Runtime Exceptions</h3>
+<ul>
+<li>Caused by programming errors, such as bad casting, accessing an out-of-bounds array index, and numeric errors</li>
+<li>These can generally be eliminated at compile-time and indicate bugs in the underlying program</li>
+</ul>
+<p><img src="/notes/assets/images/2022-02-22-13-59-37.png"></p>
+<h2 id="checked-exceptions-vs-unchecked-exceptions"><a aria-hidden="true" class="anchor-heading" href="#checked-exceptions-vs-unchecked-exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Checked Exceptions vs. Unchecked Exceptions</h2>
+<ul>
+<li><code>RuntimeException</code>, <code>Error</code>, and their subclasses are known as <a href="/notes/notes/jmqn2cw5hbkrsjxjrlb35po">unchecked exceptions</a></li>
+<li>All other exceptions are known as <a href="/notes/notes/ya4mhehvoxis1zr4jet1op4">checked exceptions</a>, meaning that the compiler forces the programmer to check and deal with the exceptions</li>
+</ul>
+<h2 id="declaring-throwing-and-catching-exceptions"><a aria-hidden="true" class="anchor-heading" href="#declaring-throwing-and-catching-exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Declaring, Throwing, and Catching Exceptions</h2>
+<h3 id="declaring-exceptions"><a aria-hidden="true" class="anchor-heading" href="#declaring-exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Declaring exceptions</h3>
+<p>Every method must state the types of checked exceptions it might throw.</p>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span><span class="token punctuation">,</span> <span class="token class-name">OtherException</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+</code></pre>
+<h3 id="throwing-exceptions"><a aria-hidden="true" class="anchor-heading" href="#throwing-exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Throwing Exceptions</h3>
+<p>Exceptions are thrown by using the <code>throw</code> statement and passing a valid <code>Exception</code> object.</p>
+<pre class="language-java"><code class="language-java"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">"Radius cannot be negative"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<h3 id="catching-exceptions"><a aria-hidden="true" class="anchor-heading" href="#catching-exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Catching Exceptions</h3>
+<p>Exceptions are caught using a try-catch statement.</p>
+<pre class="language-java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token function">doUnsafeOperation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// statements that may throw exceptions</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception1</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">handleException1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception2</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">handleException2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="catch-or-declare-checked-exceptions"><a aria-hidden="true" class="anchor-heading" href="#catch-or-declare-checked-exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Catch or Declare Checked Exceptions</h2>
+<ul>
+<li>Java forces you to deal with <a href="/notes/notes/ya4mhehvoxis1zr4jet1op4">checked exceptions</a></li>
+<li>If a method declares a <a href="/notes/notes/ya4mhehvoxis1zr4jet1op4">checked exception</a> (i.e., any exception other than an <code>Error</code> or <code>RuntimeException</code>), you must invoke it in a try-catch block or declare to throw the exception in the calling method</li>
+</ul>
+<h2 id="rethrowing-exceptions"><a aria-hidden="true" class="anchor-heading" href="#rethrowing-exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Rethrowing Exceptions</h2>
+<pre class="language-java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token function">doUnsafeOperation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">TheException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">performOperationBeforeExiting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">throw</span> e<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>The statement <code>throw e</code> rethrows the exception <code>e</code> so that other handlers get a change to process the exception</li>
+<li>Sometimes you may need to throw a new exception with additional information along with the original exception
+<ul>
+<li>These is called <em>chained exceptions</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="the-finally-clause"><a aria-hidden="true" class="anchor-heading" href="#the-finally-clause"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>The <code>finally</code> Clause</h2>
+<p><a aria-hidden="true" class="block-anchor anchor-heading" id="^example-error-handling" href="#^example-error-handling"><svg viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a></p><pre class="language-java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token function">doUnsafeOperation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">handleException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+    <span class="token function">finalizeOperation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p></p>
+<p></p>
+<ul>
+<li>Code in the <code>finally</code> block is always executed, whether an exception in the <code>try</code> block is thrown or not</li>
+</ul>
+<h2 id="cautions-when-using-exceptions"><a aria-hidden="true" class="anchor-heading" href="#cautions-when-using-exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Cautions When Using Exceptions</h2>
+<ul>
+<li>Exception handling separates error-handling from normal program flow
+<ul>
+<li>This makes programs easier to read and modify</li>
+</ul>
+</li>
+<li>However, exception handling usually requires more time and resources
+<ul>
+<li>It requires instantiating exception objects, rolling back the call stack, and propagating the errors to the calling methods</li>
+</ul>
+</li>
+</ul>
+<h2 id="when-to-throw-an-exception"><a aria-hidden="true" class="anchor-heading" href="#when-to-throw-an-exception"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>When to Throw an Exception</h2>
+<p>You should throw an exception when...</p>
+<ul>
+<li>An exception occurs in a method</li>
+<li>You want the exception to be handled by the calling method</li>
+</ul>
+<p>You should not throw an exception when...</p>
+<ul>
+<li>You can handle the exception in the method where it occurs</li>
+<li>You are dealing with simple, expected situations</li>
+</ul>
+<h2 id="creating-custom-exceptions"><a aria-hidden="true" class="anchor-heading" href="#creating-custom-exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Creating Custom Exceptions</h2>
+<ul>
+<li>Use the exception class <code>Exception</code> whenever possible</li>
+<li>Create custom exception classes if the pre-defined exception classes do not meet your needs</li>
+<li>Declare custom exception classes by extending the <code>Exception</code> class or one of its subclasses</li>
+</ul>
+<h3 id="examples-of-custom-exceptions"><a aria-hidden="true" class="anchor-heading" href="#examples-of-custom-exceptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Examples of Custom Exceptions</h3>
+<ul>
+<li><a href="/notes/notes/ss69fiuh07u07s97j35xt6u">Invalid Radius Exception</a></li>
+<li><a href="/notes/notes/cr4llpre85mb6ylv1m2pc67">Circle with Radius Exception</a></li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/ya4mhehvoxis1zr4jet1op4">Checked Exception</a></li>
+<li><a href="/notes/notes/lN3qf3u1vczxMFQ11oJuC">Example</a></li>
+<li><a href="/notes/notes/jmqn2cw5hbkrsjxjrlb35po">Unchecked Exceptions</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/T2ptecH0AHZvseJr1aUvN">SER-216</a></li>
+<li><a href="/notes/notes/rcoqh0i3x689pwd6hbbul90">Midterm</a></li>
+</ul>

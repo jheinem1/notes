@@ -1,0 +1,122 @@
+<h1 id="adj---analysis-design-justification"><a aria-hidden="true" class="anchor-heading" href="#adj---analysis-design-justification"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>ADJ - Analysis, Design, Justification</h1>
+<ul>
+<li>In courses, students are often provided educational problems with clear constraints
+<ul>
+<li>You immediately know the desired outcome and how to judge it</li>
+</ul>
+</li>
+<li>A <strong>real-world</strong> problem is typically open-ended and ill-defined</li>
+<li>Types of real-world problems...
+<ul>
+<li><a href="/notes/notes/zU5i4o2GO2LySRusYl6Dd">Open Ended</a></li>
+<li><a href="/notes/notes/OGInKcqkU53zjk8pL0kby">Close Ended</a></li>
+<li><a href="/notes/notes/sCC3s30dsAaavIOStUsoI">Design Problem</a>
+<ul>
+<li>The design problem is most common in engineering</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Problems can be either <a href="/notes/notes/eUigC4KM4SRk1I7hnJBGz">ill-defined</a>, <a href="/notes/notes/xOlw1w5JcpFQ29Wvnux3K">well-defined</a>, or somewhere in-between.</li>
+<li>In homework, we often jump straight into design
+<ul>
+<li>Really there are two extra steps: <a href="/notes/notes/lH7y0Kd1LynrA1mshU0es">analysis</a> and <a href="/notes/notes/6fEBQhsk83HP1io1i9odX">justification</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="solving-real-world-problems"><a aria-hidden="true" class="anchor-heading" href="#solving-real-world-problems"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Solving real-world problems</h2>
+<ul>
+<li>Basic problems
+<ul>
+<li>"Where do I start?"</li>
+<li>"What do I do next?"</li>
+<li>"Am I done?"</li>
+<li>"Any others?"</li>
+</ul>
+</li>
+<li>Not all questions can be answered, but <a href="/notes/notes/lH7y0Kd1LynrA1mshU0es">analysis</a> and <a href="/notes/notes/6fEBQhsk83HP1io1i9odX">justification</a> can help greatly</li>
+<li>In homework, we tend to jump to <em>design</em></li>
+</ul>
+<h2 id="adj"><a aria-hidden="true" class="anchor-heading" href="#adj"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>ADJ</h2>
+<ul>
+<li>We want to show that a problem under <a href="/notes/notes/lH7y0Kd1LynrA1mshU0es">analysis (A)</a>, soundly yields a <a href="/notes/notes/HgHxAXoAcYcC2kgRYU226">design (D)</a>, such that the design is an optimal solution to the problem</li>
+<li>The <a href="/notes/notes/6fEBQhsk83HP1io1i9odX">justification (J)</a> is a sound argument that the design is the optimal solution for the problem given the analysis</li>
+</ul>
+<h3 id="soundness"><a aria-hidden="true" class="anchor-heading" href="#soundness"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Soundness</h3>
+<ul>
+<li>Parts of our argument build upon each other logically</li>
+<li>Answers must follow from the problem statement</li>
+<li>"<code>x</code>, because <code>y</code>"</li>
+</ul>
+<h3 id="process"><a aria-hidden="true" class="anchor-heading" href="#process"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Process</h3>
+<ul>
+<li>When doing engineering, we expect to see some general flavor from process
+<ul>
+<li>e.g. the difference between Software Engineering and Computer Science</li>
+<li>There is another aspect as well- control
+<ul>
+<li>Are we using a process here?</li>
+<li>Why is using this process good?</li>
+<li>Why is using this process bad?</li>
+<li>What would justify the use of this process for problem-solving?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="definitions"><a aria-hidden="true" class="anchor-heading" href="#definitions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Definitions</h3>
+<ul>
+<li>There are almost always ambiguities - fix them!</li>
+<li>Treat definitions as guideposts</li>
+<li>In general, we need to find places that are under-specified, and then detail them
+<ul>
+<li>If a problem says "display", we might want to specify as "print each element in the collection exactly once in any order"</li>
+<li>If a problem says "efficiently", we might want to define it as "run in O(1) if possible"</li>
+</ul>
+</li>
+</ul>
+<h3 id="fixing-ill-defined-problems"><a aria-hidden="true" class="anchor-heading" href="#fixing-ill-defined-problems"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Fixing ill-defined problems</h3>
+<ul>
+<li>Three things we can think about
+<ul>
+<li>Making <strong>reasonable</strong> assumptions</li>
+<li><a href="/notes/notes/U3CF7M3Qt9KADR7unBzxO">Asking Questions</a></li>
+<li><a href="/notes/notes/XtxCVjhk5GKPQpH6jk8J6">Performing Experiments</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="metrics-and-measurements"><a aria-hidden="true" class="anchor-heading" href="#metrics-and-measurements"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Metrics and measurements</h3>
+<ul>
+<li>Before we attempt to do any design work, we need to know what makes a solution good
+<ul>
+<li>A metric will be a way for us to measure different solutions to the problem</li>
+</ul>
+</li>
+<li>Ideally, we want
+<ul>
+<li>Metrics that are useful relative to the problem statement</li>
+<li>Metrics that are reliable (and if possible can be replicated outside the system)</li>
+<li>More practically: efficient metrics</li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/lH7y0Kd1LynrA1mshU0es">Analysis</a></li>
+<li><a href="/notes/notes/U3CF7M3Qt9KADR7unBzxO">Asking Questions</a></li>
+<li><a href="/notes/notes/OGInKcqkU53zjk8pL0kby">Close Ended</a></li>
+<li><a href="/notes/notes/HgHxAXoAcYcC2kgRYU226">Design</a></li>
+<li><a href="/notes/notes/sCC3s30dsAaavIOStUsoI">Design Problem</a></li>
+<li><a href="/notes/notes/eUigC4KM4SRk1I7hnJBGz">Ill Defined</a></li>
+<li><a href="/notes/notes/6fEBQhsk83HP1io1i9odX">Justification</a></li>
+<li><a href="/notes/notes/zU5i4o2GO2LySRusYl6Dd">Open Ended</a></li>
+<li><a href="/notes/notes/XtxCVjhk5GKPQpH6jk8J6">Performing Experiments</a></li>
+<li><a href="/notes/notes/xOlw1w5JcpFQ29Wvnux3K">Well Defined</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/TzkCyXooADlBmPWjKo0ds">SER-222</a></li>
+<li><a href="/notes/notes/cbwqvn7mgvc262hvxs5m3r6">ADJ for Algorithms</a></li>
+</ul>

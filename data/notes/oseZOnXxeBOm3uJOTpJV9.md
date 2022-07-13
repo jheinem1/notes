@@ -1,0 +1,14 @@
+![](/assets/images/2022-02-08-12-23-29.png)
+## Area of a region between two curves
+Suppose that $f$ and $g$ are continuous functions with $f(x)\geq g(x)$ on the interval $[a,b]$. The are of the region bounded by the graphs of $f$ and $g$ on $[a,b]$ is
+$$
+A=\int_a^b{(f(x)-g(x))}{dx}\text{.}
+$$
+## Area of a region between two curves with respect to $y$
+![](/assets/images/2022-02-08-21-47-26.png)
+There are some cases where the area between two curves needs to be found on the $y$ axis.
+
+Suppose that $f$ and $g$ are continuous functions with $f(y)\geq g(y)$ on the interval $[c,d]$. The area of the region bounded by the graphs $x=f(y)$ and $x=g(x)$ on $[c,d]$ is
+$$
+A=\int_x^d{(f(y)-g(y))}{dy}\text{.}
+$$

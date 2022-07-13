@@ -1,0 +1,70 @@
+
+## Topics
+
+### Area below/between curves
+
+[[mat266.regions-between-curves]]
+
+### Pressure
+
+[[mat266.force-and-pressure]]
+
+### Differential equations
+
+[[mat266.differential-equations]]
+
+### Derivatives/Anti-derivatives
+
+[[mat266.rules-of-differentiation]]
+
+### U-Substitution
+
+[[mat266.u-substitution]]
+
+### Integration by parts
+
+[[mat266.integration-by-parts]]
+
+### Convergence & divergence
+
+(sorry, nothing on this in particular)
+
+### Trigonometric substitution
+
+[[mat266.trigonometric-substitution]]
+
+### Simpson's rule (no need to memorize the formula)
+
+[[mat266.simsons-rule]]
+
+### Partial fraction decomposition
+
+[[mat266.partial-fractions]]
+
+### Taylor Series
+
+[[mat266.taylor-series]]
+
+## Extra things
+
+### Harmonic Series
+
+The harmonic series
+
+$$
+\sum_{n=1}^{\infty} \frac1n = \frac{1}{1} + \frac{1}{2} + \frac{1}{3} + \cdots
+$$
+
+has the limit `0` as `n` approaches infinity, however it does **not** converge, it diverges.
+
+### Average value
+
+The average value of $f(x)$ over the range $a$-$b$ is
+
+$$
+\frac{1}{b-a}\int_a^b{f(x)}\,dx
+$$
+
+### Equality
+
+$0.999999999...=1$

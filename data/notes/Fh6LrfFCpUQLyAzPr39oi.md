@@ -1,0 +1,38 @@
+Given the velocity $v$ of an object moving along a line and its initial position $s(0)$, the position function of the object for future times $t\geq0$ is
+$$
+s(t)=s(0)+\int^t_0{v(x)}{\text{ }dx}\text{.}
+$$
+
+There are two equivalent ways to determine the position function- antiderivatives and the above theorem, the latter generally being more efficient.
+
+## Example
+A block hangs at rest from a massless spring at the origin $s=0$. At $t=0$, the block is pulled downward $\frac{1}{4}\text{m}$ to its initial position $s(0)=-\frac{1}{4}$ and released.
+![](/assets/images/2022-02-04-11-11-00.png)
+Its velocity in $\text{m/s}$ is given by $v(t)=\frac{1}{4}\sin{t}$, for $t\geq0$. Assume the upward direction is positive.
+### Find the position of the block, for $t\geq0$
+The velocity function is positive for $0<t<\pi$, which means the block moves in the positive (upward) direction.
+
+At $t=\pi$, the block comes to rest momentarily; for $\pi<t<2\pi$, the block moves in the negative (downward) direction.
+
+We let $s(t)$ be the position at time $t\geq0$ with the initial position $s(0)=-\frac14\text{m}$
+
+Using the theorem (antiderivatives can also be used), we may use the relationship
+$$
+s(t)=s(0)+\int^t_0{v(x)}{\text{ }dx}\text.
+$$
+Substituting $v(x)=\frac14\sin{x}$ and $s(0)=-\frac14$, the position function is
+$$
+s(t)=-\frac14+\int^t_0{\frac14\sin{x}}{\text{ }dx}
+$$
+$$
+=-\frac14\cos{t}\text.
+$$
+![](/assets/images/2022-02-04-11-11-18.png)
+### When does the block moves through the origin for the first time?
+The block initially moves in the positive $s$ direction, reaching the origin $s=0$ when $s(t)=-\frac14\cos{t}=0$.
+
+So, the block arrives at the origin for the first time when $t=\frac\pi2$,
+
+Graphing can help visualize this.
+### When does the block reach its highest point for the first time, and what is the position at that time?
+The block moves in the positive direction and reaches its high point for the first time when $t=\pi$ (which is $s(\pi)=\frac14\text{m}$), and this motion repeats every $2\pi$ seconds.

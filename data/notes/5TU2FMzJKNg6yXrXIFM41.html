@@ -1,0 +1,52 @@
+<h1 id="associations"><a aria-hidden="true" class="anchor-heading" href="#associations"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Associations</h1>
+<p>Associations denote relationships between classes.</p>
+<p>The multiplicity of an association end denotes how many objects the instance of a class can legitimately reference.</p>
+<p><a aria-hidden="true" class="block-anchor anchor-heading" id="^overview" href="#^overview"><svg viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a></p><div class="mermaid">
+  classDiagram
+    class TarifSchedule {
+        enum getZones()
+        Price getPrice()
+    }
+    class TripLeg {
+        Price price
+        Zone zone
+    }
+    TarifSchedule "*" -- "*" TripLeg
+</div><p></p>
+<p></p>
+<h2 id="1-to-1-associations"><a aria-hidden="true" class="anchor-heading" href="#1-to-1-associations"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>1-to-1 Associations</h2>
+<div class="mermaid">
+  classDiagram
+    class Country {
+        string name
+    }
+    class CapitalCity {
+        string name
+    }
+    Country "1" -- "1" CapitalCity
+</div>
+<h2 id="1-to-many-associations"><a aria-hidden="true" class="anchor-heading" href="#1-to-many-associations"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>1-to-Many Associations</h2>
+<div class="mermaid">
+  classDiagram
+    class Polygon {
+        void draw()
+    }
+    class Point {
+        number x
+        number y
+    }
+    Polygon -- "*" Point
+</div>
+<h2 id="many-to-many-associations"><a aria-hidden="true" class="anchor-heading" href="#many-to-many-associations"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Many-to-Many Associations</h2>
+<div class="mermaid">
+  classDiagram
+    StockExchange "*" -- "*" Company
+    class Company {
+        string tickerSymbol
+    }
+</div>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/sTSSRC5zRm79n4Zn9dWLJ">Class Diagrams</a></li>
+</ul>

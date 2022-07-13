@@ -1,0 +1,14 @@
+<h1 id="array"><a aria-hidden="true" class="anchor-heading" href="#array"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Array</h1>
+<p>An array is a (usually) fixed-length data structure that stores one type of element in order. Read/write times are always <code>O(1)</code> however resizing is <code>O(n)</code>.</p>
+<pre class="language-java"><code class="language-Java"><span class="token keyword">var</span> myArray <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+myArray<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// O(1)</span>
+myArray<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span> <span class="token comment">// O(1)</span>
+<span class="token comment">// To resize an array...</span>
+<span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>myArray<span class="token punctuation">,</span> myArray<span class="token punctuation">.</span>length <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// O(n)</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/TzkCyXooADlBmPWjKo0ds">SER-222</a></li>
+<li><a href="/notes/notes/1PYPuUcNF9sEzp2RcugXd">Stack</a></li>
+</ul>

@@ -1,0 +1,93 @@
+
+## Motivations
+
+- JavaFX is a framework for developing Java GUI programs
+- JavaFX utilizes OOP principles in its design
+
+## JavaFX vs Swing and AWT
+
+- AWT
+    - Fine for developing simple interfaces
+    - Not suited for cross-platform development
+    - Replaced largely by Swing
+- Swing
+    - Allows for painting, layout, and event handling
+    - Relies less on native GUI
+    - Replaced by JavaFX in Java 8
+
+## Basic Structure
+
+- Application
+- `start(Stage)` method
+- Stage, scene, and nodes
+- ![](/assets/images/2022-03-22-13-43-08.png)
+
+## Panes, UI controls, and shapes
+
+- Shapes such as line, circle, ellipse, rectangle, path, etc. are subclasses of `Shape`
+- `ImageView` used for displaying images
+- UI controls are subclasses of `Control`
+
+## Coordinate system
+
+- JavaFX uses a coordinate system with the origin at the top left corner
+- This means that to draw a circle in the center of a 500x500 pixel area, you would need to create a circle with the center at (250, 250)
+
+## Binding properties
+
+- Enable a target object to be bound to a source object
+- If the value in the source object changes, the target property is also changed
+- The target object is simply called a binding object or binding property
+
+## Common properties and methods
+
+### Style
+
+- Set a JavaFX CSS style
+
+### Rotate
+ 
+- Rotate a node
+
+### Color
+
+- `new Color(r, g, b, a)`
+
+### Font
+
+- `new Font(nname, weight, size)`
+
+### Image
+
+- `new Image(fileOrURL)`
+
+## Example of a simple JavaFX application
+
+![](/assets/images/2022-03-22-13-54-06.png)
+
+## Layout Panes
+
+- JavaFX provides panes for organizing nodes in a container
+
+Class | Description
+----- | ___________
+Pane  | Base class for layout panes
+StackPane | Places nodes on top of each other in the center of the pane
+FlowPane | Places nodes row-by-row horizontally or column-by-column vertically
+GridPlane | Places nodes in a 2D grid
+BorderPane | Places nodes in the top, right, bottom, left, and center regions
+HBox | Places nodes in a single row
+VBox | Places nodes in a single column
+
+## Shapes
+
+- Classes for drawing text, lines, circles, etc.
+- Text
+- Line
+- Rectangle
+- Circle
+- Ellipse
+- Arc
+- Polygon
+- Polyline
+- Shapes are displayed on an x/y coordinate grid with the origin at the top left

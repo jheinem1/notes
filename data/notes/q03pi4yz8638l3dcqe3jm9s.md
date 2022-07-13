@@ -1,0 +1,41 @@
+
+Geometric series are similar to [[mat266.geometric-sums]], but with an $n$ of $\infty$.
+
+$$
+\sum_{k=0}^{\infty} ar^k=\lim_{n\to\infty} \sum_{k=0}^{n-1} ar^k=\lim_{n\to\infty} a\frac{1-r^n}{1-r}\text.
+$$
+
+## Limit
+
+To compute the limit, we must examine the behavior of $r^n$ as $n\to\infty$.  To do this we can use the formula
+
+$$
+\lim_{n\to\infty} r^n=
+\begin{cases}
+    0, & \text{if } |r|<1, \\
+    1, & \text{if } |r|=1, \\
+    \text{DNE}, & r\leq-1\text{ or } r>1\text,
+\end{cases}
+$$
+
+with $\text{DNE}$ meaning "Does not exist".
+
+### Case 1
+
+If $|r|<1$, the gemetric series converges to $\frac{a}{1-r}$.
+
+### Case 2
+
+If $|r|>1$, the geometric series diverges, so the $\lim_{n\to\infty} r^n$ does not exist.
+
+### Case 3 (Positive)
+
+If $r=1$, the geometric series is $\sum_{k=0}^\infty a=a+a+a+\cdots$, which diverges.
+
+### Case 3 (Negative)
+
+If $r=-1$, the gemetric series is $\sum_{k=0}^\infty a(-1)^k=a-a+a-\cdots$, which diverges and the limit does not exist.
+
+## Theorem
+
+Let $a\neq0$ and $r$ be real numbers. If $|r|<1$, then $\sum_{k=0}^\infty ar^k=\frac{a}{1-r}$. If $|r|\geq1$, then the series diverges.

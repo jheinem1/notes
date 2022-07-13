@@ -1,0 +1,23 @@
+<h1 id="aggregation"><a aria-hidden="true" class="anchor-heading" href="#aggregation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Aggregation</h1>
+<p>A special case of association denoting a "conists-of" hierarchy.</p>
+<p>The aggregate is the parent class, and the components are children classes</p>
+<p><a aria-hidden="true" class="block-anchor anchor-heading" id="^main" href="#^main"><svg viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a></p><div class="mermaid">
+  classDiagram
+    ExhaustSystem o-- Muffler
+    ExhaustSystem o-- Tailpipe
+    Muffler : number diameter
+    Tailpipe : number diameter
+</div><p></p>
+<p></p>
+<h2 id="composition"><a aria-hidden="true" class="anchor-heading" href="#composition"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Composition</h2>
+<p>A string form of aggregation denoted by a solid diamond.</p>
+<p>The lifetime of component instances are controlled by the aggregate (they cannot exist independently).</p>
+<div class="mermaid">
+  classDiagram
+    TicketMachine *-- "3" ZoneButton
+</div>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/sTSSRC5zRm79n4Zn9dWLJ">Class Diagrams</a></li>
+</ul>

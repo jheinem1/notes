@@ -1,0 +1,30 @@
+
+Suppose a function $f$ has the derivatives $f^{(k)}(a)$ of all orders at the point $a$. If we write the [[Taylor polynomial|mat266.taylor-polynomials]] of a degree $n$ for $f$ centered at $a$ and allow $n$ to increase indefinitely, a [[power series|mat266.power-series]] is obtained:
+
+$$
+c_0+c_1(x-a)+c_2(x-a)^n+\cdots+c_n(x-a)^n+\cdots=\sum_{k=0}^\infty c_k(x-a)^k\text.
+$$
+
+The coefficients of the [[Taylor polynomial|mat266.taylor-polynomials]] are given by
+
+$$
+c_k=\frac{f^{(k)}(a)}{k!}\text{, for }k=0,1,2,\dots\text.
+$$
+
+These coefficients are also the coefficients of the [[power series|mat266.power-series]], which is called the "[[Taylor series|mat266.taylor-series]] for $f$ centered at $a$". The special case of a [[Taylor series|mat266.taylor-series]] centered at $0$ is called a Maclaurin series.
+
+![](/assets/images/2022-04-13-17-19-58.png)
+
+![](/assets/images/![](/assets/images/2022-04-13-17-20-21.png).png)
+
+## Definition
+
+Suppose the function $f$ has the derivatives of all orders on an interval centered at the point $a$. The [[Taylor series|mat266.taylor-series]] for $f$ centered at $a$ is
+
+$$
+T_\infty=f(a)+f\prime(a)(x-a)+\frac{f\prime\prime(a)}{2!}(x-a)^2+\frac{f^{(3)}(a)}{3!}(x-a)^3+\cdots=\sum_{k=0}^\infty \frac{f^{(k)}(a)}{k!}(x-a)^k\text.
+$$
+
+To clarify, $x$ is **not** the point at which the [[Taylor series|mat266.taylor-series]] is centered. Rather, $x$ is the variable to be used in the resulting function $T_n(x)\approx f(x)$. $a$ is the point at which the Taylor series is centered.
+
+A [[Taylor series|mat266.taylor-series]] centered at $0$ is called a Maclaurin series.

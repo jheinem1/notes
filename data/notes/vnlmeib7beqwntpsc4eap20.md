@@ -1,0 +1,25 @@
+
+```python
+def return_input(input: int, condition1: boolean, condition2: boolean, condition3: boolean):
+        x = input
+        y = 0
+        if (condition1):
+            x += 1
+        if (condition2):
+            x -= 1
+        if (condition3):
+            y = x
+        return y
+```
+
+8 separate paths:
+
+| T | T | T | `return_input(x, True, True, True)` |
+|---|---|---|---|
+| T | T | F | `return_input(x, True, True, False)` |
+| T | F | T | `return_input(x, True, False, True)` |
+| T | F | F | `return_input(x, True, False, False)` |
+| F | T | T | `return_input(x, False, True, True)` |
+| F | T | F | `return_input(x, False, True, False)` |
+| F | F | T | `return_input(x, False, False, True)` |
+| F | F | F | `return_input(x, False, False, False)` |

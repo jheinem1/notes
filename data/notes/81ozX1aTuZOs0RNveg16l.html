@@ -1,0 +1,43 @@
+<h1 id="modeling-a-briefcase"><a aria-hidden="true" class="anchor-heading" href="#modeling-a-briefcase"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Modeling a Briefcase</h1>
+<p><img src="/notes/assets/images/2022-01-18-14-13-52.png"></p>
+<div class="mermaid">
+  classDiagram
+    class Briefcase {
+        Capacity
+        Weight
+        Open()
+        Close()
+        Carry()
+    }
+</div>
+<h2 id="a-new-use"><a aria-hidden="true" class="anchor-heading" href="#a-new-use"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>A new use</h2>
+<div class="mermaid">
+  classDiagram
+    class Briefcase {
+        Capacity
+        Weight
+        Open()
+        Close()
+        Carry()
+        SitOnIt()
+    }
+</div>
+<h2 id="questions"><a aria-hidden="true" class="anchor-heading" href="#questions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Questions</h2>
+<ul>
+<li>Why did we model the thing as "Briefcase"?
+<ul>
+<li>The picture looked like a briefcase</li>
+</ul>
+</li>
+<li>What do we do if the <code>SitOnIt()</code> operation is the most frequently used operation?</li>
+<li>What if briefcase is only used for sitting on it and never opened/closed?
+<ul>
+<li>We've made a modeling mistake!</li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/INYyQFUJDXACFlWodcZes">Object-Oriented Decomposition</a></li>
+</ul>

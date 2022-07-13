@@ -1,0 +1,37 @@
+
+Finds the smallest element in the data, swaps it for the position `i`, then repeats for all elements in the list.
+
+This forms a region in the front of the list that is fully sorted
+
+![](/assets/images/2022-02-16-11-33-57.png)
+
+Selection sort performs best with random inputs, and is less efficient with partially sorted inputs.
+
+## Steps
+1. Find the smallest element in the data, starting at position `i`
+2. Swap it with the position `i`
+3. Repeat for all of `n` (elements in the list)
+
+## Implementation
+(assuming `less` and `exh` defined)
+```java
+public static void selectionSort(Comparable[] array) {
+    for (int i = 0; i < array.length; i++) {
+        // exchange array[i] with the smallest entry in array[i + 1...array.length]
+        int min = i;
+        for (int j = i + 1; j < array.length; j++)
+            if (less(array[j], array[min]))
+                min = j;
+        exch(array, i, min);
+    }
+}
+```
+## Big-Oh
+### Worst-case-scenario
+$$
+O(n^2)
+$$
+### Best-case-screnario
+$$
+\Omega(n)
+$$

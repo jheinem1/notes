@@ -1,0 +1,80 @@
+<h1 id="justification"><a aria-hidden="true" class="anchor-heading" href="#justification"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Justification</h1>
+<h2 id="proof-of-termination"><a aria-hidden="true" class="anchor-heading" href="#proof-of-termination"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Proof of termination</h2>
+<ul>
+<li>Shows that an algorithm always terminates</li>
+<li>First step towards producing something useful
+<ul>
+<li>Otherwise program could be infinite loop</li>
+</ul>
+</li>
+<li>Typically performed by determining a progress metric, then showing an algorithm "moves along" the metric</li>
+</ul>
+<h3 id="example---proving-swim-terminates"><a aria-hidden="true" class="anchor-heading" href="#example---proving-swim-terminates"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Example - Proving 'swim' terminates</h3>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">swim</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>k <span class="token operator">></span> <span class="token number">1</span> <span class="token keyword">and</span> <span class="token punctuation">(</span>parent <span class="token operator">:=</span> k <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">&#x3C;</span> k<span class="token punctuation">)</span>
+        exch<span class="token punctuation">(</span>k<span class="token punctuation">,</span> <span class="token punctuation">(</span>k <span class="token operator">:=</span> parent<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>We can infer that the only place where the algorithm could not terminate is when the <code>while</code> loop is entered.</p>
+<p>Because <code>k</code> is constantly being set to <code>parent</code>, the loop can terminate as the value of <code>parent</code> will eventually reach either <code>1</code>, or less than <code>1</code> since <code>parent</code> is set to <code>k / 2</code> each iteration. Additionally, since <code>k</code> and <code>parent</code> are both integers, <code>1 / 2</code> will round down to <code>0</code> rather than up to <code>1</code>.</p>
+<h2 id="proof-of-correctness"><a aria-hidden="true" class="anchor-heading" href="#proof-of-correctness"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Proof of correctness</h2>
+<ul>
+<li>Shows that an algorithm always performs in a certain way, or acts according to certain constraints</li>
+<li>If we have proof of correctess, that assets the algorithm is correct
+<ul>
+<li>The remaining question would be, "is the algorithm fast enough?"</li>
+</ul>
+</li>
+<li>Typically performed by analyzing the way the algorithm transforms data to argue the output will always have certain properties</li>
+</ul>
+<h3 id="example---proving-swim-is-correct"><a aria-hidden="true" class="anchor-heading" href="#example---proving-swim-is-correct"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Example - Proving 'swim' is correct</h3>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">swim</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>k <span class="token operator">></span> <span class="token number">1</span> <span class="token keyword">and</span> <span class="token punctuation">(</span>parent <span class="token operator">:=</span> k <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">&#x3C;</span> k<span class="token punctuation">)</span>
+        exch<span class="token punctuation">(</span>k<span class="token punctuation">,</span> <span class="token punctuation">(</span>k <span class="token operator">:=</span> parent<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>Let <code>k</code> be the node that will be swim'ed. If <code>k</code> is a node already in its proper position then <code>less(parent(k), k)</code> will always be <code>False</code>, and no code will be run.</p>
+</blockquote>
+<p>From this, we can infer that the result is correct because we know that <code>parent(k)</code> should always be less than <code>k</code> in an ordered max heap.</p>
+<h3 id="metric-1"><a aria-hidden="true" class="anchor-heading" href="#metric-1"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Metric 1</h3>
+<p>Using the metric defined earlier...</p>
+<blockquote>
+<p>The ability of the algorithm to process a heap-sorted array with at most one node which violates the heap rule and produce a heap-sorted array with no violations of the maximum heap rule. The array must contain a complete tree at all times.</p>
+</blockquote>
+<h4 id="case-1"><a aria-hidden="true" class="anchor-heading" href="#case-1"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Case 1</h4>
+<ul>
+<li>Tree does not contain node with value</li>
+<li>In step 1, we loop over tan element and check its contents</li>
+<li>No changes are made to <code>N</code>, <code>keys</code>, or <code>value</code>, so after that step, the data will be heap-ordered</li>
+<li>If there is no node to update, the algorithm will terminate</li>
+</ul>
+<h4 id="case-2"><a aria-hidden="true" class="anchor-heading" href="#case-2"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Case 2</h4>
+<ul>
+<li>Tree contains node with value</li>
+<li>We defer to the mechanisms for <code>swim</code> and <code>sink</code> which are already known to result in a heap-ordered array</li>
+<li>Both functions will terminate if there is no work to do</li>
+<li>The <code>if</code>-statements evaluate the case of being out of order with <code>parent</code> or <code>children,</code> and follows the formula as defined</li>
+</ul>
+<h2 id="proof-of-efficiency"><a aria-hidden="true" class="anchor-heading" href="#proof-of-efficiency"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Proof of efficiency</h2>
+<ul>
+<li>The metric we defined earlier was</li>
+</ul>
+<blockquote>
+<p>M1
+For a cost metric, we will use the number of lines run as a measure of computational time needed for particular design.</p>
+</blockquote>
+<ul>
+<li>Since we are working with an algorithm, we want to show that our algorithm is at least as fast as any other</li>
+</ul>
+<h3 id="metric-2"><a aria-hidden="true" class="anchor-heading" href="#metric-2"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Metric 2</h3>
+<ul>
+<li>Per <code>K</code>, insert takes <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span>
+<ul>
+<li>Thus, the best we can get is <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span></li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/cbwqvn7mgvc262hvxs5m3r6">ADJ for Algorithms</a></li>
+</ul>

@@ -1,0 +1,23 @@
+<h1 id="autoshape"><a aria-hidden="true" class="anchor-heading" href="#autoshape"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Autoshape</h1>
+<ul>
+<li>If there is a small issue with one of the shapes, it is incredibly difficult to fix</li>
+<li>Adding a new shape generally requires code reuse, also requiring a good understanding of the system</li>
+</ul>
+<div class="mermaid">
+  flowchart TD
+  Autoshape(Autoshape) --- Mouse(Mouse Click)
+  Autoshape --- Change(Change)
+  Autoshape --- Draw(Draw)
+  Change --- ChangeR(Change Rectangle)
+  Change --- ChangeO(Change Oval)
+  Change --- ChangeC(Change Circle)
+  Draw --- DrawR(Draw Rectangle)
+  Draw --- DrawO(Draw Oval)
+  Draw --- DrawC(Draw Circle)
+</div>
+<p>Effectively you keep breaking down high level functions into smaller functions until you reach the actual code.</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/iB1glpAFtiRjUL8dxgjwV">Functional Decomposition</a></li>
+</ul>

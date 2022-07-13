@@ -1,0 +1,81 @@
+<h1 id="objects"><a aria-hidden="true" class="anchor-heading" href="#objects"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Objects</h1>
+<h2 id="object-oriented-programming"><a aria-hidden="true" class="anchor-heading" href="#object-oriented-programming"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Object-Oriented Programming</h2>
+<ul>
+<li>Classes are a framework for creating objects that defines the data and behavior they contain</li>
+<li>Classes are instanced to create objects</li>
+<li>Objects are characterized by...
+<ul>
+<li>State</li>
+<li>Behavior</li>
+<li>Identity</li>
+</ul>
+</li>
+</ul>
+<h2 id="reference-representation"><a aria-hidden="true" class="anchor-heading" href="#reference-representation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Reference Representation</h2>
+<ul>
+<li>When a variable is created, it will store the data that represents the number</li>
+<li>In contrast, <em>object</em> variables do not contain the data representing the object, just a reference to the object</li>
+<li>Hence, object values are always references</li>
+</ul>
+<pre class="language-java"><code class="language-Java"><span class="token keyword">int</span> value <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token class-name">Counter</span> c1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Counter</span><span class="token punctuation">(</span><span class="token string">"First"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>(very simplified)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>0x00</th><th>...</th></tr></thead><tbody><tr><td>0x01</td><td>5</td></tr><tr><td>0x02</td><td>0x04</td></tr><tr><td>0x02</td><td>0x04</td></tr><tr><td>0x03</td><td>...</td></tr><tr><td>0x04</td><td>"First</td></tr><tr><td>0x05</td><td>0</td></tr></tbody></table>
+<h2 id="counter-class"><a aria-hidden="true" class="anchor-heading" href="#counter-class"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Counter Class</h2>
+<pre class="language-java"><code class="language-Java"><span class="token comment">//from Sedgewick and Wayne</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Counter</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span> <span class="token comment">// counter name</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// current value</span>
+    <span class="token keyword">public</span> <span class="token class-name">Counter</span><span class="token punctuation">(</span><span class="token class-name">String</span> id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        name <span class="token operator">=</span> id<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        count<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">tally</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> count <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="common-methods"><a aria-hidden="true" class="anchor-heading" href="#common-methods"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>"Common" Methods</h2>
+<ul>
+<li>All classes in Java are a subclass of <code>Object</code></li>
+<li><code>Object</code> contains several methods (such as toString) that can be overwridden to give a tighter integration with existing functionality</li>
+</ul>

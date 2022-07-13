@@ -1,0 +1,22 @@
+<h1 id="boolean"><a aria-hidden="true" class="anchor-heading" href="#boolean"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Boolean</h1>
+<p>A boolean in luau is a simple binary value that is either <code>true</code> or <code>false</code>. Booleans are not to be confused with truthy or falsy values, which are used in luau for conditionals.</p>
+<h2 id="manipulating-booleans"><a aria-hidden="true" class="anchor-heading" href="#manipulating-booleans"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Manipulating booleans</h2>
+<ul>
+<li><code>not bool</code>: inverts the boolean</li>
+<li><code>bool and bool</code>: returns <code>true</code> if both booleans are <code>true</code></li>
+<li><code>bool or bool</code>: returns <code>true</code> if either boolean is <code>true</code></li>
+</ul>
+<p>These operations also work with other types, but the result is often a truthy or falsy value rather than a boolean (with the exception of <code>not</code>).</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> a <span class="token operator">=</span> <span class="token keyword">true</span>
+<span class="token keyword">local</span> b <span class="token operator">=</span> <span class="token keyword">false</span>
+<span class="token keyword">local</span> c <span class="token operator">=</span> "hello
+
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">not</span> a<span class="token punctuation">)</span> <span class="token comment">-- false</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">not</span> b<span class="token punctuation">)</span> <span class="token comment">-- true</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">not</span> c<span class="token punctuation">)</span> <span class="token comment">-- false</span>
+<span class="token function">print</span><span class="token punctuation">(</span>a <span class="token keyword">and</span> b<span class="token punctuation">)</span> <span class="token comment">-- false</span>
+<span class="token function">print</span><span class="token punctuation">(</span>a <span class="token keyword">or</span> b<span class="token punctuation">)</span> <span class="token comment">-- true</span>
+<span class="token function">print</span><span class="token punctuation">(</span>a <span class="token keyword">and</span> c<span class="token punctuation">)</span> <span class="token comment">-- "hello"</span>
+<span class="token function">print</span><span class="token punctuation">(</span>c <span class="token keyword">or</span> a<span class="token punctuation">)</span> <span class="token comment">-- "hello"</span>
+<span class="token function">print</span><span class="token punctuation">(</span>c <span class="token keyword">and</span> a<span class="token punctuation">)</span> <span class="token comment">-- true</span>
+</code></pre>

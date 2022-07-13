@@ -1,0 +1,31 @@
+Nodes are simple data structures that store the next node in a [[ser222.linked-list]] and some values. There are a variety of node types...
+
+## Minimalistic
+```Java
+class Node<T> {
+    Item element;
+    Node next;
+}
+```
+This is generally considered to be ideal as generics are more flexible.
+## OOP
+```Java
+class Node {
+    Node next;
+}
+
+class PersonNode extends Node {
+    String name;
+    int phone[30];
+    String email;
+}
+```
+## Monolithic
+```Java
+class PersonNode {
+    Node next;
+    String name;
+    int phone[30];
+    String email;
+}
+```

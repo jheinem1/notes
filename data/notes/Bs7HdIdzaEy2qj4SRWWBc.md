@@ -1,0 +1,54 @@
+
+![](/assets/images/2022-02-08-14-22-29.png)
+- Adds risk analysis and RAD prototyping to the waterfall model
+- Each cycle involves the same sequence of steps as the waterfall process model
+## Steps
+### Determine objectives, alternatives, and constraints
+- Objectives
+    - Functionality, performance, hardware/software interface, success factors, etc.
+- Alternatives
+    - Build, reuse, buy, subcontract, etc.
+- Constraints
+    - Cost, schedule, interface, etc.
+### Evaluate alternatives, identify, and resolve risks
+- Study alternatives relative to objectives and constraints
+- Identify risks
+- Resolve risks
+### Develop next-level product
+- Typical activities
+    - Create a design
+    - Review design
+    - Develop code
+    - Inspect code
+    - Test product  
+### Plan next phase
+- Typical activities
+    - Develop project plan
+    - Develop configuration management plan
+    - Develop test plan
+    - Develop installation plan
+## Strengths
+- Provides early indication of insurmountable risks without much cost
+- Users see the system early because of prototyping
+- Critical high-risk functions are developed first
+- The design can be flawed
+- Users can be closely tied to all lifecycle steps
+- Early and frequent feedback from users
+- Cumulative costs assessed frequently
+## Weaknesses
+- Time spent for evaluating risks too large for small or low-risk projects
+- Time spent planning may be excessive
+- The model is complex
+- Risk assessment expertise is required
+- Spiral may continue indefinitely
+- Developers must be reassigned during non-development phase activities
+- May be hard to define milestones that indicate readiness
+## When to use
+- When creation of a prototype is appropriate
+- When costs and risk evaluation is important
+- For medium to high-risk projects
+- Long-term project commitment unwise because of potential changes to economic priorities
+- Users unsure of needs
+- Requirements are complex
+- New product line
+- Significant changes are expected

@@ -1,0 +1,46 @@
+
+## Concept
+
+- The entire system is viewed as a collection of subsystems determined during design
+- The goal of integration testing is to test all interfaces between subsystems and the interaction of subsystems
+- The integration testing strategy determined the order in which the subsystems are tested
+
+## Why integration testing?
+
+- Unit tests only test in isolation
+- Many failures result from faults in the interaction of subsystems
+    - "Integration hell" is one of the longest stages of debugging
+- Failures not discovered in integration testing may not be discovered until the system is deployed
+
+## Stubs & drivers
+
+![](/assets/images/2022-04-19-14-13-21.png)
+
+### Driver
+
+- A component that calls the `TestedUnit`
+- Controls test cases
+
+### Stub
+
+- A component the `TestedUnit` depends on
+- Partial implementation
+- Returns fake values
+
+## Integration testing strategies
+
+- [[ser216.integration-testing.big-bang]]
+- [[ser216.integration-testing.bottom-up]]
+- [[ser216.integration-testing.top-down]]
+- [[ser216.integration-testing.sandwich]]
+- [[ser216.integration-testing.continuous]]
+
+## Steps
+
+1. Select a component to be tested an unit test it
+2. Put the component together with any necessary drivers and stubs
+3. Test functional requirements
+4. Test subsystem decomposition
+5. Test non-functional requirements
+6. Keep records of test cases
+7. Repeat steps 1-7 until full system is tested

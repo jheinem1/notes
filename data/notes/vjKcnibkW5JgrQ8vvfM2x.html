@@ -1,0 +1,22 @@
+<h1 id="object"><a aria-hidden="true" class="anchor-heading" href="#object"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Object</h1>
+<p>All objects in Java are subclasses of the <code>Object</code> class and inherit methods and fields such as...</p>
+<pre class="language-java"><code class="language-Java"><span class="token comment">// Checks for equality between objects</span>
+<span class="token comment">// Must account for 'null'</span>
+<span class="token comment">// Must check class type</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> obj<span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-java"><code class="language-Java"><span class="token comment">// String representation of an object</span>
+<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-java"><code class="language-Java"><span class="token comment">// Returns (generally unique) number representing the object</span>
+<span class="token comment">// Generally used to compare the object's internal state</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-java"><code class="language-Java"><span class="token comment">// Returns a deep copy of the object</span>
+<span class="token keyword">protected</span> <span class="token class-name">Object</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">CloneNotSupportedException</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/GBy4GgyD2AUD98MS6TmTt">Implementing ADTs</a></li>
+</ul>

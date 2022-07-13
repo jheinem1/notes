@@ -1,0 +1,131 @@
+<h1 id="directed-graphs"><a aria-hidden="true" class="anchor-heading" href="#directed-graphs"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Directed Graphs</h1>
+<ul>
+<li>Essentially <a href="/notes/notes/7bk68men4djnecox52poe2l">Undirected Graphs</a>, but with edges that have a clearly defined direction
+<ul>
+<li><img src="/notes/assets/images/2022-04-20-10-35-02.png"></li>
+</ul>
+</li>
+<li>Interestingly, these can be used for things like crafting recipes in games, where materials have to exist in a certain order relative to each other
+<ul>
+<li><img src="/notes/assets/images/2022-04-20-11-19-37.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="terminology"><a aria-hidden="true" class="anchor-heading" href="#terminology"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Terminology</h2>
+<ul>
+<li><code>V</code> is a <strong>Direct Predecessor</strong> of <code>W</code> if there is a path/edge from <code>V</code> to <code>W</code></li>
+<li><code>V</code> is a <strong>Direct Successor</strong> of <code>W</code> if there is a path/edge from <code>W</code> to <code>V</code></li>
+<li><code>V</code> is a <strong>Predecessor</strong> of <code>W</code> if <code>V</code> is a direct predecessor of <code>W</code> or a predecessor of a direct predecessor of <code>W</code></li>
+<li><code>V</code> is a <strong>Successor</strong> of <code>W</code> if <code>V</code> is a direct successor of <code>W</code> or a successor of a direct successor of <code>W</code></li>
+</ul>
+<h2 id="directed-graph-adt"><a aria-hidden="true" class="anchor-heading" href="#directed-graph-adt"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Directed graph ADT</h2>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Diagraph</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token class-name">V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number of vertices</span>
+    <span class="token keyword">int</span> <span class="token class-name">E</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number of edges</span>
+    <span class="token keyword">void</span> <span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">,</span> <span class="token keyword">int</span> w<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// add edge v->w</span>
+    <span class="token class-name">Iterable</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">adj</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// vertices connected to v from edges v->x</span>
+    <span class="token class-name">Digraph</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// reverse of digraph</span>
+    <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// string representation of digraph</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="implementation"><a aria-hidden="true" class="anchor-heading" href="#implementation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Implementation</h2>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DigraphImplementation</span> <span class="token keyword">implements</span> <span class="token class-name">Digraph</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token class-name">V</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token class-name">E</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> adj<span class="token punctuation">;</span>
+
+    <span class="token doc-comment comment">/**
+     * Initializes an empty digraph with `V` vertices.
+     * <span class="token keyword">@param</span> <span class="token parameter">V</span> the number of vertices
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">Digraph</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token class-name">V</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token namespace">this<span class="token punctuation">.</span></span>V</span> <span class="token operator">=</span> <span class="token class-name">V</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token namespace">this<span class="token punctuation">.</span></span>E</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        adj <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token punctuation">[</span><span class="token class-name">V</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> v <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> v <span class="token operator">&#x3C;</span> <span class="token class-name">V</span><span class="token punctuation">;</span> v<span class="token operator">++</span><span class="token punctuation">)</span>
+            adj<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+     * Reads a digraph from an input stream.
+     * <span class="token keyword">@param</span> <span class="token parameter">in</span> the input stream
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">Digraph</span><span class="token punctuation">(</span><span class="token class-name">In</span> in<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">(</span>in<span class="token punctuation">.</span><span class="token function">readInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> <span class="token class-name">E</span> <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">readInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;</span> <span class="token class-name">E</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> v <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">readInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> w <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">readInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">addEdge</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+     * Returns the number of vertices in the digraph.
+     * <span class="token keyword">@return</span> the number of vertices in the digraph
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token class-name">V</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">V</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+     * Returns the number of edges in the digraph.
+     * <span class="token keyword">@return</span> the number of edges in the digraph
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token class-name">E</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">E</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+     * Adds the directed edge v->w to the digraph.
+     * <span class="token keyword">@param</span> <span class="token parameter">v</span> the tail vertex
+     * <span class="token keyword">@param</span> <span class="token parameter">w</span> the head vertex
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">,</span> <span class="token keyword">int</span> w<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        adj<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">E</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+     * Returns the vertices adjacent from vertex `v` in the digraph.
+     * <span class="token keyword">@param</span> <span class="token parameter">v</span> the vertex
+     * <span class="token keyword">@return</span> the vertices adjacent from vertex `v` in the digraph
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">Iterable</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">adj</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> adj<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+     * Returns the reverse of the digraph.
+     * <span class="token keyword">@return</span> the reverse of the digraph
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">Digraph</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Digraph</span> r <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DigraphImplementation</span><span class="token punctuation">(</span><span class="token class-name">V</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> v <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> v <span class="token operator">&#x3C;</span> <span class="token class-name">V</span><span class="token punctuation">;</span> v<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> w <span class="token operator">:</span> <span class="token function">adj</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                r<span class="token punctuation">.</span><span class="token function">addEdge</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> r<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="problems"><a aria-hidden="true" class="anchor-heading" href="#problems"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Problems</h2>
+<ul>
+<li><a href="/notes/notes/3110043843">Directed Search</a></li>
+<li><a href="/notes/notes/lwdtep1su8a7zxccf6a0eqi">Scheduling</a></li>
+<li><a href="/notes/notes/c040vmtw22mec28ra78pf7i">Directed Cycle</a></li>
+</ul>
+<h2 id="sorting"><a aria-hidden="true" class="anchor-heading" href="#sorting"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Sorting</h2>
+<p><a href="/notes/notes/gh9iqndaecceqq6ppjhozis">Topological Sorting</a> is a common method to produce ordered graphs.</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/Nyws5WIQjxYCkNd81rtES">Problems</a></li>
+<li><a href="/notes/notes/gh9iqndaecceqq6ppjhozis">Topological Sort</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/TzkCyXooADlBmPWjKo0ds">SER-222</a></li>
+<li><a href="/notes/notes/7bk68men4djnecox52poe2l">Undirected Graphs</a></li>
+<li><a href="/notes/notes/w94m4trk054bvxqvseeucg9">Weighted Graphs</a></li>
+</ul>

@@ -1,0 +1,119 @@
+<h1 id="terminology"><a aria-hidden="true" class="anchor-heading" href="#terminology"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Terminology</h1>
+<h2 id="failure"><a aria-hidden="true" class="anchor-heading" href="#failure"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Failure</h2>
+<p>Any deviation of the observed behavior from the specified behavior is a failure.</p>
+<h2 id="erroneous-state"><a aria-hidden="true" class="anchor-heading" href="#erroneous-state"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Erroneous state</h2>
+<pre><code>Error
+</code></pre>
+<p>When the system is in an erroneous state, further processing by the system can lead to a <a href="/notes/notes/lun3z8bba02pxnb9w8c92zv#Failure">failure</a>.</p>
+<h2 id="fault"><a aria-hidden="true" class="anchor-heading" href="#fault"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Fault</h2>
+<pre><code>Bug
+Defect
+</code></pre>
+<p>A fault, bug, or defect is the mechanical or algorithmic cause of an <a href="/notes/notes/lun3z8bba02pxnb9w8c92zv#Erroneous state">error</a>.</p>
+<h2 id="validation"><a aria-hidden="true" class="anchor-heading" href="#validation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Validation</h2>
+<p>Validation is the activity of checking for deviations between the observed behavior of a system and its specification.</p>
+<h2 id="examples"><a aria-hidden="true" class="anchor-heading" href="#examples"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Examples</h2>
+<ul>
+<li><strong>Faults in the interface specification</strong>
+<ul>
+<li>Mismatch between what the client needs and what the server offers</li>
+<li>Mismatch between requirements and implementation</li>
+</ul>
+</li>
+<li><strong>Algorithmic faults</strong>
+<ul>
+<li>Missing initialization</li>
+<li>Incorrect branching condition</li>
+<li>Missing test for <code>null</code></li>
+</ul>
+</li>
+<li><strong>Mechanical faults</strong> (most difficult to find)
+<ul>
+<li>Operating temperature outside of equipment's specifications</li>
+</ul>
+</li>
+<li><strong>Errors</strong>
+<ul>
+<li><code>null</code> reference errors</li>
+<li>Concurrency errors</li>
+<li>Exceptions</li>
+</ul>
+</li>
+</ul>
+<h2 id="dealing-with-errors-failures-and-faults"><a aria-hidden="true" class="anchor-heading" href="#dealing-with-errors-failures-and-faults"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Dealing with errors, failures, and faults</h2>
+<ul>
+<li><strong>Modular redundancy</strong>
+<ul>
+<li>Adding additional components to a system to mitigate the failure of a component by reproducing the behavior of the component in a different environment
+<ul>
+<li>Example: Adding a backup battery to a laptop</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Declaring the bug as a feature</strong> (doing nothing)</li>
+<li><strong>Patching</strong>
+<ul>
+<li>Addressing the error by modifying the code</li>
+</ul>
+</li>
+<li><strong>Testing</strong>
+<ul>
+<li>Adding additional tests to the system to ensure that the error is not reintroduced</li>
+</ul>
+</li>
+</ul>
+<h3 id="another-view-on-dealing-with-faults"><a aria-hidden="true" class="anchor-heading" href="#another-view-on-dealing-with-faults"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Another view on dealing with faults</h3>
+<ul>
+<li><strong>Fault avoidance</strong>
+<ul>
+<li>Done before system is released</li>
+<li>Use methodology to reduce complexity</li>
+<li>Use configuration management to prevent inconsistency</li>
+<li>Apply verification to prevent algorithmic faults</li>
+</ul>
+</li>
+<li><strong>Fault detection</strong>
+<ul>
+<li>Done while system is running</li>
+<li>Testing to detect faults</li>
+<li>Debugging to find and resolve faults</li>
+<li>Monitoring to deliver information about state of system</li>
+</ul>
+</li>
+<li><strong>Fault tolerance</strong>
+<ul>
+<li>Done after system failure</li>
+<li>Exception handling</li>
+<li>Modular redundancy</li>
+</ul>
+</li>
+</ul>
+<h2 id="taxonomy-for-fault-handling"><a aria-hidden="true" class="anchor-heading" href="#taxonomy-for-fault-handling"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Taxonomy for fault handling</h2>
+<div class="mermaid">
+  flowchart BT
+    UT[Unit Testing] --> Testing
+    IT[Integration Testing] --> Testing
+    ST[System Testing] --> Testing
+
+    Testing --> FD[Fault Detection]
+    Debugging --> FD[Fault Detection]
+    Testing &#x3C;--> Debugging
+
+    Methodology --> FA[Fault Avoidance]
+    Verification --> FA
+    CM[Configuration Management] --> FA
+
+    AT[Atomic Transactions] --> FT[Fault Tolerance]
+    MR[Modular Redundancy] --> FT
+    
+    FA --> FH[Fault Handling]
+    FD --> FH
+    FT --> FH
+</div>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/b66meq2q93z6abjbxrkmcdo">Software Testing</a></li>
+<li><a href="/notes/notes/lun3z8bba02pxnb9w8c92zv">Terminology</a></li>
+</ul>

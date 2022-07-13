@@ -1,0 +1,49 @@
+
+- A heap is a data structure that is a complete [[ser222.binary-tree]]
+- A binary tree is *heap-ordered* if each node is larger than or equal to the keys in its left and right subtrees
+- This means the largest element is always at the root of the tree in a max heap
+    - This can be reversed for a min heap
+
+**This assumes that the heap is a max heap.**
+
+## Array mapping
+
+- Although the tree could be represented as a linked structure, we can use an array to represent the tree
+    - This makes it easier to implement the heap operations
+- A complete binary tree is one where every level is full except for the last level
+- This will make accessing other nodes fast
+
+## Heap operations
+
+### Swim
+
+- Suppose we insert a new element `k` into the heap
+    - This element could be larger than its parent
+- We need to "swim" the element up to its correct position
+
+```java
+private void swim(int k) {
+    while (k > 1 && less(k / 2, k)) {
+        exch(k, k / 2);
+        k = k / 2;
+    }
+}
+```
+
+### Sink
+
+- Suppose we insert a new element 'k' into the heap
+    - This element could be smaller than its children
+- We need to "sink" the element down to its correct position
+
+```java
+private void sink(int k) {
+    while (2 * k <= N) {
+        int j = 2 * k;
+        if (j < N && less(j, j + 1)) j++;
+        if (!less(k, j)) break;
+        exch(k, j);
+        k = j;
+    }
+}
+```

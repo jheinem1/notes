@@ -1,0 +1,43 @@
+
+Presents elements from a collection one at a time while hiding how elements are concretely stored.
+## Interface
+```Java
+public interface Iterator<T> {
+    boolean hasNext(); // true if other element
+    T next();          // returns next element
+    void remove();     // removes current element
+}
+```
+Iterators inherently are mutable.
+
+## Implementation
+Suppose we wanted to support...
+```Java
+for (var i : someStack)
+    System.out.printf("element: %d\n", i);
+
+Iterator iter = someStack.iterator();
+while (!someStack.isEmpty())
+    someStack.pop();
+while (iter.hasNext())
+    System.out.printf("element: %d\n", iter.next());
+```
+We would have to implement the [[Iterator interface|ser222.iterator#interface]].
+```Java
+public class Stack<T> implements Iterable<T> {
+    ...
+    private Iterable<T> iterator() {
+        return new ReverseArrayIterator();
+    }
+    private class ReverseArrayIterator implements Iterator<T> {
+        private int i = n;
+        public boolean hasNext() { return i > 0; }
+        public Item next() { return data[--i]; } // [1]
+        public void remove() {} // [2]
+    }
+}
+```
+1. Is this valid?
+    - Assuming `data` is an array, this would be invalid as `data[-1]` could either throw an error or return an unknown value depending on the language.
+2. Why is this blank?
+    - Removing data from a fixed-length array is not possible. At most, the index could be set to `null` assuming it was an object array (stored only pointers).

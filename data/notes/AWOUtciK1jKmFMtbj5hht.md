@@ -1,0 +1,34 @@
+
+Everything we have said about velocity, position, and displacement carries over to more general situations. Suppose you are interested in some quantity $Q$ that changes over time; $Q$ may represent the amount of water in a reservoir, the population of a cell culture, or the amount of a resource that is consumed or produced. If you are given the rate $Q'$ at which $Q$ changes, then integration allows you to calculate either the net change in the quantity $Q$ or the future value of $Q$.
+
+We argue just as we did for [[mat266.velocity]] and [[mat266.position]]: Because $Q(t)$ is an antiderivative of $Q\prime(t)$, the [[mat266.fundamental-theorem]] tells us that
+$$
+\int_a^b{Q\prime(t)}{dt}=Q(b)-Q(a)=\text{net change in Q over [a,b]}
+$$
+Geometrically, this net change is the net area under the graph of $Q\prime$ over $[a,b]$. We interpret the product $Q\prime(t)$ as the change in $Q$ over a small increment of time.
+
+Alternatively, given both the rate of change $Q\prime$ and the initial value $Q(0)$, integrating over the interval $[0,t]$, where $t\geq0$, we can use
+$$
+\int_0^t{Q\prime(x)}{dx}=Q(t)-Q(0)
+$$
+Rearranging this equation, we write the value of $Q$ at any future time $t\geq0$ as
+$$
+Q(t)=Q(0)+\int_0^t{Q\prime(x)}{dx}
+$$
+## Net change and future value
+Suppose a quantity $Q$ changes over time at a known rate $Q\prime$. Then the **net change** in $Q$ between $t=a$ and $t=b>a$ is
+$$
+\int_0^t{Q\prime(x)}{dx}=Q(t)-Q(0)
+$$
+Given the initial value $Q(0)$, the **future value** of $Q$ at time $t\geq0$ is
+$$
+Q(t)=Q(0)+\int_0^t{Q\prime(x)}{dx}
+$$
+Correspondences between velocity-displacement problems and more general problems:
+
+Velocity-Displacement Problems | General Problems
+---------|----------
+Position $s(t)$ | Quantity $Q(t)$ (such as volume or population size)
+Velocity: $s\prime(t)=v(t)$ | Rate of change: $Q\prime(t)$
+Displacement: $s(b)-s(a)=\int_a^b{v(t)}{dt}$ | Net change: $Q(b)-Q(a)=\int_a^b{Q\prime(t)}{dt}$
+Future Position: $s(t)=s(0)+\int_0^t{v(x)}{dx}$ | Future value of $Q$: $Q(t)=Q(0)+\int_0^t{Q\prime(x)}{dx}$

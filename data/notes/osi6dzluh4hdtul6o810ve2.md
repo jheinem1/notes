@@ -1,0 +1,14 @@
+
+A power series is an [[mat266.infinite-series]] of the form
+
+$$
+\sum_{k=0}^{\infty} c_kx^k=c_0+c_1x+c_2x^2+\cdots+c_nx^n+c_{n+1}x^{n+1}+\cdots\text,
+$$
+
+or more generally,
+
+$$
+\sum_{k=0}^{\infty} c_k(x-a)^k=c_0+c_1(x-a)+\cdots+c_n(x-a)^n+c_{n+1}(x-a)^{n+1}+\cdots\text,
+$$
+
+where the center of the series $a$ and the coefficients $c_k$ are constants. This is called a power series because it consists of powers of $x$ or $(x-a)$.

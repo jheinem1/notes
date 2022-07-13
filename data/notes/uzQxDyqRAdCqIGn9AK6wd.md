@@ -1,0 +1,20 @@
+
+Big-Oh notation is a way of quantifying how methods scale based on the size of the data they process. For example, accessing an array is $O(1)$ whereas accessing a linked list is $O(n)$.
+^main
+
+## Common functions
+- $O(1)$
+    - Used for algorithms that always take a fixed amount of time to complete
+- $O(\log{n})$
+    - Used for algorithms where while the amount of data increases exponentially, the time it takes to complete increases linearly (becomes more efficient with increasing `n` size)
+- $O(n)$
+    - Used for algorithms that could require iterating over all the data once
+- $O(n^2)$
+    - Used for algorithms with nested loops
+    - The exponent increases based on the number of nested loops
+        - $O(n^3)$ could mean 3 nested for loops
+    - ```TypeScript
+    for (const v0 of iterable)
+        for (const v1 of iterable)
+            ...
+    ```

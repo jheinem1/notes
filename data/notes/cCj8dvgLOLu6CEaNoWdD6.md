@@ -1,0 +1,106 @@
+
+Calculus for Engineers II
+
+[Syllabus](assets/mat266_syllabus.pdf)
+
+| Instructor       | Matthew Isom                                                              |
+| ---------------- | ------------------------------------------------------------------------- |
+| **Office Hours** | Tues. and Thurs. 3:00-4:00 PM on [Zoom](https://asu.zoom.us/j/3082246524) |
+
+## Course Overview
+
+- Integral calculus
+
+(click "Go to text" for more information or see the corresponding section in the book available on [Pearson](https://canvas.asu.edu/courses/107500/external_tools/171283))
+
+## [6.1] Velocity, Position, and Displacement
+
+- [[mat266.velocity]]
+- [[mat266.position]]
+- [[mat266.displacement#Finding-the-displacement]]
+- [[mat266.position#Finding-the-future-position]]
+- [[mat266.acceleration#Velocity-from-acceleration]]
+- [[mat266.net-change-and-future-value#Net-change-and-future-value]]
+
+## [6.2] Regions between curves
+
+- [[mat266.regions-between-curves#Area-of-a-region-between-two-curves]]
+
+## [6.3] Volume by slicing
+
+- [[mat266.general-slicing-method]]
+- [[mat266.disk-method]]
+- [[mat266.washer-method]]
+
+## [6.4] Volume by shells
+
+- [[mat266.shell-method#Definition]]
+
+## [6.5] Length of curves
+
+- [[mat266.arc-length]]
+
+## [6.6] Surface area
+
+- [[mat266.surface-area#Definition]]
+
+## [6.7] Physical applications
+
+- [[mat266.mass]]
+- [[mat266.work#Definition]]
+- [[mat266.force-and-pressure]]
+
+## [8.2] Integration by Parts
+
+- [[mat266.integration-by-parts]]
+
+## [8.3] Trigonometric Integrals
+
+- [[mat266.trigonometric-integrals.integrating-powers-of-sin-and-cos]]
+- [[mat266.trigonometric-integrals.integrating-products-of-powers-of-sin-and-cos]]
+- [[mat266.trigonometric-integrals.reduction-formulas]]
+- [[mat266.trigonometric-integrals.integrating-products-of-powers-of-tan-and-sec]]
+
+## [8.4] Trigonometric Substitution
+
+- [[mat266.trigonometric-substitution]]
+
+## [8.5] Partial Fractions
+
+- [[mat266.partial-fractions]]
+
+## [8.6] Integration Strategies
+
+- [[mat266.simsons-rule]]
+
+## [9.1] Differential Equations
+
+- [[mat266.differential-equations]]
+
+## [10.1] Sequences & Infinite Series
+
+- [[mat266.sequences]]
+
+## [10.2] Sequences
+
+- [[mat266.sequences]]
+
+## [10.3] Geometric Series
+
+- [[mat266.geometric-sums]]
+- [[mat266.geometric-series]]
+- [[mat266.alternating-series]]
+
+## [11.2] Types of Series
+
+- [[mat266.power-series]]
+- [[mat266.polynomial-approximation]]
+- [[mat266.taylor-polynomials]]
+
+## [11.3] Taylor Series
+
+- [[mat266.taylor-series]]
+
+## Final Exam
+
+- [[mat266.final-exam]]

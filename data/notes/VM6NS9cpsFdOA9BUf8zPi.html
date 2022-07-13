@@ -1,0 +1,65 @@
+<h1 id="eskimo"><a aria-hidden="true" class="anchor-heading" href="#eskimo"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Eskimo</h1>
+<p><img src="/notes/assets/images/2022-01-18-13-20-41.png"></p>
+<div class="mermaid">
+  classDiagram
+    class Eskimo {
+        Size
+        Dress()
+        Smile()
+        Sleep()
+    }
+    Eskimo *-- "2..* (2 or more)" Shoe
+    class Shoe {
+        Size
+        Color
+        Type
+        Wear()
+    }
+    Eskimo *-- Coat
+    class Coat {
+        Size
+        Color
+        Type
+        Wear()
+    }
+</div>
+<p>Iterative modeling could lead to...</p>
+<div class="mermaid">
+  classDiagram
+    class Eskimo {
+        Size
+        Dress()
+        Smile()
+        Sleep()
+    }
+    Eskimo -- Outside : moves around
+    class Outside {
+        Temperature
+        Light
+        Season
+        Hunt()
+        Organize()
+    }
+    Eskimo -- Cave : lives in
+    class Cave {
+        Lighting
+        Enter()
+        Leave()
+    }
+    Cave -- "*" Entrance
+    Entrance -- Windhole
+    class Windhole {
+        Diameter
+    }
+    Entrance -- MainEntrance
+    class MainEntrance {
+        Size
+    }
+</div>
+<p>...but is this the right model?</p>
+<p>If it was an eskimo, yes, but it could have been a <a href="/notes/notes/pp5R67HnzDKOCiGVIJGmS">Face</a>.</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/INYyQFUJDXACFlWodcZes">Object-Oriented Decomposition</a></li>
+</ul>

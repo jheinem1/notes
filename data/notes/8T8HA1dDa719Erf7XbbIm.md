@@ -1,0 +1,30 @@
+
+![](/assets/images/2022-02-08-13-48-56.png)
+## Requirements
+Defines needed information, function behavior, performance, and interfaces
+## Design
+Data structures, software architecture, interface representations, algorithmic details
+## Implementation
+Source code, database, user documentation, testing
+## Strengths
+- Easy to understand & use
+- Provides structure to inexperienced staff
+- Milestones are well understood
+- Sets requirement stability
+- Good for management control (plan, staff track)
+- Works well when quality is more important than cost or schedule
+## Weaknesses
+- All requirements must be known up-front
+- Deliverables created for each phrase are considered frozen - inhibits flexibility
+- Can give a false impression of progress
+- Does not reflect the problem-solving nature of software
+- Integration is one big bang at the end
+- Little opportunity for customer to preview system
+- Not entirely realistic
+## When to use
+When...
+- Requirements are well known
+- Product definition is **stable**
+- Technology is understood
+- New version of existing product
+- Porting an existing product to a new platform

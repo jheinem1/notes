@@ -1,0 +1,65 @@
+<h1 id="directed-search"><a aria-hidden="true" class="anchor-heading" href="#directed-search"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Directed Search</h1>
+<p>Given a digraph and source <code>s</code>, is there a directed path from <code>s</code> to <code>v</code>?</p>
+<p>Given a digraph and a set of source vertices, is there a directed path from any vertex in the set to <code>v</code>?</p>
+<h2 id="search"><a aria-hidden="true" class="anchor-heading" href="#search"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Search</h2>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DirectedDFS</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span> marked<span class="token punctuation">;</span>
+
+    <span class="token doc-comment comment">/**
+     * Computes the vertices in a digraph reachable from the source vertex `s`.
+     * <span class="token keyword">@param</span> <span class="token parameter">G</span> the digraph
+     * <span class="token keyword">@param</span> <span class="token parameter">s</span> the source vertex
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">DirectedDFS</span><span class="token punctuation">(</span><span class="token class-name">Digraph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        marked <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token class-name">G<span class="token punctuation">.</span>V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">G</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+     * Computes the vertices in a digraph reachable from the source vertex `s`.
+     * <span class="token keyword">@param</span> <span class="token parameter">G</span> the digraph
+     * <span class="token keyword">@param</span> <span class="token parameter">sources</span> the source vertices
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">DirectedDFS</span><span class="token punctuation">(</span><span class="token class-name">Digraph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token class-name">Iterable</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> sources<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        marked <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token class-name">G<span class="token punctuation">.</span>V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> s <span class="token operator">:</span> sources<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>marked<span class="token punctuation">[</span>s<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">G</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">Digraph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        marked<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> w <span class="token operator">:</span> <span class="token class-name">G</span><span class="token punctuation">.</span><span class="token function">adj</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>marked<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">G</span><span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+     * Is there a directed path from the source vertex <span class="token punctuation">{</span><span class="token keyword">@code</span> <span class="token code-section"><span class="token code language-java">s</span></span><span class="token punctuation">}</span> to vertex <span class="token punctuation">{</span><span class="token keyword">@code</span> <span class="token code-section"><span class="token code language-java">v</span></span><span class="token punctuation">}</span>?
+     * <span class="token keyword">@param</span> <span class="token parameter">v</span> the vertex
+     * <span class="token keyword">@return</span> <span class="token punctuation">{</span><span class="token keyword">@code</span> <span class="token code-section"><span class="token code language-java"><span class="token boolean">true</span></span></span><span class="token punctuation">}</span> if there is a directed path, <span class="token punctuation">{</span><span class="token keyword">@code</span> <span class="token code-section"><span class="token code language-java"><span class="token boolean">false</span></span></span><span class="token punctuation">}</span> otherwise
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">marked</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> marked<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="multiple-source-reachability"><a aria-hidden="true" class="anchor-heading" href="#multiple-source-reachability"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Multiple-source reachability</h2>
+<p><img src="/notes/assets/images/2022-04-20-10-55-58.png"></p>
+<ul>
+<li>Directed search is often used in garbage collection
+<ul>
+<li>However this does require searching through <em>every</em> reference, so it is quite slow and not widely used in modern languages</li>
+<li>Many modern languages with garbage collection use <a href="/notes/notes/tzqryw7cvio30d35jwe2ntz">Reference Counting</a>, which doesn't handle edge-cases as well, but is significantly faster</li>
+</ul>
+</li>
+<li>The idea is that all objects that are on the stack are listed out, then all objects that are reachable from the stack are listed out
+<ul>
+<li>Remaining objects can be safely garbage collected</li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/uo2hl3yfhn58g5fuzj90q2r">Directed Graphs</a></li>
+<li><a href="/notes/notes/tzqryw7cvio30d35jwe2ntz">Reference Counting</a></li>
+</ul>

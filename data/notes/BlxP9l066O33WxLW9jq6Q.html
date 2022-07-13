@@ -1,0 +1,16 @@
+<h1 id="behavioral"><a aria-hidden="true" class="anchor-heading" href="#behavioral"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Behavioral</h1>
+<p>Behavioral Things are the dynamic parts of UML models.</p>
+<h2 id="interaction"><a aria-hidden="true" class="anchor-heading" href="#interaction"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Interaction</h2>
+<p>Events in a state machine, e.g. <code>EvCapsLockPressed</code> in the state machine below.</p>
+<h2 id="state-machine"><a aria-hidden="true" class="anchor-heading" href="#state-machine"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>State Machine</h2>
+<div class="mermaid">
+  stateDiagram-v2
+    [*] --> CapsLockOff
+    CapsLockOff --> CapsLockOn : EvCapsLockPressed
+    CapsLockOn --> CapsLockOff : EvCapsLockPressed
+</div>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/jBs5QbvNE9Cp7DuOwQYrB">Things</a></li>
+</ul>

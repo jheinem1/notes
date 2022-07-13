@@ -1,0 +1,32 @@
+
+Exponential functions have the form $f(x)=b^x$, where the base $b\ne1$ is a positive real number. Closely associated with exponential functions are logarithmic functions of the form $f(x)=\log_b{x}$, where $b\gt0$ and $b\ne1$. An exponential function has a domain consisting of all real numbers. Logarithmic functions are defined for positive real numbers
+
+The natural exponential function is $f(x)=e^x$, with base $b=e$, where $e\approx2.71828…$ is one of the fundamental constants of mathematics. Associated with the natural exponential function is the natural logarithm function $f(x)=\ln{x}$, which also has the base $b=e$.
+
+Radicals are equivalent to exponents, e.g. $16^{\frac{3}{4}}=(\sqrt[4]{16})^3$.
+
+## The Number $e$
+The number $e$ is the real number that satisfies
+$$
+\ln{e}=\int_1^e{\frac{dt}{t}}=1\text.
+$$
+The number $e$ has the property that the area of the region bounded by the graph of $y=\frac1t$ and the $t$-axis on the interval $[1,e]$ is $1$.
+![](/assets/images/2022-02-16-13-46-53.png)
+
+## The Exponential Function
+For any real number $x$, $y=e^x=exp(x)$, where $x=\ln{y}$.
+
+## Properties of $e^x$
+The exponential function $e^x$ satisfies the following properties, all of which follow from the integral definition of $\ln{x}$. Let $x$ and $y$ be real numbers.
+1. $e^{x+y}=e^xe^y$
+2. $e^{x-y}=\frac{e^x}{e^y}$
+3. $(e^x)^p=e^{xp}$, where $p$ is a rational number
+4. $\ln{e^x}=x$
+5. $e^{\ln{x}}=x$, for $x\gt0$
+## Derivative and Integral of the Exponential Function
+For real numbers $x$,
+$$
+\frac{d}{dx}(e^{u(x)})=e^{u(x)}u\prime(x)\text{ and }\int{e^x}{dx}=e^x+C
+$$
+## Example
+![](/assets/images/2022-02-20-19-07-18.png)

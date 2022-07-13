@@ -1,0 +1,21 @@
+
+All objects in Java are subclasses of the `Object` class and inherit methods and fields such as...
+```Java
+// Checks for equality between objects
+// Must account for 'null'
+// Must check class type
+public boolean equals(Object obj)
+```
+```Java
+// String representation of an object
+public String toString()
+```
+```Java
+// Returns (generally unique) number representing the object
+// Generally used to compare the object's internal state
+public int hashCode()
+```
+```Java
+// Returns a deep copy of the object
+protected Object clone() throws CloneNotSupportedException
+```

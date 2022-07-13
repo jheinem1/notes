@@ -1,0 +1,8 @@
+
+The **position** of an object at time $t$, denoted $s(t)$, is the location of the object relative to the origin.
+^main
+## Finding the future position
+Suppose we know the velocity of an object and its initial position ($s(0)$). The goal is to find the position $s(t)$ for $t>0$. The [[mat266.fundamental-theorem]] gives us the answer directly. Because the position $s$ is an antiderivative of the velocity $v$, we have
+$$
+\int^t_0{v(x)}{dx}=\int^t_0{s\prime(x)}{dx}=s(t)-s(0)
+$$

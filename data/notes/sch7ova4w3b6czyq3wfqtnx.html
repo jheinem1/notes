@@ -1,0 +1,19 @@
+<h1 id="linear-probing"><a aria-hidden="true" class="anchor-heading" href="#linear-probing"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Linear Probing</h1>
+<ul>
+<li>Suppose there was an array of size <code>M</code>, where <code>M</code> is at least as big as <code>n</code></li>
+<li>At each position, there is a key-value pair</li>
+<li>When inserting or searching an element, a hash function is used to map the key to an array index</li>
+<li>If that index is empty, use it, otherwise, keep looking for an empty index</li>
+<li>Essentially, instead of storing the key-value pairs in linked lists, we directly store all key-value pairs in the array
+<ul>
+<li>This works best for ordered data, but can be used for unordered data as well</li>
+</ul>
+</li>
+<li>The main cost of linear probing is that inserts are <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> due to the need to resize the array when it is full rather than relying on the <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></span> inserts of linked lists</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/TzkCyXooADlBmPWjKo0ds">SER-222</a></li>
+<li><a href="/notes/notes/wjjrm0v8qhtld318yuqq5i4">Hash Table</a></li>
+</ul>

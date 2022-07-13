@@ -1,0 +1,106 @@
+<h1 id="adj-for-algorithms-analysis"><a aria-hidden="true" class="anchor-heading" href="#adj-for-algorithms-analysis"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>ADJ for Algorithms: Analysis</h1>
+<p>Analysis is the stage at which the problem is defined.</p>
+<p>For example...</p>
+<ul>
+<li><em>What is meant by "updating" a Priority Queue?</em></li>
+<li><em>Are any (reasonable) assumptions needed?</em></li>
+<li><em>How is data represented?</em></li>
+</ul>
+<h2 id="problem-statement"><a aria-hidden="true" class="anchor-heading" href="#problem-statement"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Problem statement</h2>
+<p>For the purposes of demonstration, we will use a sample design problem.</p>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Problem Statement</span></div>
+<a href="/notes/notes/qfa4p6mo2v96lr97z53vosk" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><blockquote>
+<p>Design an efficient algorithm to update the priority of an entry inside a priority queue. Analyze the problem, design an algorithm for updating the priority queue, and justify the algorithm's optimality.</p>
+</blockquote>
+<h2 id="thoughts"><a aria-hidden="true" class="anchor-heading" href="#thoughts"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Thoughts...</h2>
+<ul>
+<li>How might ADJ be different for an algorithm than other examples?</li>
+<li>Is this problem possible?</li>
+<li>Can this problem be solved by something we know about already?</li>
+<li>Are any aspects of this problem undefined?</li>
+<li>What should be our first steps?</li>
+</ul>
+</div></div><p></p><p></p>
+<h2 id="understanding-the-problem"><a aria-hidden="true" class="anchor-heading" href="#understanding-the-problem"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Understanding the problem</h2>
+<p>Under specified aspects:</p>
+<ul>
+<li><em>Is this a max or min PQ?</em>
+<ul>
+<li>This is a max PQ</li>
+</ul>
+</li>
+<li><em>What implementation do we need to support?</em>
+<ul>
+<li>Sedgewick's</li>
+</ul>
+</li>
+</ul>
+<h2 id="doing-examples-by-hand"><a aria-hidden="true" class="anchor-heading" href="#doing-examples-by-hand"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Doing examples by hand</h2>
+<p><img src="/notes/assets/images/2022-03-16-11-05-43.png"></p>
+<p>Before you begin writing code, ensure you know what exactly you are trying to solve.</p>
+<h2 id="definitions"><a aria-hidden="true" class="anchor-heading" href="#definitions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Definitions</h2>
+<blockquote>
+<p>Design an efficient algorithm to update the priority of an entry inside a priority queue.</p>
+</blockquote>
+<p>There is ambiguity in this statement, so we will make assumptions about the problem.</p>
+<h3 id="assumptions"><a aria-hidden="true" class="anchor-heading" href="#assumptions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Assumptions</h3>
+<ul>
+<li>The priority queue is a max priority queue</li>
+<li>The specific implementation is Sedgewick's</li>
+<li>The algorithm will assume that it operates over a valid PQ and produces a valid PQ</li>
+</ul>
+<h3 id="definitions-1"><a aria-hidden="true" class="anchor-heading" href="#definitions-1"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Definitions</h3>
+<ol>
+<li><a href="/notes/notes/pswkhuweiczpfii3orp1cji">Binary Tree</a></li>
+<li><a href="/notes/notes/76flzqkgowz5uua7kef0bnb">Complete Binary Tree</a></li>
+<li><a href="/notes/notes/n8v9ra9di5cmdpq870z0vrp">Heap</a></li>
+<li><a href="/notes/notes/pswkhuweiczpfii3orp1cji#Mapping to an array">Heap-ordered Array</a></li>
+<li><a href="/notes/notes/rm3v8zh3u4s8ccf2tdk0grn">Priority Queue</a></li>
+</ol>
+<h3 id="pseudocode"><a aria-hidden="true" class="anchor-heading" href="#pseudocode"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Pseudocode</h3>
+<pre class="language-python"><code class="language-python">n<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token comment"># number of elements in the PQ</span>
+keys<span class="token punctuation">:</span> <span class="token punctuation">[</span>Key<span class="token punctuation">]</span> <span class="token comment"># array of keys containing 'n' elements</span>
+values<span class="token punctuation">:</span> <span class="token punctuation">[</span>Value<span class="token punctuation">]</span> <span class="token comment"># array of values containing 'n' elements</span>
+
+<span class="token keyword">def</span> <span class="token function">update</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> Value<span class="token punctuation">,</span> new_priority<span class="token punctuation">:</span> Key<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    Changes the priority of the node with the given value to the new priority.
+    
+    Parameters
+    ----------
+    value: Value
+        The value of the node to update
+    new_priority: Key
+        The new priority of the node
+    """</span>
+</code></pre>
+<h2 id="metrics"><a aria-hidden="true" class="anchor-heading" href="#metrics"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Metrics</h2>
+<blockquote>
+<p>Design an efficient algorithm to update the priority of an entry inside a priority queue.</p>
+</blockquote>
+<p>Need to find what is important, distill it, and define it.</p>
+<ul>
+<li>M1: The ability of the algorithm to process a heap sorted array with at most one node which violates the heap rule and produce a heap-sorted array with no violations of the maximum heap rule. The array must contain a complete tree at all times</li>
+<li>M2: The efficiency of the algorithm. In this case, we can use the number of lines run as a measure of computational time.</li>
+</ul>
+<h2 id="conclusion"><a aria-hidden="true" class="anchor-heading" href="#conclusion"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Conclusion</h2>
+<p>We've...</p>
+<ul>
+<li>Understood the problem</li>
+<li>Created a sound technical context for the problem</li>
+<li>Determined what makes a good solution</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/cbwqvn7mgvc262hvxs5m3r6">ADJ for Algorithms</a></li>
+<li><a href="/notes/notes/e5jec1f6w7q2m03fu06zld4">Design</a></li>
+</ul>

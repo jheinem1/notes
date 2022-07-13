@@ -1,0 +1,23 @@
+<h1 id="invalid-radius-exception"><a aria-hidden="true" class="anchor-heading" href="#invalid-radius-exception"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Invalid Radius Exception</h1>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InvalidRadiusException</span> <span class="token keyword">extends</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">double</span> radius<span class="token punctuation">;</span>
+
+  <span class="token doc-comment comment">/** Construct an exception */</span>
+
+  <span class="token keyword">public</span> <span class="token class-name">InvalidRadiusException</span><span class="token punctuation">(</span><span class="token keyword">double</span> radius<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token string">"Invalid radius "</span> <span class="token operator">+</span> radius<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>radius <span class="token operator">=</span> radius<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token doc-comment comment">/** Return the radius */</span>
+  <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">getRadius</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> radius<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/d8guddw1p0js6ioo2x54avh">Exception Handling</a></li>
+</ul>

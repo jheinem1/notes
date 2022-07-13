@@ -1,0 +1,52 @@
+<h1 id="abstract-data-types"><a aria-hidden="true" class="anchor-heading" href="#abstract-data-types"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Abstract Data Types</h1>
+<h2 id="overview"><a aria-hidden="true" class="anchor-heading" href="#overview"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Overview</h2>
+<ul>
+<li>Abstract data type (ADT): a datatype that is represented in terms
+of operations, and whose internal representation is hidden.</li>
+<li>Naturally defined by objects – but adds emphasis on abstraction.</li>
+<li>A user of an ADT is meant to be isolated from its implementation
+(e.g., internal presentation). They should care only for the
+behavior that is exposed (via an API).</li>
+</ul>
+<h2 id="dynamic-view"><a aria-hidden="true" class="anchor-heading" href="#dynamic-view"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Dynamic View</h2>
+<ul>
+<li>Rather than relying on a class/object view, ADTs can be represented in terms of operations happening over types
+<ul>
+<li>add: Point2D ⨯ Point2D → Point2D</li>
+<li>subtract: Point2D ⨯ Point2D → Point2D</li>
+<li>getX: Point2D → double</li>
+<li>getDistance: Point2D ⨯ Point2D → double</li>
+<li>equal: Point2D ⨯ Point2D → boolean</li>
+</ul>
+</li>
+<li>ADTs have two basic operations
+<ul>
+<li>Transformations</li>
+<li>Information exstraction</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage"><a aria-hidden="true" class="anchor-heading" href="#usage"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Usage</h2>
+<p>Since ADTs are implemented using classes, they use all operations allowed for classes, e.g.</p>
+<ul>
+<li>Creation <code>LinkedStack stack = new LinkedStack();</code></li>
+<li>Invocation <code>stack.push(5);</code></li>
+<li>Copy Behavior <code>=</code></li>
+</ul>
+<h2 id="adts-vs-classes"><a aria-hidden="true" class="anchor-heading" href="#adts-vs-classes"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>ADTs VS Classes</h2>
+<ul>
+<li>ADTs are differnet from classes because of abstraction
+<ul>
+<li>An ADT does not expose internal representations</li>
+<li>Classes have no such restrictions</li>
+<li>Purely a design difference (not enforced by syntax)</li>
+</ul>
+</li>
+<li>ADTs are <strong>not</strong> abstract classes</li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/ukH1dV6FO1EoihqCSm1cG">Examples</a></li>
+<li><a href="/notes/notes/GBy4GgyD2AUD98MS6TmTt">Implementing ADTs</a></li>
+</ol>

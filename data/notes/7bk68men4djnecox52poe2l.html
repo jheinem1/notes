@@ -1,0 +1,468 @@
+<h1 id="undirected-graphs"><a aria-hidden="true" class="anchor-heading" href="#undirected-graphs"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Undirected Graphs</h1>
+<h2 id="terminology"><a aria-hidden="true" class="anchor-heading" href="#terminology"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Terminology</h2>
+<ul>
+<li>Graphs
+<ul>
+<li><a href="/notes/notes/uo2hl3yfhn58g5fuzj90q2r">Directed</a> vs <a href="/notes/notes/7bk68men4djnecox52poe2l">undirected</a></li>
+<li>Vertices (angular points, adjacent)</li>
+<li>Edges (lines, incident)</li>
+</ul>
+</li>
+<li>Self-looping nodes
+<ul>
+<li>Nodes that are connected in such a way that a "loop" exists when the node is traversed</li>
+</ul>
+</li>
+<li>Parallel edges
+<ul>
+<li>Edges that are incident to the same node</li>
+</ul>
+</li>
+</ul>
+<h2 id="basic-idea"><a aria-hidden="true" class="anchor-heading" href="#basic-idea"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Basic idea</h2>
+<ul>
+<li>Graphs are similar to linked lists and trees, but they have no defined order</li>
+</ul>
+<div class="mermaid">
+  flowchart LR
+    A &#x3C;--> B
+    B &#x3C;--> C
+    C &#x3C;--> A
+</div>
+<h2 id="graph-api"><a aria-hidden="true" class="anchor-heading" href="#graph-api"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Graph API</h2>
+<div class="mermaid">
+  classDiagram
+    class Graph {
+        Graph(int V)
+        Graph(In in)
+        V() int
+        E() int
+        addEdge(int v, int w)
+        adj(int v) Iterable
+        toString() String
+    }
+</div>
+<h3 id="compute-the-degree-of-a-vertex"><a aria-hidden="true" class="anchor-heading" href="#compute-the-degree-of-a-vertex"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Compute the degree of a vertex</h3>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">degree</span><span class="token punctuation">(</span><span class="token class-name">Graph</span> g<span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> degree <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> w <span class="token operator">:</span> g<span class="token punctuation">.</span><span class="token function">adj</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        degree<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> degree<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="count-number-of-self-loops"><a aria-hidden="true" class="anchor-heading" href="#count-number-of-self-loops"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Count number of self-loops</h3>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">numberOfSelfLoops</span><span class="token punctuation">(</span><span class="token class-name">Graph</span> g<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> v <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> v <span class="token operator">&#x3C;</span> <span class="token class-name"><span class="token namespace">g<span class="token punctuation">.</span></span>V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> v<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> w <span class="token operator">:</span> g<span class="token punctuation">.</span><span class="token function">adj</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>v <span class="token operator">==</span> w<span class="token punctuation">)</span>
+                count<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> count <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="implementing-the-graph-adt"><a aria-hidden="true" class="anchor-heading" href="#implementing-the-graph-adt"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Implementing the graph ADT</h2>
+<ul>
+<li>Ideally we want
+<ul>
+<li>Low space usage: linear</li>
+<li>Fast to add edges: constant</li>
+<li>Fast to find edge on vertex: linear</li>
+</ul>
+</li>
+<li>We also want to support
+<ul>
+<li>Self-loops</li>
+<li>Parallel edges</li>
+</ul>
+</li>
+<li>Possible implementations
+<ul>
+<li>Adjacency matrix</li>
+<li>Adjacency list</li>
+</ul>
+</li>
+</ul>
+<h3 id="adjacency-matrix"><a aria-hidden="true" class="anchor-heading" href="#adjacency-matrix"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Adjacency matrix</h3>
+<p>For a graph of <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></span> vertices, make a <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></span> by <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></span> matrix, where each index corresponds directly to an edge</p>
+<div class="mermaid">
+  flowchart LR
+    0 --- 1
+    1 --- 2
+    1 --- 4
+    2 --- 4
+    1 --- 3
+    4 --- 3
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr></thead><tbody><tr><td>0</td><td></td><td>T</td><td></td><td></td><td></td></tr><tr><td>1</td><td>T</td><td></td><td>T</td><td>T</td><td>T</td></tr><tr><td>2</td><td></td><td>T</td><td></td><td></td><td>T</td></tr><tr><td>3</td><td></td><td>T</td><td></td><td></td><td>T</td></tr><tr><td>4</td><td></td><td>T</td><td>T</td><td>T</td><td></td></tr></tbody></table>
+<ul>
+<li>Requires <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">V^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span> space</li>
+<li>Supports self-loops</li>
+<li>Supports parallel edges</li>
+</ul>
+<h3 id="adjacency-list"><a aria-hidden="true" class="anchor-heading" href="#adjacency-list"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Adjacency list</h3>
+<p>For a graph of <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></span> vertices, mane an array of <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></span> linked lists, where each index corresponds to a list of vertices that are connected to that index.</p>
+<div class="mermaid">
+  flowchart LR
+    0 --- 1
+    1 --- 2
+    1 --- 4
+    2 --- 4
+    1 --- 3
+    4 --- 3
+</div>
+<p><img src="/notes/assets/images/2022-04-13-10-45-56.png"></p>
+<ul>
+<li>Requires <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>+</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">V+E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span></span> space</li>
+<li>Supports self-loops</li>
+<li>Supports parallel edges</li>
+<li>Difficult to check if nodes are connected in constant time</li>
+<li>Uses significantly less space than a matrix</li>
+</ul>
+<h2 id="searching"><a aria-hidden="true" class="anchor-heading" href="#searching"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Searching</h2>
+<ul>
+<li>Given an undirected graph, are two vertices connected?</li>
+</ul>
+<div class="mermaid">
+  classDiagram
+    class Search {
+        Search(Graph G, int s)
+        marked(int v) boolean
+        count() int
+    }
+</div>
+<ul>
+<li>This API is a little overboard for solving the problem, but it makes for a better UML diagram</li>
+</ul>
+<div class="mermaid">
+  flowchart LR
+    0 --- 1
+    2
+    1 --- 3
+    3 --- 4
+    1 --- 4
+</div>
+<pre class="language-java"><code class="language-java"><span class="token keyword">var</span> search <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Search</span><span class="token punctuation">(</span><span class="token class-name">G</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>search<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>search<span class="token punctuation">.</span><span class="token function">marked</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>search<span class="token punctuation">.</span><span class="token function">marked</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+</code></pre>
+<ul>
+<li>In other languages, this would probably be more easily implemented as a function
+<ul>
+<li>Or, <code>Graph</code> could implement the <code>Search</code> interface</li>
+</ul>
+</li>
+</ul>
+<h3 id="depth-first-search"><a aria-hidden="true" class="anchor-heading" href="#depth-first-search"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Depth-first search</h3>
+<ol>
+<li>Start at some node</li>
+<li>Mark it as visited</li>
+<li>Recursively visit each of its neighbors if they are not marked</li>
+</ol>
+<pre class="language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">Graph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    marked<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    count<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> w <span class="token operator">:</span> <span class="token class-name">G</span><span class="token punctuation">.</span><span class="token function">adj</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>marked<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">G</span><span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="implementation"><a aria-hidden="true" class="anchor-heading" href="#implementation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Implementation</h3>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DepthFirstSearch</span> <span class="token keyword">implements</span> <span class="token class-name">Search</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span> marked<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> count<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">DepthFirstSearch</span><span class="token punctuation">(</span><span class="token class-name">Graph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        marked <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token class-name">G<span class="token punctuation">.</span>V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">G</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">Graph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">marked</span><span class="token punctuation">(</span><span class="token keyword">int</span> w<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> marked<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="pathing"><a aria-hidden="true" class="anchor-heading" href="#pathing"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Pathing</h2>
+<ul>
+<li>Given an undirected graph, are two vertices connected?</li>
+</ul>
+<div class="mermaid">
+  classDiagram
+    class Paths {
+        Paths(Graph G, int s)
+        hasPathTo(int v) boolean
+        pathTo(int v) Iterable
+    }
+</div>
+<ul>
+<li>DFS can easily be extended to find all paths
+<ul>
+<li>However, it may not be the ideal solution</li>
+<li>DFS may find <em>a</em> path, but not necessarily the shortest</li>
+</ul>
+</li>
+</ul>
+<div class="mermaid">
+  flowchart LR
+    0 --- 1
+    1 --- 3
+    3 --- 4
+    1 --- 4
+    2
+</div>
+<ul>
+<li>When used on the above nodes, DFS might find the path <code>0 -> 1 -> 3 -> 4</code>
+<ul>
+<li>This is <strong>not</strong> the shortest path</li>
+</ul>
+</li>
+<li>BFS, although slower, would observe <em>all</em> possible paths, and would always find the shortest path; <code>0 -> 1 -> 4</code></li>
+</ul>
+<pre class="language-java"><code class="language-java"><span class="token keyword">var</span> paths <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Paths</span><span class="token punctuation">(</span><span class="token class-name">G</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>paths<span class="token punctuation">.</span><span class="token function">hasPathTo</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>paths<span class="token punctuation">.</span><span class="token function">hasPathTo</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> v <span class="token operator">:</span> paths<span class="token punctuation">.</span><span class="token function">pathTo</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0, 1, 4 (DFS could fail to find this)</span>
+</code></pre>
+<h3 id="using-dfs"><a aria-hidden="true" class="anchor-heading" href="#using-dfs"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Using DFS</h3>
+<ul>
+<li>New variable is `edgeTo
+<ul>
+<li>Gets updated for each call in <code>dfs</code></li>
+</ul>
+</li>
+</ul>
+<pre class="language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">Graph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    marked<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> w <span class="token operator">:</span> <span class="token class-name">G</span><span class="token punctuation">.</span><span class="token function">adj</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>marked<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            edgeTo<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> v<span class="token punctuation">;</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">G</span><span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>This is <strong>not</strong> the shortest path!</li>
+</ul>
+<h3 id="breadth-first-search"><a aria-hidden="true" class="anchor-heading" href="#breadth-first-search"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Breadth-first search</h3>
+<ol>
+<li>Start at some node</li>
+<li>Mark it as visited</li>
+<li>Add its neighbors to a queue if they are not marked</li>
+<li>Remove the first node from the queue and mark it as visited</li>
+<li>Add its neighbors to the queue if they are not marked</li>
+<li>Repeat step 4 until the queue is empty</li>
+</ol>
+<pre class="language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">bfs</span><span class="token punctuation">(</span><span class="token class-name">Graph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Queue</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Queue</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    marked<span class="token punctuation">[</span>s<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    queue<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>queue<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> v <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> w <span class="token operator">:</span> <span class="token class-name">G</span><span class="token punctuation">.</span><span class="token function">adj</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>marked<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                edgeTo<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> v<span class="token punctuation">;</span>
+                marked<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                queue<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="implementation-1"><a aria-hidden="true" class="anchor-heading" href="#implementation-1"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Implementation</h3>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BreadthFirstPaths</span> <span class="token keyword">implements</span> <span class="token class-name">Paths</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span> marked<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> edgeTo<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> s<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">BreadthFirstPaths</span><span class="token punctuation">(</span><span class="token class-name">Graph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        marked <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token class-name">G<span class="token punctuation">.</span>V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        edgeTo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">G<span class="token punctuation">.</span>V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>s <span class="token operator">=</span> s<span class="token punctuation">;</span>
+        <span class="token function">bfs</span><span class="token punctuation">(</span><span class="token class-name">G</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">bfs</span><span class="token punctuation">(</span><span class="token class-name">Graph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasPathTo</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> marked<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Iterable</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">pathTo</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">hasPathTo</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> path <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> x <span class="token operator">=</span> v<span class="token punctuation">;</span> x <span class="token operator">!=</span> s<span class="token punctuation">;</span> x <span class="token operator">=</span> edgeTo<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            path<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        path<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> path<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="example"><a aria-hidden="true" class="anchor-heading" href="#example"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Example</h3>
+<div class="mermaid">
+  flowchart LR
+    1 --- 4
+    6 --- 1
+    4 --- 6
+    5 --- 3
+    0 --- 2
+    2 --- 3
+    5 --- 6
+    0 --- 5
+</div>
+<h4 id="start"><a aria-hidden="true" class="anchor-heading" href="#start"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Start:</h4>
+<ul>
+<li><code>M</code> represents an array of marked vertices</li>
+<li><code>Q</code> represents the queue of vertices to visit</li>
+<li><code>V</code> represents the current vertex</li>
+<li><code>M[4] = T</code></li>
+<li><code>Q = [4]</code></li>
+</ul>
+<h4 id="loop-1"><a aria-hidden="true" class="anchor-heading" href="#loop-1"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Loop 1:</h4>
+<ul>
+<li><code>V = 4</code></li>
+<li><code>ET[1] = 4</code></li>
+<li><code>M[1] = T</code></li>
+<li><code>ET[6] = 4</code></li>
+<li><code>M[6] = T</code></li>
+<li><code>Q = [6, 1]</code></li>
+</ul>
+<h4 id="loop-2"><a aria-hidden="true" class="anchor-heading" href="#loop-2"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Loop 2:</h4>
+<ul>
+<li><code>V = 1</code></li>
+<li><code>Q = [6]</code></li>
+</ul>
+<h4 id="loop-3"><a aria-hidden="true" class="anchor-heading" href="#loop-3"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Loop 3:</h4>
+<ul>
+<li><code>V = 6</code></li>
+<li><code>ET[5] = 6</code></li>
+<li><code>M[5] = T</code></li>
+<li><code>Q = [5]</code></li>
+</ul>
+<h4 id="loop-4"><a aria-hidden="true" class="anchor-heading" href="#loop-4"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Loop 4:</h4>
+<ul>
+<li><code>V = 5</code></li>
+<li><code>ET[0] = 5</code></li>
+<li><code>M[0] = T</code></li>
+<li><code>ET[3] = 5</code></li>
+<li><code>M[3] = T</code></li>
+<li><code>Q = [3, 0]</code></li>
+</ul>
+<h4 id="loop-5"><a aria-hidden="true" class="anchor-heading" href="#loop-5"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Loop 5:</h4>
+<ul>
+<li><code>V = 0</code></li>
+<li><code>ET[2] = 5</code></li>
+<li><code>M[2] = T</code></li>
+<li><code>Q = [2, 3]</code></li>
+</ul>
+<h4 id="loop-6"><a aria-hidden="true" class="anchor-heading" href="#loop-6"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Loop 6:</h4>
+<ul>
+<li><code>V = 3</code></li>
+<li><code>Q = [2]</code></li>
+</ul>
+<h4 id="loop-7"><a aria-hidden="true" class="anchor-heading" href="#loop-7"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Loop 7:</h4>
+<ul>
+<li><code>V = 2</code></li>
+<li><code>Q = []</code></li>
+</ul>
+<h3 id="bfs-vs-dfs"><a aria-hidden="true" class="anchor-heading" href="#bfs-vs-dfs"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>BFS vs DFS</h3>
+<ul>
+<li>Both algorithms solve the same problem</li>
+<li>DFS extends the current path using the newest node</li>
+<li>BFS looks at the oldest node first</li>
+<li>BFS is safer for graphs with an unknown or potentially near-infinite number of nodes</li>
+<li>DFS is better for traversing small graphs with a known number of nodes</li>
+</ul>
+<h2 id="theoretic-applications"><a aria-hidden="true" class="anchor-heading" href="#theoretic-applications"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Theoretic applications</h2>
+<h3 id="connected-components"><a aria-hidden="true" class="anchor-heading" href="#connected-components"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Connected components</h3>
+<ul>
+<li>A connected component is a set of a graph where every pair of vertices are connected by some path</li>
+</ul>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ConnectedComponent</span> <span class="token punctuation">{</span>
+    <span class="token keyword">boolean</span> <span class="token function">connected</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">,</span> <span class="token keyword">int</span> w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">id</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>This is really just DFS with a loop to get all connected components</li>
+</ul>
+<h3 id="detecting-cycles"><a aria-hidden="true" class="anchor-heading" href="#detecting-cycles"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Detecting cycles</h3>
+<ul>
+<li>A cycle is a path where the first and last nodes are the same</li>
+<li>The <code>marked</code> array in both DFS and BFS can be used to detect cycles</li>
+</ul>
+<h3 id="k-coloring"><a aria-hidden="true" class="anchor-heading" href="#k-coloring"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>k-Coloring</h3>
+<ul>
+<li>Can the vertices of a graph be colored with <code>k</code> different colors in a way that no adjacent nodes have the same color?</li>
+<li>All you need to do is label each node as the graph is traversed, alternating color (unless you have a cycle)</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/TzkCyXooADlBmPWjKo0ds">SER-222</a></li>
+<li><a href="/notes/notes/uo2hl3yfhn58g5fuzj90q2r">Directed Graphs</a></li>
+<li><a href="/notes/notes/7bk68men4djnecox52poe2l">Undirected Graphs</a></li>
+<li><a href="/notes/notes/c040vmtw22mec28ra78pf7i">Directed Cycle</a></li>
+</ul>

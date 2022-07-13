@@ -1,0 +1,12 @@
+
+Calculus is the study of functions.
+
+## Definition
+A function $f$ is a rule that assigns to each value $x$ in a set $D$ a unique value denoted $f(x)$. The set $D$ is the domain of the function. The range is the set of all value of $f(x)$ produced as x varies over the domain.
+![](/assets/images/2022-01-12-13-05-10.png)
+## What is a function?
+A function must assign a unique value of the dependent variable to each value in the domain- demonstrated in the vertical line test.
+![](/assets/images/2022-01-12-13-06-07.png)
+
+## Common notation
+$y=f(x)$, unless told otherwise, can be expressed as "$y$ is a function of $x$".

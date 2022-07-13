@@ -1,0 +1,9 @@
+<h1 id="tablesort"><a aria-hidden="true" class="anchor-heading" href="#tablesort"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>table.sort</h1>
+<pre class="language-lua"><code class="language-lua">table<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>t<span class="token punctuation">:</span> Array<span class="token punctuation">,</span> cmp<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">:</span> unknown<span class="token punctuation">,</span> b<span class="token punctuation">:</span> unknown<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> boolean<span class="token punctuation">)</span>?<span class="token punctuation">)</span>
+</code></pre>
+<p>If no <code>cmp</code> function is provided, sorts an array of numbers using the equivalent of</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> a <span class="token operator">&#x3C;</span> b
+<span class="token keyword">end</span>
+</code></pre>
+<p>. If <code>cmp</code> is provided, it is used to compare the elements.</p>

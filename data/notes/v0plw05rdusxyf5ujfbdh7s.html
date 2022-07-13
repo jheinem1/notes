@@ -1,0 +1,58 @@
+<h1 id="testing-activities"><a aria-hidden="true" class="anchor-heading" href="#testing-activities"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Testing Activities</h1>
+<ul>
+<li>It is impossible to completely test any nontrivial module in a system
+<ul>
+<li>Practical limitations
+<ul>
+<li>Complete testing is prohibitive in time and cost</li>
+</ul>
+</li>
+<li>Theoretical limitations
+<ul>
+<li>e.g. halting problem</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>"Testing can only show the presence of bugs, not their absence" (Dijkstra)</li>
+<li>Testing is not free</li>
+</ul>
+<h2 id="testing-takes-creativity"><a aria-hidden="true" class="anchor-heading" href="#testing-takes-creativity"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Testing takes creativity</h2>
+<ul>
+<li>To develop an effective test, one must have...
+<ul>
+<li>Detailed understanding of the system</li>
+<li>Application and solution domain knowledge</li>
+<li>Knowledge of the testing techniques</li>
+<li>Skill to apply testing techniques</li>
+</ul>
+</li>
+<li>Testing is best done by independent testers
+<ul>
+<li>We often develop a certain mental attitude that the problem should behave a certain way when it does not</li>
+<li>Programmers often stick to the data set that makes the program work</li>
+<li>A program often does not work when tried by somebody else</li>
+</ul>
+</li>
+</ul>
+<h2 id="testing-activities-1"><a aria-hidden="true" class="anchor-heading" href="#testing-activities-1"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Testing activities</h2>
+<div class="mermaid">
+  flowchart TD
+    subgraph Developer
+        ODD[Object Design Document] --> UT[Unit Testing]
+        SDD[System Design Document] --> IT[Integration Testing]
+        RAD[Requirement Analysis Document] --> ST[System Testing]
+    end
+    subgraph Client
+        CE[Client Expectation] --> AT[Acceptance Testing]
+    end
+
+    IT --> ST
+    ST --> AT
+    UT --> IT
+</div>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/b66meq2q93z6abjbxrkmcdo">Software Testing</a></li>
+</ul>

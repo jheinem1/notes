@@ -1,0 +1,112 @@
+
+A process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer.
+
+For example, a recipe for a pizza.
+
+## Characterizing algorithms
+### Understanding programs
+- Suppose you managed to obtain an internship at a coveted company
+- Unfortunately the company has brought in several interns but only has one position
+- As part of your work, you are asked to write an algorithm to solve a problem
+- At the end you need to present your solution and demonstrate how it is better
+    - There is no way to argue one implementation vs another!
+- We need a way to categorize the algorithms
+### Terminology
+#### P & NP
+- `NP != P`?
+- `P` represents a possible range values `n` could be and still be computed in a reasonable amount of time
+- `NP` represents a possible range of values `n` could *not* be and still be completed
+- Continues into `P SPACE`, `EXP SPACE`, etc.  
+- The highest complexity problem is the halting problem, where it's impossible to write a program to determine whether another (Turing complete) program loops infinitely
+#### Problem Size
+- `n` is typically used as a variable when dealing with problem size
+    - Could be...
+        - Size of an array (search/sorting)
+        - Value of integer (factorial)
+        - Length of a string (reverse/copying)
+#### Growth function
+- Computes the number of operations for an implementation to execute on a problem of size `n`
+- May be written as $f(n)$, $t(n)$, etc.
+    - $f(n)=1$
+        - A method that always executes one operation
+    - $f(n)=1+n$
+        - A method that performs a fixed operation and then an operation that depends on the problem size
+#### Big-Oh
+![[ser222.big-oh-notation#^main]]
+## Analysis approaches
+### Analytical approach
+![[ser222.analytical-analysis#^main]]
+### Empirical approach
+![[ser222.empirical-analysis#^main]]
+## Asymptotics
+![[ser222.algorithms.asymptotics#^main]]
+## Analytical analysis
+### Defining $F(N)$
+- We are better off thinking in terms of a specific ***cost*** metric
+- Our cost should probably measure the most "expensive" or "frequent" operation
+- ```java
+  boolean searchBinary(int target, int[] pool) {
+      int lo = 0;
+      int hi = pool.length - 1;
+      while (lo <= hi) {
+          int mid = lo + (hi - lo) / 2; // should measure here
+          if (target < pool[mid])
+              hi = mid - 1;
+          else if (target > pool[mid])
+              lo = mid + 1;
+          else
+              return true;
+      }
+      return false;
+  }
+  ```
+    - The ideal place to measure would be the `int mid`
+### Trends
+![](/assets/images/2022-02-02-10-56-45.png)
+### Analysis of Threesum
+```java
+//Sedgewick and Wayne
+public static int threeSum(int[] a) {
+    int N = a.length;
+    int count = 0;
+    for (int i = 0; i < N; i++)
+        for (int j = i+1; j < N; j++)
+            for (int k = j+1; k < N; k++)
+                if (a[i] + a[j] + a[k] == 0)
+                    count++;
+        return count;
+    }
+}
+```
+- For our cost model, we will count the number of comparisons with `0`
+- $\sum^N_{i=1}{(\sum^N_{j=i+1}{(\sum^N_{k=j+1}{1})})}$
+- Methods
+    - Can write it out and try to find a pattern
+        - $\sum^N_{i=1}{(\sum^N_{j=i+1}{(\sum^N_{k=j+1}{1})})}\approx\int^N_{x=1}{(\int^N_{y=x}{(\int^N_{z=y}{dz})}{dy})}{dx}\approx\frac{1}{6}N^3$
+    - Use tables of summation formulas
+    - Use a [[CAS|ser222.computer-algebra-system]] (pls just do this)
+        - ![](/assets/images/2022-02-02-11-12-48.png)
+- Sometimes the answer will be messy- it can be fair game to modify the bounds to get a more reasonable solution
+### Input dependence
+- Is it possible to write a growth function for an algorithm that isn't necessarily dictated by $n$
+```java
+boolean searchLinear(int target, int[] pool) {
+    for (int i = 0; i < pool.length; i++)
+        if (pool[i] == target)
+            return true;
+    return false;
+}
+```
+- Let's assume the inputs of size $k$ are sorted starting with the most sorted inputs
+- Although some methods lack direct dependence on input character, others are influenced
+- On a nearly sorted input, insertion sort will behave more linearly than quadratically
+## Recurrences
+- So far, we haven't looked at any methods that call themselves
+- This is where things get tricky (just kidding, not really)
+- Any algorithm written linearly can be written recursively and vice-versa
+### Induction
+![](/assets/images/2022-02-07-11-18-11.png)
+## Big-Oh Usage
+- Most of the time, [[ser222.big-oh-notation]] will be noted simply as *"...with O(n) running time on size of array..."*
+- Other times, documentation may implicitly state the Big-Oh of a method by stating what algorithm or data structure is used to implement something
+- Big-Oh can be used in fields outside of programming- can be seen in physics, math, etc.

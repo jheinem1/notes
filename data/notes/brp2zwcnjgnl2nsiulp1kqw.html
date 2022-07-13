@@ -1,0 +1,101 @@
+<h1 id="javafx"><a aria-hidden="true" class="anchor-heading" href="#javafx"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>JavaFX</h1>
+<h2 id="motivations"><a aria-hidden="true" class="anchor-heading" href="#motivations"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Motivations</h2>
+<ul>
+<li>JavaFX is a framework for developing Java GUI programs</li>
+<li>JavaFX utilizes OOP principles in its design</li>
+</ul>
+<h2 id="javafx-vs-swing-and-awt"><a aria-hidden="true" class="anchor-heading" href="#javafx-vs-swing-and-awt"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>JavaFX vs Swing and AWT</h2>
+<ul>
+<li>AWT
+<ul>
+<li>Fine for developing simple interfaces</li>
+<li>Not suited for cross-platform development</li>
+<li>Replaced largely by Swing</li>
+</ul>
+</li>
+<li>Swing
+<ul>
+<li>Allows for painting, layout, and event handling</li>
+<li>Relies less on native GUI</li>
+<li>Replaced by JavaFX in Java 8</li>
+</ul>
+</li>
+</ul>
+<h2 id="basic-structure"><a aria-hidden="true" class="anchor-heading" href="#basic-structure"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Basic Structure</h2>
+<ul>
+<li>Application</li>
+<li><code>start(Stage)</code> method</li>
+<li>Stage, scene, and nodes</li>
+<li><img src="/notes/assets/images/2022-03-22-13-43-08.png"></li>
+</ul>
+<h2 id="panes-ui-controls-and-shapes"><a aria-hidden="true" class="anchor-heading" href="#panes-ui-controls-and-shapes"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Panes, UI controls, and shapes</h2>
+<ul>
+<li>Shapes such as line, circle, ellipse, rectangle, path, etc. are subclasses of <code>Shape</code></li>
+<li><code>ImageView</code> used for displaying images</li>
+<li>UI controls are subclasses of <code>Control</code></li>
+</ul>
+<h2 id="coordinate-system"><a aria-hidden="true" class="anchor-heading" href="#coordinate-system"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Coordinate system</h2>
+<ul>
+<li>JavaFX uses a coordinate system with the origin at the top left corner</li>
+<li>This means that to draw a circle in the center of a 500x500 pixel area, you would need to create a circle with the center at (250, 250)</li>
+</ul>
+<h2 id="binding-properties"><a aria-hidden="true" class="anchor-heading" href="#binding-properties"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Binding properties</h2>
+<ul>
+<li>Enable a target object to be bound to a source object</li>
+<li>If the value in the source object changes, the target property is also changed</li>
+<li>The target object is simply called a binding object or binding property</li>
+</ul>
+<h2 id="common-properties-and-methods"><a aria-hidden="true" class="anchor-heading" href="#common-properties-and-methods"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Common properties and methods</h2>
+<h3 id="style"><a aria-hidden="true" class="anchor-heading" href="#style"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Style</h3>
+<ul>
+<li>Set a JavaFX CSS style</li>
+</ul>
+<h3 id="rotate"><a aria-hidden="true" class="anchor-heading" href="#rotate"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Rotate</h3>
+<ul>
+<li>Rotate a node</li>
+</ul>
+<h3 id="color"><a aria-hidden="true" class="anchor-heading" href="#color"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Color</h3>
+<ul>
+<li><code>new Color(r, g, b, a)</code></li>
+</ul>
+<h3 id="font"><a aria-hidden="true" class="anchor-heading" href="#font"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Font</h3>
+<ul>
+<li><code>new Font(nname, weight, size)</code></li>
+</ul>
+<h3 id="image"><a aria-hidden="true" class="anchor-heading" href="#image"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Image</h3>
+<ul>
+<li><code>new Image(fileOrURL)</code></li>
+</ul>
+<h2 id="example-of-a-simple-javafx-application"><a aria-hidden="true" class="anchor-heading" href="#example-of-a-simple-javafx-application"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Example of a simple JavaFX application</h2>
+<p><img src="/notes/assets/images/2022-03-22-13-54-06.png"></p>
+<h2 id="layout-panes"><a aria-hidden="true" class="anchor-heading" href="#layout-panes"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Layout Panes</h2>
+<ul>
+<li>JavaFX provides panes for organizing nodes in a container</li>
+</ul>
+<p>Class | Description
+----- | <strong><strong>___</strong></strong>
+Pane  | Base class for layout panes
+StackPane | Places nodes on top of each other in the center of the pane
+FlowPane | Places nodes row-by-row horizontally or column-by-column vertically
+GridPlane | Places nodes in a 2D grid
+BorderPane | Places nodes in the top, right, bottom, left, and center regions
+HBox | Places nodes in a single row
+VBox | Places nodes in a single column</p>
+<h2 id="shapes"><a aria-hidden="true" class="anchor-heading" href="#shapes"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Shapes</h2>
+<ul>
+<li>Classes for drawing text, lines, circles, etc.</li>
+<li>Text</li>
+<li>Line</li>
+<li>Rectangle</li>
+<li>Circle</li>
+<li>Ellipse</li>
+<li>Arc</li>
+<li>Polygon</li>
+<li>Polyline</li>
+<li>Shapes are displayed on an x/y coordinate grid with the origin at the top left</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/T2ptecH0AHZvseJr1aUvN">SER-216</a></li>
+</ul>

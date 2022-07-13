@@ -1,0 +1,72 @@
+<h1 id="path-coverage"><a aria-hidden="true" class="anchor-heading" href="#path-coverage"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Path Coverage</h1>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">return_input</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> condition1<span class="token punctuation">:</span> boolean<span class="token punctuation">,</span> condition2<span class="token punctuation">:</span> boolean<span class="token punctuation">,</span> condition3<span class="token punctuation">:</span> boolean<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> <span class="token builtin">input</span>
+        y <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>condition1<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            x <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>condition2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            x <span class="token operator">-=</span> <span class="token number">1</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>condition3<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            y <span class="token operator">=</span> x
+        <span class="token keyword">return</span> y
+</code></pre>
+<p>8 separate paths:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>T</th><th>T</th><th>T</th><th><code>return_input(x, True, True, True)</code></th></tr></thead><tbody><tr><td>T</td><td>T</td><td>F</td><td><code>return_input(x, True, True, False)</code></td></tr><tr><td>T</td><td>F</td><td>T</td><td><code>return_input(x, True, False, True)</code></td></tr><tr><td>T</td><td>F</td><td>F</td><td><code>return_input(x, True, False, False)</code></td></tr><tr><td>F</td><td>T</td><td>T</td><td><code>return_input(x, False, True, True)</code></td></tr><tr><td>F</td><td>T</td><td>F</td><td><code>return_input(x, False, True, False)</code></td></tr><tr><td>F</td><td>F</td><td>T</td><td><code>return_input(x, False, False, True)</code></td></tr><tr><td>F</td><td>F</td><td>F</td><td><code>return_input(x, False, False, False)</code></td></tr></tbody></table>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/n3aihxu7jxwciybmh4oflzw">White-Box Testing</a></li>
+</ul>

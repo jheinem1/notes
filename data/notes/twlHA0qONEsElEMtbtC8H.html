@@ -1,0 +1,24 @@
+<h1 id="immutability"><a aria-hidden="true" class="anchor-heading" href="#immutability"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Immutability</h1>
+<p>Immutability is an OO concept where the internal state of objects cannot change after instantiation (all fields are final). Performing any operations on the object will simply return a new object that reflects the changes.</p>
+<h2 id="pros"><a aria-hidden="true" class="anchor-heading" href="#pros"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Pros:</h2>
+<ul>
+<li>Reduces undefined behavior in programs</li>
+<li>Eliminates the possibility of accidentally modifying objects being used somewhere else</li>
+</ul>
+<h2 id="cons"><a aria-hidden="true" class="anchor-heading" href="#cons"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Cons:</h2>
+<ul>
+<li>Can significantly increase memory usage</li>
+<li>Comes at a performance cost in heavy tasks as the garbage collector may have to work harder</li>
+</ul>
+<pre class="language-typescript"><code class="language-TypeScript"><span class="token keyword">class</span> <span class="token class-name"><span class="token known-class-name class-name">Number</span></span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> n<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token function">add</span><span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token known-class-name class-name">Number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">return</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token known-class-name class-name">Number</span></span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">n</span> <span class="token operator">+</span> n<span class="token punctuation">.</span><span class="token property-access">n</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/GBy4GgyD2AUD98MS6TmTt">Implementing ADTs</a></li>
+</ul>

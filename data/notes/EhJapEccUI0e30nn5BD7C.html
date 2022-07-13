@@ -1,0 +1,112 @@
+<h1 id="javadoc"><a aria-hidden="true" class="anchor-heading" href="#javadoc"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Javadoc</h1>
+<p>Javadoc is a tool that generates HTML documentation (similar to <a href="https://java.sun.com">these reference pages</a>) from Javadoc comments in the code.</p>
+<h2 id="javadoc-comments"><a aria-hidden="true" class="anchor-heading" href="#javadoc-comments"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Javadoc comments</h2>
+<ul>
+<li>Javadoc recognizes special comments <code>/** .... */</code> which are highlighted blue by many themes (regular comments <code>//</code> and <code>/* ... */</code> are highlighted green).</li>
+<li>Javadoc allows you to attach descriptions to classes, constructors, fields, interfaces and methods in the generated HTML documentation by placing Javadoc comments directly before their declaration statements.</li>
+</ul>
+<h2 id="example-with-only-description"><a aria-hidden="true" class="anchor-heading" href="#example-with-only-description"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Example with (only) description</h2>
+<pre class="language-java"><code class="language-java"><span class="token doc-comment comment">/** Class Description of MyClass */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+    <span class="token doc-comment comment">/** Field Description of myIntField */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> myIntField<span class="token punctuation">;</span>
+    <span class="token doc-comment comment">/** Constructor Description of MyClass() */</span>
+    <span class="token keyword">public</span> <span class="token class-name">MyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Do something ...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>By default, text in a Javadoc comment will act as the description of the class, file, method, or field it is above.</li>
+</ul>
+<h2 id="javadoc-tags"><a aria-hidden="true" class="anchor-heading" href="#javadoc-tags"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Javadoc tags</h2>
+<ul>
+<li>
+<a aria-hidden="true" class="block-anchor anchor-heading" id="^tags" href="#^tags"><svg viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>
+Tags are keywords recognized by Javadoc which define the type of information that follows</li>
+<li>Tags come after the description (separated by a new line)</li>
+<li>Common tags include...
+<ul>
+<li><code>@author [name]</code></li>
+<li><code>@version [number or date]</code></li>
+<li><code>@param [arg name] [arg description]</code></li>
+<li><code>@return [description]</code></li>
+<li><code>@exception [exception name] [reason]</code></li>
+<li><code>@throws [exception name] [reason]</code></li>
+<li><code>@deprecated [alternative]</code> - marks the target as deprecated (should not be used in future work)
+<ul>
+<li>Not to be confused with <code>@Deprecated</code> (which ironically is considered deprecated in favor of Javadoc)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<h3 id="example-with-tags"><a aria-hidden="true" class="anchor-heading" href="#example-with-tags"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Example with tags</h3>
+<pre class="language-java"><code class="language-java"><span class="token doc-comment comment">/**
+* Description of JavaDoc sample MyClass
+* <span class="token keyword">@author</span> John Doe
+* <span class="token keyword">@author</span> Jane Doe
+* <span class="token keyword">@version</span> 6.0z Build 9000 Jan 3, 2018.
+*/</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+    <span class="token doc-comment comment">/** Description of myIntField */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> myIntField<span class="token punctuation">;</span>
+
+    <span class="token doc-comment comment">/**
+    * Description of the constructor MyClass()
+    * <span class="token keyword">@throws</span> <span class="token reference"><span class="token class-name">MyException</span></span> Description of myException
+    */</span>
+    <span class="token keyword">public</span> <span class="token class-name">MyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> myException <span class="token punctuation">{</span>
+        <span class="token comment">// some statements...</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token doc-comment comment">/**
+    * Description of myMethod(int a, String b)
+    * <span class="token keyword">@param</span> <span class="token parameter">a</span> Description of a
+    * <span class="token keyword">@param</span> <span class="token parameter">b</span> Description of b
+    * <span class="token keyword">@return</span> Description of c
+    */</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token class-name">String</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Object</span> c<span class="token punctuation">;</span>
+        <span class="token comment">// some statements...</span>
+        <span class="token keyword">return</span> c<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="running-javadoc"><a aria-hidden="true" class="anchor-heading" href="#running-javadoc"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Running Javadoc</h2>
+<ul>
+<li>To run Javadoc, simply run <code>javadoc [args] [files]</code> in the command line, and HTML will be generated in the current directory</li>
+<li>Javadoc provides a variety of options as well...
+<ul>
+<li><code>-author</code> - generated documentation will include an author section
+<ul>
+<li>This generally isn't used in production of closed-source projects</li>
+</ul>
+</li>
+<li><code>-classpath [path]</code> - specifies path to search for referenced <code>.class</code> files.</li>
+<li><code>-classpathlist [path];[path];...;[path]</code> - specifies a list location (separated
+by ";") to search for referenced <code>.class</code> files.</li>
+<li><code>-d [path]</code> - specifies where generated documentation will be saved.</li>
+<li><code>-private</code> - generated documentation will include private fields and
+methods (only public and protected ones are included by default).</li>
+<li><code>-sourcepath [path]</code> - specifies path to search for <code>.java</code> files to generate
+documentation form.</li>
+<li><code>-sourcepathlist [path];[path];...;[path]</code> - specifies a list location
+(separated by ";") to search for <code>.java</code> files to generate documentation
+form.</li>
+<li><code>-version</code> - generated documentation will include a version section</li>
+</ul>
+</li>
+</ul>
+<h2 id="additional-features"><a aria-hidden="true" class="anchor-heading" href="#additional-features"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Additional features</h2>
+<h3 id="links"><a aria-hidden="true" class="anchor-heading" href="#links"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Links</h3>
+<p>Javadoc comments can include rich links to other classes within a project using the syntax <code>{@link Thing}</code>.</p>
+<h3 id="documentation"><a aria-hidden="true" class="anchor-heading" href="#documentation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Documentation</h3>
+<p>Official documentation for Javadoc can be found <a href="http://www.oracle.com/technetwork/java/javase/documentation/javadoc-137458.html">here</a>.</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/T2ptecH0AHZvseJr1aUvN">SER-216</a></li>
+<li><a href="/notes/notes/rcoqh0i3x689pwd6hbbul90">Midterm</a></li>
+</ul>

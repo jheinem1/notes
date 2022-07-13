@@ -1,0 +1,148 @@
+
+## Motivations
+
+When a program runs into a runtime error, the program terminates abnormally.
+
+The purpose of exception handling is to handle these errors (either continue running or terminate) gracefully.
+
+## Examples
+
+- Examples of exceptions
+  - [[ser216.exception-handling.example.quotient]]
+  - [[ser216.exception-handling.example.quotient-with-if]]
+  - [[ser216.exception-handling.example.quotient-with-exception]]
+- Exception advantages
+  - [[ser216.exception-handling.examples.quotient-with-method]]
+
+## Exception Types
+
+![](/assets/images/2022-02-22-13-54-59.png)
+
+### System Errors
+
+- Thrown by JVM and represented in the `Error` class
+- This class describes internal system errors, which rarely occur
+  - If these errors do occur, handling them is often futile- the operation cannot continue
+
+![](/assets/images/2022-02-22-13-57-31.png)
+
+### Exceptions
+
+- Errors caused by your program and external circumstances
+- These can be caught and handled
+
+![](/assets/images/2022-02-22-13-58-28.png)
+
+### Runtime Exceptions
+
+- Caused by programming errors, such as bad casting, accessing an out-of-bounds array index, and numeric errors
+- These can generally be eliminated at compile-time and indicate bugs in the underlying program
+
+![](/assets/images/2022-02-22-13-59-37.png)
+
+## Checked Exceptions vs. Unchecked Exceptions
+
+- `RuntimeException`, `Error`, and their subclasses are known as [[unchecked exceptions|ser216.exception-handling.unchecked-exception]]
+- All other exceptions are known as [[checked exceptions|ser216.exception-handling.checked-exception]], meaning that the compiler forces the programmer to check and deal with the exceptions
+
+## Declaring, Throwing, and Catching Exceptions
+
+### Declaring exceptions
+
+Every method must state the types of checked exceptions it might throw.
+
+```java
+public void myMethod() throws IOException {...}
+
+public void myMethod() throws IOException, OtherException {...}
+```
+
+### Throwing Exceptions
+
+Exceptions are thrown by using the `throw` statement and passing a valid `Exception` object.
+
+```java
+...
+throw new IllegalArgumentException("Radius cannot be negative");
+...
+```
+
+### Catching Exceptions
+
+Exceptions are caught using a try-catch statement.
+
+```java
+try {
+    doUnsafeOperation(); // statements that may throw exceptions
+} catch (Exception1 e) {
+    handleException1();
+} catch (Exception2 e) {
+    handleException2();
+}
+```
+
+## Catch or Declare Checked Exceptions
+
+- Java forces you to deal with [[checked exceptions|ser216.exception-handling.checked-exception]]
+- If a method declares a [[checked exception|ser216.exception-handling.checked-exception]] (i.e., any exception other than an `Error` or `RuntimeException`), you must invoke it in a try-catch block or declare to throw the exception in the calling method
+
+## Rethrowing Exceptions
+
+```java
+try {
+    doUnsafeOperation();
+} catch (TheException e) {
+    performOperationBeforeExiting();
+    throw e;
+}
+```
+
+- The statement `throw e` rethrows the exception `e` so that other handlers get a change to process the exception
+- Sometimes you may need to throw a new exception with additional information along with the original exception
+  - These is called _chained exceptions_
+
+## The `finally` Clause
+
+```java
+try {
+    doUnsafeOperation();
+} catch (Exception e) {
+    handleException();
+} finally {
+    finalizeOperation();
+}
+```
+
+^example-error-handling
+
+- Code in the `finally` block is always executed, whether an exception in the `try` block is thrown or not
+
+## Cautions When Using Exceptions
+
+- Exception handling separates error-handling from normal program flow
+  - This makes programs easier to read and modify
+- However, exception handling usually requires more time and resources
+  - It requires instantiating exception objects, rolling back the call stack, and propagating the errors to the calling methods
+
+## When to Throw an Exception
+
+You should throw an exception when...
+
+- An exception occurs in a method
+- You want the exception to be handled by the calling method
+
+You should not throw an exception when...
+
+- You can handle the exception in the method where it occurs
+- You are dealing with simple, expected situations
+
+## Creating Custom Exceptions
+
+- Use the exception class `Exception` whenever possible
+- Create custom exception classes if the pre-defined exception classes do not meet your needs
+- Declare custom exception classes by extending the `Exception` class or one of its subclasses
+
+### Examples of Custom Exceptions
+
+- [[ser216.exception-handling.example.invalid-radius-exception]]
+- [[ser216.exception-handling.example.circle-with-radius-exception]]

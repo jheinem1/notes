@@ -1,0 +1,12 @@
+
+Arguing and supporting a proposed solution against alternatives. We often *want* to be right all the time. An argument which supports your design as being superior to other potential designs which also satisfy the analysis requirements.
+
+- Given that we have a design, we want to argue the design is
+  1. Well-founded, sound, and solved the problem
+  2. Is the optimal design for the problem
+- A justification is an easily verifiable piece of information that shows that the claim for the design is correct
+### Steps
+1. Evaluate your metrics and show that they are either optimal or hold
+2. Done!
+
+*Provided that your analysis itself is sound

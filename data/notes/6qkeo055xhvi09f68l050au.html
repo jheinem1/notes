@@ -1,0 +1,97 @@
+<h1 id="binary-search-tree"><a aria-hidden="true" class="anchor-heading" href="#binary-search-tree"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Binary Search Tree</h1>
+<h2 id="compared-to-heaps"><a aria-hidden="true" class="anchor-heading" href="#compared-to-heaps"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Compared to heaps</h2>
+<ul>
+<li>Unlike <a href="/notes/notes/pswkhuweiczpfii3orp1cji">binary trees</a> and <a href="/notes/notes/n8v9ra9di5cmdpq870z0vrp">heaps</a>, binary search trees <em>must</em> bee complete</li>
+<li>Binary search trees are more restrictive than heaps</li>
+</ul>
+<h2 id="concept"><a aria-hidden="true" class="anchor-heading" href="#concept"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Concept</h2>
+<ul>
+<li>A <a href="/notes/notes/pswkhuweiczpfii3orp1cji">binary tree</a> is a tree where each node has at most two children</li>
+<li>A binary <em>search</em> tree is a binary tree where each node's left child has a key that is less than the parent, and the right child has a key that is greater than the parent</li>
+<li><img src="/notes/assets/images/2022-03-23-10-48-39.png"></li>
+</ul>
+<h3 id="recursive-definition"><a aria-hidden="true" class="anchor-heading" href="#recursive-definition"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Recursive definition</h3>
+<ul>
+<li>A node is the root of a binary search tree if...
+<ul>
+<li>The left child has a key less than the parent, and the child is the root of a binary search tree</li>
+<li>The right child has a key greater than the parent, and the child is the root of a binary search tree</li>
+</ul>
+</li>
+</ul>
+<h2 id="traversing"><a aria-hidden="true" class="anchor-heading" href="#traversing"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Traversing</h2>
+<p>The three main algorithms for traversing a binary search tree are...</p>
+<h3 id="pre-order-traversal"><a aria-hidden="true" class="anchor-heading" href="#pre-order-traversal"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Pre-order traversal</h3>
+<ol>
+<li>Visit the root node</li>
+<li>Traverse the left subtree</li>
+<li>Traverse the right subtree</li>
+</ol>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">preOrder</span><span class="token punctuation">(</span><span class="token class-name">Node</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">preOrder</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">preOrder</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="in-order-traversal"><a aria-hidden="true" class="anchor-heading" href="#in-order-traversal"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>In-order traversal</h3>
+<ol>
+<li>Traverse the left subtree</li>
+<li>Visit the root node</li>
+<li>Traverse the right subtree</li>
+</ol>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">inOrder</span><span class="token punctuation">(</span><span class="token class-name">Node</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token function">inOrder</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">inOrder</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="post-order-traversal"><a aria-hidden="true" class="anchor-heading" href="#post-order-traversal"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Post-order traversal</h3>
+<ol>
+<li>Traverse the left subtree</li>
+<li>Traverse the right subtree</li>
+<li>Visit the root node</li>
+</ol>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">postOrder</span><span class="token punctuation">(</span><span class="token class-name">Node</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token function">postOrder</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">postOrder</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="inserting"><a aria-hidden="true" class="anchor-heading" href="#inserting"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Inserting</h2>
+<p>See the <a href="/notes/notes/mrx0bcj62vm5hh8iv7udpnd">Symbol Table (Map)</a> <a href="/notes/notes/mrx0bcj62vm5hh8iv7udpnd#Get value implementation">get</a> and <a href="/notes/notes/mrx0bcj62vm5hh8iv7udpnd#Put value implementation">put</a> for more details.</p>
+<h2 id="layout"><a aria-hidden="true" class="anchor-heading" href="#layout"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Layout</h2>
+<ul>
+<li>Three cases for tree layout
+<ul>
+<li>Worst case
+<ul>
+<li>The tree is completely unbalanced</li>
+<li><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> search time</li>
+<li><img src="/notes/assets/images/2022-03-23-11-19-46.png"></li>
+</ul>
+</li>
+<li>Typical case
+<ul>
+<li>Somewhat balanced</li>
+<li><img src="/notes/assets/images/2022-03-23-11-20-25.png"></li>
+</ul>
+</li>
+<li>Best case
+<ul>
+<li>Perfectly balanced, as all things should be</li>
+<li><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> search time
+<img src="/notes/assets/images/2022-03-23-11-20-57.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/TzkCyXooADlBmPWjKo0ds">SER-222</a></li>
+<li><a href="/notes/notes/mrx0bcj62vm5hh8iv7udpnd">Symbol Table (Map)</a></li>
+</ul>

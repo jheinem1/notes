@@ -1,0 +1,26 @@
+
+![](/assets/images/2022-02-08-14-17-19.png)
+- Construct a partial implementation of a total system
+- Then slowly add increased functionality
+- The incremental model prioritizes requirements of the system and then implements them in groups
+- Each subsequent release of the system adds function to the previous release, until all designed functionality has been implemented
+## Strengths
+- Develop major functions first
+- Each release delivers an operational product
+- Customer can respond to each build
+- Uses "divide-and-conquer" breakdown of tasks
+- Lowers initial delivery cost
+- Initial delivery is faster
+- Customers get vital functionality early
+- Risk of changing requirements is reduced
+## Weaknesses
+- Requires good planning and design
+- Requires early definition of a functional system and increments
+- Well-defined module interfaces are required
+- Total cost of system is not lower (though it may appear to be)
+## When to use
+- Risk, funding, schedule, program complexity, or need for early realization of benefits
+- Most requirements are known up-front but are expected to evolve
+- A need to get basic functionality to the market early
+- On projects which have lengthy development schedules
+- On projects with new technology

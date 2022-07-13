@@ -1,0 +1,121 @@
+<h1 id="weighted-graphs"><a aria-hidden="true" class="anchor-heading" href="#weighted-graphs"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Weighted Graphs</h1>
+<p>Weighted graphs assign a weight to each edge rather than just a boolean value. This takes up more space, but allows for more realistic graphs.</p>
+<h2 id="edges-with-attributes"><a aria-hidden="true" class="anchor-heading" href="#edges-with-attributes"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Edges with attributes</h2>
+<ul>
+<li>We will create a simple class to hold the attributes of each edge</li>
+</ul>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DirectedEdge</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> v<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> w<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">double</span> weight<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">DirectedEdge</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">,</span> <span class="token keyword">int</span> w<span class="token punctuation">,</span> <span class="token keyword">double</span> weight<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>v <span class="token operator">=</span> v<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>w <span class="token operator">=</span> w<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>weight <span class="token operator">=</span> weight<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">weight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> weight<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">from</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> v<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token keyword">to</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> w<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"%d->%d %.2f"</span><span class="token punctuation">,</span> v<span class="token punctuation">,</span> w<span class="token punctuation">,</span> weight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="revisiting-directed-graph-adt"><a aria-hidden="true" class="anchor-heading" href="#revisiting-directed-graph-adt"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Revisiting directed graph ADT</h2>
+<ul>
+<li>There are some small modifications to the <a href="/notes/notes/uo2hl3yfhn58g5fuzj90q2r">Directed Graph</a> that we will make to make it work with weighted edges</li>
+</ul>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">EdgeWeightedGraph</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token class-name">V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number of vertices</span>
+    <span class="token keyword">int</span> <span class="token class-name">E</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number of edges</span>
+    <span class="token keyword">void</span> <span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token class-name">DirectedEdge</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// add edge v->w</span>
+    <span class="token class-name">Iterable</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">DirectedEdge</span><span class="token punctuation">></span></span> <span class="token function">adj</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// vertices connected to v from edges v->x</span>
+    <span class="token class-name">Iterable</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">DirectedEdge</span><span class="token punctuation">></span></span> <span class="token function">edges</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// all edges</span>
+    <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// string representation of graph</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="shortest-path"><a aria-hidden="true" class="anchor-heading" href="#shortest-path"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Shortest path</h2>
+<ul>
+<li>A path between two nodes is the shortest if there is no other path with a smaller weight</li>
+</ul>
+<h3 id="relaxation"><a aria-hidden="true" class="anchor-heading" href="#relaxation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Relaxation</h3>
+<ul>
+<li>Pick a node</li>
+<li>If it provides a shorter way to reach its neighbors, then update the neighbors</li>
+</ul>
+<pre class="language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">relax</span><span class="token punctuation">(</span><span class="token class-name">EdgeWeightedDigraph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">DirectedEdge</span> e <span class="token operator">:</span> <span class="token class-name">G</span><span class="token punctuation">.</span><span class="token function">adj</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> w <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token keyword">to</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>distTo<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">></span> distTo<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">+</span> e<span class="token punctuation">.</span><span class="token function">weight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            distTo<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> distTo<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">+</span> e<span class="token punctuation">.</span><span class="token function">weight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            edgeTo<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> e<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<div class="mermaid">
+  flowchart LR
+    0 -->|1| 1
+    0 -->|3| 2
+    1 -->|2| 3
+    3 -->|1| 4
+    2 -->|4| 4
+    1 -->|1| 2
+</div>
+<p>Example of situation where relaxing would be needed to find the shortest path.</p>
+<h3 id="dijkstras-algorithm"><a aria-hidden="true" class="anchor-heading" href="#dijkstras-algorithm"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Dijkstra's algorithm</h3>
+<ul>
+<li>We need to relax each node in a graph
+<ul>
+<li>The issue is that we need them to relax them in an order that gives us the shortest path</li>
+</ul>
+</li>
+<li>Idea:
+<ul>
+<li>Maintain a list of nodes that we have not yet relaxed</li>
+<li>Pick out the node with the smallest distance</li>
+<li>Relax it</li>
+<li>Remove it from the list</li>
+<li>Repeat until all nodes have been relaxed</li>
+</ul>
+</li>
+</ul>
+<pre class="language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">dijikstra</span><span class="token punctuation">(</span><span class="token class-name">EdgeWeightedDigraph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    distTo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">double</span><span class="token punctuation">[</span><span class="token class-name">G<span class="token punctuation">.</span>V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    edgeTo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DirectedEdge</span><span class="token punctuation">[</span><span class="token class-name">G<span class="token punctuation">.</span>V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> v <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> v <span class="token operator">&#x3C;</span> <span class="token class-name">G<span class="token punctuation">.</span>V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> v<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        distTo<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Double</span><span class="token punctuation">.</span>POSITIVE_INFINITY<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    distTo<span class="token punctuation">[</span>s<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
+    pq <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IndexMinPQ</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token class-name">G<span class="token punctuation">.</span>V</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    pq<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> distTo<span class="token punctuation">[</span>s<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>pq<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> v <span class="token operator">=</span> pq<span class="token punctuation">.</span><span class="token function">delMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">DirectedEdge</span> e <span class="token operator">:</span> <span class="token class-name">G</span><span class="token punctuation">.</span><span class="token function">adj</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> w <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token keyword">to</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>pq<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span> <span class="token operator">&#x26;&#x26;</span> distTo<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">></span> distTo<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">+</span> e<span class="token punctuation">.</span><span class="token function">weight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                distTo<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> distTo<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">+</span> e<span class="token punctuation">.</span><span class="token function">weight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                edgeTo<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> e<span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>pq<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">)</span> pq<span class="token punctuation">.</span><span class="token function">decreaseKey</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> distTo<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">else</span> pq<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> distTo<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/TzkCyXooADlBmPWjKo0ds">SER-222</a></li>
+</ul>

@@ -1,0 +1,25 @@
+**Engineering** is the systematic application of scientific knowledge in creating and building cost-effective solutions to practical problems.
+
+**Software Engineering** is a collection of techniques, methodologies, and tools that help with the production of...
+
+- A high quality software system
+- With a given budget
+- Before a given deadline
+
+...while a change occurs.
+
+However, these rarely happen. Software production has a [[poor track record|ser216.introduction.space-shuttle-software]].
+## Problem-Solving
+To problem-solve, we [[analyze|ser216.introduction.analysis]] and [[synthesize|ser216.introduction.synthesis]] using...
+- [[ser216.introduction.techniques]]
+- [[ser216.introduction.methodologies]]
+- [[ser216.introduction.tools]]
+
+## Why are software systems so complex?
+- The problem domain is difficult
+- The development process is very difficult to manage
+- Software offers extreme flexibility
+## How do software engineers deal with complexity?
+1. [[ser216.introduction.abstraction]]
+2. [[ser216.introduction.decomposition]]
+3. [[ser216.introduction.hierarchy]]

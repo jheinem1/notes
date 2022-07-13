@@ -1,0 +1,12 @@
+- Asking questions is a bit thing in industry
+    - Defining a problem is back-and-forth
+        - Not even the customer knows what they want
+        - It's up to your team to determine what the problem is
+    - Problems are too complex for someone to know everything about it
+    - Solutions are too varied for anybody to be able to create them at all
+    - That said, someone somewhere has the knowledge or expertise you need
+- When formulating a question to someone, help them help you
+    - Ask the appropriate person
+    - Make it specific
+    - Make it simple
+    - Make it actionable to you

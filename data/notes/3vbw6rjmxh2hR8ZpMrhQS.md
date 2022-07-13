@@ -1,0 +1,12 @@
+
+![](/assets/images/2022-02-08-22-16-37.png)
+
+With certain graphs, the washer & disk method are difficult to compute when rotating some regions about the $y$-axis. The shell method allows you to integrate with respect to $x$ rather than $y$, reducing the number of integrals required.
+
+![](/assets/images/2022-02-08-22-19-59.png)
+
+## Definition
+Let $f$ and $g$ be continuous functions with $f(x)\geq g(x)$ on $[a,b]$. If $R$ is the region bounded by the curves $y=f(x)$ and $y=g(x)$ between the lines $x=a$ and $x=b$, the volume of the solid generated when $R$ is revolved about the **y-axis** is 
+$$
+V=\int_a^b{2\pi x(f(x)-g(x))}{dx}\text.
+$$

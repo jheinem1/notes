@@ -1,0 +1,144 @@
+## Principles
+- To be useful, measurements should be...
+    - Gathered for a specific purpose
+        - Time spent taking measurements is time not spent coding!
+    - Explicitly defined
+        - You need to be sure where things go
+    - Properly managed & used
+        - If not handled well, the measurements are useless
+- Measuring your process will not improve it
+    - You must make process changes to achieve lasting improvement
+## Purposes
+- We measure to...
+    - Understand and manage change
+    - Predict or plan for the future
+    - Compare one product, process, or organization with another
+    - Determine adherence to standards
+        - These standards are usually related to the product or industry, e.g. FAA standards for flight equipment
+    - Provide a basis for control
+## Types
+- We generally need objective and explicit measures
+- To be useful, we need relationships that correlate...
+    - Program size vs development hours
+    - Cost distributions
+    - Defect densities
+- We also see a controlling or predictive capability
+    - Actions to reduce test defects
+    - Steps to improve review quality
+    - Means to improve review quality
+## In PSP
+- The basic [[PSP|ser216.personal-software-process]] data are...
+    - Program size
+    - Time spent by phase
+    - Defects found and injected by phase
+- Both actual and estimated data are gathered on every item
+- Measures derives from this data include...
+    - Support planning
+    - Characterizing process quality
+### Size measures
+- The goals of the [[PSP|ser216.personal-software-process]] size measures are to...
+    - Define a consistent size measure
+    - Establish a basis for normalizing time and defect data
+    - Help make better size estimates
+- Some questions this data can help to answer are...
+    - What size program did I plan to develop?
+    - How good was my size estimate?
+    - What was the completed size of the finished program>
+### Time measures
+- The goals of the PSP time measures are to...
+    - Determine how much time you spend in each PSP phase
+    - Help you to make better time estimates
+- Typical questions this data can help answer are
+    - How much time did I spend by PSP phase?
+    - How much time did I *plan* to spend by PSP phase?
+### Defect measures
+- The goals of the PSP defect measures are to...
+    - Provide a historical baseline of defect data
+    - Understand the numbers and types of defects injected
+    - Understand the relative cost of removing defects in each [[PSP|ser216.personal-software-process]] phase
+- Some questions this data can help answer are...
+    - How many defects did I make in each phase?
+    - How many defects did I remove in each phase
+    - How much time did it take to find and fix each defect?
+## Size vs development effort
+- The principle requirement:
+    - If the size measure is not directly related to the development cost, it is not worth using
+- There are many possible measures
+    - Database elements
+    - Lines of code (LOC)
+    - Function points
+    - Pages, screens, scripts, reports
+- The size measure should be sensitive to the environment (language, design, and development practice)
+## Relationship to development
+- File sizes are often an acceptable measure for document development
+- Lines of code is usually a good measure for developing source programs like C/C++/Java/Python
+- Other possible measures are function points, screens, modules, database elements, and maintenance fixes
+## Measurement precision
+- When two people measure the same thing, will they get the same result
+    - To do so requires a precise measurement definition
+- The measurement must also be properly applied
+    - Different people will likely have different definitions of database elements
+        - C++ code does not equate to assembly
+        - New lines of code are not the same as modified lines of code
+        - Logical lines of code do not equate to physical lines of code
+        - One person's lines of code may not relate to someone else's lines of code
+## Machine countable
+- Manual size counting is time-consuming and inaccurate
+- Automated counters will only work for defined product characteristics
+- Counters can be complex, depending on the...
+    - Size definition selected
+    - Counting method used
+## Suitable for early planning
+- For making the initial project plans, measures are needed that you can visualize at the beginning of the job
+    - For a house, square feet predicts cost
+    - Few people can visualize a house in terms of square feet of living space
+    - Number of rooms is more intuitive
+- Intuitive size measures are generally needed for initial plans
+- Unfortunately, popular intuitive measures are not often measurable, and popular measurable measures are not intuitive
+- Function points
+    - Intuitive
+    - Not directly measurable
+- Lines of code
+    - Not intuitive
+    - Directly measurable
+## LOC measurement
+- The suggested [[PSP|ser216.personal-software-process]] lines of code measure uses logical (vs physical) lines of code
+- Statement specifications
+    - Executable
+    - Non-executable
+    - Counted statement types
+- Application
+    - Language and code type
+    - Origins and usage
+## Counting program size
+- Logical lines
+    - Invariant to editing changes
+    - Correlate with development environment
+    - Uniquely definable
+    - Complex to count
+- Physical lines
+    - Easy to count
+    - Not invariant
+    - Must be precisely defined for each case
+- The [[PSP|ser216.personal-software-process]] uses a coding standard and a physical counter for lines-of-code size measures
+    - Defining coding standard
+    - Physical line for each logical line
+- This standard must be faithfully followed
+- Then, physical line counting equals logical line counting
+## PSP's LOC counting standard
+- Count all statements, this includes...
+    - `begin`, `end`, `if`, `then`, `else`
+    - `{`, `}`, `;`, `.`
+    - Declarations, directives, headers, etc.
+- Do not count blanks, comment lines, or automatically generated code
+- Count added and modified code for measuring and estimating development productivity
+## Size accounting
+- For small products, size tracking can be done manually, but requires care
+- For larger products, size tracking requires an accounting system
+- Size accounting provides an orderly and precise way of tracking size changes through multiple product versions
+## Messages to remember
+- To effectively plan and manage your work, you must measure product size
+- For different types of work, use different size measures
+- For each measure, size must correlate with development time
+    - If the size measure does not correlate, it will not be useful
+- Every size measure should be precisely defined and automatically countable

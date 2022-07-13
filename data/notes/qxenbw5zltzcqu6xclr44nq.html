@@ -1,0 +1,61 @@
+<h1 id="network-programming"><a aria-hidden="true" class="anchor-heading" href="#network-programming"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Network Programming</h1>
+<h2 id="client-server-communication"><a aria-hidden="true" class="anchor-heading" href="#client-server-communication"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Client-server communication</h2>
+<ul>
+<li>The server is always running, and can have multiple clients connected to it.</li>
+<li>The client connects to a socket on the server.</li>
+<li>After a server accepts the communication, data is transferred through I/O streams (in Java) or sockets (in C)</li>
+</ul>
+<h2 id="data-transmission-through-sockets"><a aria-hidden="true" class="anchor-heading" href="#data-transmission-through-sockets"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Data transmission through sockets</h2>
+<h3 id="server"><a aria-hidden="true" class="anchor-heading" href="#server"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Server</h3>
+<pre class="language-java"><code class="language-java"><span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token number">8000</span><span class="token punctuation">;</span>
+<span class="token class-name">DataInputStream</span> in<span class="token punctuation">;</span>
+<span class="token class-name">DataOutputStream</span> out<span class="token punctuation">;</span>
+<span class="token class-name">ServerSocket</span> server<span class="token punctuation">;</span>
+<span class="token class-name">Socket</span> socket<span class="token punctuation">;</span>
+
+server <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServerSocket</span><span class="token punctuation">(</span>port<span class="token punctuation">)</span><span class="token punctuation">;</span>
+socket <span class="token operator">=</span> server<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// accept connection request from client</span>
+in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DataInputStream</span><span class="token punctuation">(</span>socket<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+out <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DataOutputStream</span><span class="token punctuation">(</span>socket<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>in<span class="token punctuation">.</span><span class="token function">readDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// wait for data from client</span>
+out<span class="token punctuation">.</span><span class="token function">writeDouble</span><span class="token punctuation">(</span><span class="token number">3.14</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// send data to client</span>
+</code></pre>
+<h3 id="client"><a aria-hidden="true" class="anchor-heading" href="#client"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Client</h3>
+<pre class="language-java"><code class="language-java"><span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token number">8000</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> host <span class="token operator">=</span> <span class="token string">"localhost"</span><span class="token punctuation">;</span>
+<span class="token class-name">DataInputStream</span> in<span class="token punctuation">;</span>
+<span class="token class-name">DataOutputStream</span> out<span class="token punctuation">;</span>
+<span class="token class-name">Socket</span> socket<span class="token punctuation">;</span>
+
+socket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Socket</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span> port<span class="token punctuation">)</span><span class="token punctuation">;</span>
+in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DataInputStream</span><span class="token punctuation">(</span>socket<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+out <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DataOutputStream</span><span class="token punctuation">(</span>socket<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+out<span class="token punctuation">.</span><span class="token function">writeDouble</span><span class="token punctuation">(</span><span class="token number">3.14</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// send data to server</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>in<span class="token punctuation">.</span><span class="token function">readDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// wait for data from server</span>
+</code></pre>
+<h2 id="the-inetaddress-class"><a aria-hidden="true" class="anchor-heading" href="#the-inetaddress-class"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>The InetAddress class</h2>
+<p>The <code>InetAddress</code> class can be used to find the IP address and host name of a client.</p>
+<p>To get the <code>InetAddress</code> of a client, use the <code>getInetAddress()</code> method on the socket.</p>
+<pre class="language-java"><code class="language-java"><span class="token class-name">InetAddress</span> address <span class="token operator">=</span> socket<span class="token punctuation">.</span><span class="token function">getInetAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>The <code>InetAddress</code> returned will contain the host name and IP address of the client as demonstrated below.</p>
+<pre class="language-java"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>address<span class="token punctuation">.</span><span class="token function">getHostName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>address<span class="token punctuation">.</span><span class="token function">getHostAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="handling-multiple-clients"><a aria-hidden="true" class="anchor-heading" href="#handling-multiple-clients"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Handling multiple clients</h2>
+<p>Multiple clients are generally handled with some sort of loop that <a href="/notes/notes/zwo4cc1yh2ktmr3xchv145l">creates a new thread for each client</a>.</p>
+<pre class="language-java"><code class="language-java"><span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Socket</span> socket <span class="token operator">=</span> server<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">HandleTask</span> task <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HandleTask</span><span class="token punctuation">(</span>socket<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Thread</span> thread <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The above will create a new thread for each connected client.</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/T2ptecH0AHZvseJr1aUvN">SER-216</a></li>
+</ul>

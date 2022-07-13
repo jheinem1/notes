@@ -1,0 +1,62 @@
+<h1 id="integration-testing"><a aria-hidden="true" class="anchor-heading" href="#integration-testing"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Integration Testing</h1>
+<h2 id="concept"><a aria-hidden="true" class="anchor-heading" href="#concept"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Concept</h2>
+<ul>
+<li>The entire system is viewed as a collection of subsystems determined during design</li>
+<li>The goal of integration testing is to test all interfaces between subsystems and the interaction of subsystems</li>
+<li>The integration testing strategy determined the order in which the subsystems are tested</li>
+</ul>
+<h2 id="why-integration-testing"><a aria-hidden="true" class="anchor-heading" href="#why-integration-testing"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Why integration testing?</h2>
+<ul>
+<li>Unit tests only test in isolation</li>
+<li>Many failures result from faults in the interaction of subsystems
+<ul>
+<li>"Integration hell" is one of the longest stages of debugging</li>
+</ul>
+</li>
+<li>Failures not discovered in integration testing may not be discovered until the system is deployed</li>
+</ul>
+<h2 id="stubs--drivers"><a aria-hidden="true" class="anchor-heading" href="#stubs--drivers"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Stubs &#x26; drivers</h2>
+<p><img src="/notes/assets/images/2022-04-19-14-13-21.png"></p>
+<h3 id="driver"><a aria-hidden="true" class="anchor-heading" href="#driver"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Driver</h3>
+<ul>
+<li>A component that calls the <code>TestedUnit</code></li>
+<li>Controls test cases</li>
+</ul>
+<h3 id="stub"><a aria-hidden="true" class="anchor-heading" href="#stub"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Stub</h3>
+<ul>
+<li>A component the <code>TestedUnit</code> depends on</li>
+<li>Partial implementation</li>
+<li>Returns fake values</li>
+</ul>
+<h2 id="integration-testing-strategies"><a aria-hidden="true" class="anchor-heading" href="#integration-testing-strategies"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Integration testing strategies</h2>
+<ul>
+<li><a href="/notes/notes/7mxo4838wjzs5jxqba4jxds">Big Bang</a></li>
+<li><a href="/notes/notes/0yx2re40wxl0459w9qrxefx">Bottom Up</a></li>
+<li><a href="/notes/notes/ocqx69duqzmtjdgh4t49y4r">Top Down</a></li>
+<li><a href="/notes/notes/h7tsr6097ibpcl74hcmr9e6">Sandwich</a></li>
+<li><a href="/notes/notes/79a1ldt7rbypl7w2m8myqme">Continuous</a></li>
+</ul>
+<h2 id="steps"><a aria-hidden="true" class="anchor-heading" href="#steps"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Steps</h2>
+<ol>
+<li>Select a component to be tested an unit test it</li>
+<li>Put the component together with any necessary drivers and stubs</li>
+<li>Test functional requirements</li>
+<li>Test subsystem decomposition</li>
+<li>Test non-functional requirements</li>
+<li>Keep records of test cases</li>
+<li>Repeat steps 1-7 until full system is tested</li>
+</ol>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/7mxo4838wjzs5jxqba4jxds">Big Bang</a></li>
+<li><a href="/notes/notes/0yx2re40wxl0459w9qrxefx">Bottom Up</a></li>
+<li><a href="/notes/notes/79a1ldt7rbypl7w2m8myqme">Continuous</a></li>
+<li><a href="/notes/notes/h7tsr6097ibpcl74hcmr9e6">Sandwich</a></li>
+<li><a href="/notes/notes/ocqx69duqzmtjdgh4t49y4r">Top Down</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/T2ptecH0AHZvseJr1aUvN">SER-216</a></li>
+</ul>

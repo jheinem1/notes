@@ -1,0 +1,84 @@
+<h1 id="design"><a aria-hidden="true" class="anchor-heading" href="#design"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Design</h1>
+<h2 id="pseudocode"><a aria-hidden="true" class="anchor-heading" href="#pseudocode"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Pseudocode</h2>
+<ul>
+<li>The purpose of pseudocode is to <strong>clearly</strong> express an algorithm
+<ul>
+<li>There cannot be ambiguity</li>
+</ul>
+</li>
+<li>Pseudocode cannot be used to hide important details
+<ul>
+<li>It's only fair to reference an undefined function when it does not add more ambiguity, e.g. calling <code>distance(x1, y1, x2, y2)</code> is fine, but calling <code>has_deviation(original_image, new_image)</code> is not</li>
+</ul>
+</li>
+</ul>
+<h3 id="examples"><a aria-hidden="true" class="anchor-heading" href="#examples"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Examples</h3>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">Key</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    pq<span class="token punctuation">[</span><span class="token operator">++</span><span class="token class-name">N</span><span class="token punctuation">]</span> <span class="token operator">=</span> v<span class="token punctuation">;</span>
+    <span class="token function">swim</span><span class="token punctuation">(</span><span class="token class-name">N</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">swim</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>k <span class="token operator">></span> <span class="token number">1</span> <span class="token operator">&#x26;&#x26;</span> <span class="token function">less</span><span class="token punctuation">(</span>k <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">exch</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> k <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        k <span class="token operator">=</span> k <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">Key</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    pq<span class="token punctuation">[</span><span class="token operator">++</span><span class="token class-name">N</span><span class="token punctuation">]</span> <span class="token operator">=</span> v<span class="token punctuation">;</span>
+    <span class="token function">swim</span><span class="token punctuation">(</span><span class="token class-name">N</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">swim</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>k <span class="token operator">></span> <span class="token number">1</span> <span class="token operator">&#x26;&#x26;</span> <span class="token function">less</span><span class="token punctuation">(</span>k <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">exch</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> k <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        k <span class="token operator">=</span> k <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Pseudocode does not need to compile, however it is helpful to use a specific language's syntax to make it easier to read. Python is often used because it closely resembles plain English and generally produces relatively readable and concise code.</p>
+<h2 id="k"><a aria-hidden="true" class="anchor-heading" href="#k"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>K</h2>
+<ul>
+<li>"K" stands for knowledge and is the symbol we will use to refer to the set of information which is known to be true
+<ul>
+<li>In a class, "K" is typically provided as a working document</li>
+</ul>
+</li>
+<li>The purpose of "K" is to ensure a design is well-founded</li>
+<li>"K" can serve as a safe place to put generic definitions
+<ul>
+<li>"K" = <a href="/notes/notes/ck1jy0xrmrn7rioctj6uwal#Definitions">Definitions</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="decomposition"><a aria-hidden="true" class="anchor-heading" href="#decomposition"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Decomposition</h2>
+<p>Since we have a good understanding of the <a href="/notes/notes/qfa4p6mo2v96lr97z53vosk">problem</a>, we can attempt to break it into steps (and pseudocode).</p>
+<ol>
+<li>Find target key/value</li>
+<li>If needed, adjust position of target key/value</li>
+</ol>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">update</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> Value<span class="token punctuation">,</span> new_priority<span class="token punctuation">:</span> Key<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    idx<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    
+    <span class="token comment"># Step 1: Find target key/value</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> values<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> value<span class="token punctuation">:</span>
+            idx <span class="token operator">=</span> i
+            <span class="token keyword">break</span>
+    
+    <span class="token keyword">if</span> idx <span class="token operator">==</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span>
+
+    <span class="token comment"># Step 2: Adjust position of target key/value</span>
+    keys<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> new_priority
+    <span class="token keyword">if</span> less<span class="token punctuation">(</span>keys<span class="token punctuation">[</span>idx <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> new_priority<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        swim<span class="token punctuation">(</span>idx<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> less<span class="token punctuation">(</span>new_priority<span class="token punctuation">,</span> <span class="token builtin">max</span><span class="token punctuation">(</span>keys<span class="token punctuation">[</span><span class="token number">2</span> <span class="token operator">*</span> idx<span class="token punctuation">]</span><span class="token punctuation">,</span> keys<span class="token punctuation">[</span><span class="token number">2</span> <span class="token operator">*</span> idx <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        sink<span class="token punctuation">(</span>idx<span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/cbwqvn7mgvc262hvxs5m3r6">ADJ for Algorithms</a></li>
+</ul>

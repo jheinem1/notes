@@ -1,0 +1,13 @@
+
+![](/assets/images/2022-02-08-22-32-24.png)
+## Definition for $y=f(x)$
+Let $f$ have a continuous first derivative on the interval $[a,b]$. The length of the curve from $(a,f(a))$ to $(b,f(b))$ is
+$$
+L=\int_a^b{\sqrt{q+f\prime(x)^2}}{dx}\text.
+$$
+
+## Definition for $x=g(y)$
+Let $x=g(y)$ have a continuous first derivative on the interval $[c,d]$. The length of the curve from $(g(c), c)$ to $(g(d), d)$ is
+$$
+L=\int_x^d{\sqrt{1+g\prime(y)^2}}{dy}\text.
+$$

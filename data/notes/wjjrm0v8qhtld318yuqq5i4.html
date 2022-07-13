@@ -1,0 +1,124 @@
+<h1 id="hash-table"><a aria-hidden="true" class="anchor-heading" href="#hash-table"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Hash Table</h1>
+<ul>
+<li>Previously, symbol tables implemented as binary search trees</li>
+<li>These binary search trees had <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> lookups</li>
+<li>Instead of mapping a binary tree to an array, we can use a <em>hash table</em> to map a key to an array index directly
+<ul>
+<li>Hash tables work by passing a key to a <strong>hash function</strong> that maps the key to an array index</li>
+</ul>
+</li>
+</ul>
+<h2 id="hash-functions"><a aria-hidden="true" class="anchor-heading" href="#hash-functions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Hash functions</h2>
+<ul>
+<li>Say we want to store a key in an array with <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span> indices
+<ul>
+<li>There will be <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></span> elements in the array</li>
+</ul>
+</li>
+<li>The hash should encode the identity of a key</li>
+<li>We need to produce hashes in the range <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mi>M</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0, M-1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span></span> that are uniformily distributed</li>
+<li>There is a time and space tradeoff
+<ul>
+<li>If <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span> is larger, then we use more space but get <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></span> lookups</li>
+<li>If <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></span> is larger, then we use less space but get <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span> lookups</li>
+</ul>
+</li>
+</ul>
+<h2 id="hashing-values"><a aria-hidden="true" class="anchor-heading" href="#hashing-values"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Hashing values</h2>
+<ul>
+<li>If <code>k</code> is a positive integer within the bounds, it can simply be hashed as itself
+<ul>
+<li>Otherwise, a modulo operation can be used, e.g. <code>k % M</code></li>
+</ul>
+</li>
+<li>If <code>k</code> is a floating point number, it can be hashed as <code>round(k * M)</code></li>
+<li>If <code>k</code> is a string, it can be hashed by adding the ASCII values of each character in the string
+<ul>
+<li>This is a very simple hash function, and is only effective for small strings</li>
+</ul>
+</li>
+<li>If <code>k</code> is some other type, it can be hashed by mixing up a combination of the memory address, type, and other characteristics of <code>k</code>
+<ul>
+<li>In Java, this can be provided by the <code>Object.hashCode()</code> method</li>
+</ul>
+</li>
+</ul>
+<h2 id="requirements-for-a-good-hash-functions"><a aria-hidden="true" class="anchor-heading" href="#requirements-for-a-good-hash-functions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Requirements for a good hash functions</h2>
+<ul>
+<li>Hash functions should produce values that are...
+<ul>
+<li>Consistent</li>
+<li>Efficient to compute (no more than <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span>)</li>
+<li>Uniformly distributed</li>
+</ul>
+</li>
+</ul>
+<h2 id="separate-chaining"><a aria-hidden="true" class="anchor-heading" href="#separate-chaining"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Separate chaining</h2>
+<ul>
+<li>Hash functions should rarely produce collisions, but if they do, there are many ways to resolve them</li>
+<li>The most common way to resolve collisions is called <strong>chaining</strong>
+<ul>
+<li>Chaining is a technique where multiple values can be stored at an array index</li>
+<li>Some kind of linked list or tree structure is used to store the values and original keys</li>
+<li>When attempting to access a value with collision, the collection is traversed (generally via <a href="/notes/notes/sch7ova4w3b6czyq3wfqtnx">Linear Probing</a>) until the key is found</li>
+<li>If using linked lists, the first value will retain <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></span> lookups, making it ideal for most cases</li>
+<li><img src="/notes/assets/images/2022-04-04-10-55-37.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="chaining-implementation"><a aria-hidden="true" class="anchor-heading" href="#chaining-implementation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chaining implementation</h2>
+<ul>
+<li>Hash
+<ul>
+<li>Mask out the sign bit</li>
+<li>Apply a module operation to the result</li>
+<li>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">hash</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> m<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token punctuation">(</span>m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># can also be done using '(key &#x26; 0x7fffffff) % (m - 1)'</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>Get
+<ul>
+<li>Gets an element to the collection by hashing the key</li>
+<li>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> array<span class="token punctuation">:</span> List<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
+    values <span class="token operator">=</span> array<span class="token punctuation">[</span><span class="token builtin">hash</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    values<span class="token punctuation">.</span>get<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>Put
+<ul>
+<li>Similar to get, but instead of returning the value, the value is added to the collection</li>
+<li>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">put</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> array<span class="token punctuation">:</span> List<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    values <span class="token operator">=</span> array<span class="token punctuation">[</span><span class="token builtin">hash</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    values<span class="token punctuation">.</span>put<span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="performance"><a aria-hidden="true" class="anchor-heading" href="#performance"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Performance</h2>
+<ul>
+<li>Hash tables should have a performance of
+<ul>
+<li><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext> </mtext><mi>N</mi><mi mathvariant="normal">/</mi><mn>2</mn><mi>M</mi></mrow><annotation encoding="application/x-tex">~N/2M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mspace nobreak"> </span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord">/2</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span> search operations</li>
+<li><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext> </mtext><mi>N</mi><mi mathvariant="normal">/</mi><mi>M</mi></mrow><annotation encoding="application/x-tex">~N/M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mspace nobreak"> </span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span> insert operations</li>
+</ul>
+</li>
+<li>Hash tables can have <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Ω</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Omega(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Ω</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></span> search and inserts assuming no collisions</li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/sch7ova4w3b6czyq3wfqtnx">Linear Probing</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/TzkCyXooADlBmPWjKo0ds">SER-222</a></li>
+</ul>

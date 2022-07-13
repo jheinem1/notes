@@ -1,0 +1,37 @@
+
+Unified Modeling Language (UML) is designed to visualize the design of systems in a standardized syntax. UML implements many concepts of OO (Object-Oriented) design.
+
+## What is UML?
+- Non-proprietary standard for modeling software systems
+- Convergence of notations
+    - OMT
+    - Booch
+    - OOSE
+- Current version: UML 2.5
+- Commercial tools
+    - Rational
+    - Together
+    - Visual Architect
+- Open-source tools
+    - ArgoUML
+    - StarUML
+    - Umbrello
+
+## Modeling with UML
+- You can model 80% of problems using about 20% of UML
+### [[ser216.uml.diagrams.use-case]]
+### Class diagrams
+- Describe the static structure of the system
+- Composed of...
+    - Objects
+    - Attributes
+    - Associations
+### Sequence diagrams
+- Describe the dynamic behavior between objects of the system
+### State-chart diagrams
+- Describe the dynamic behavior of an individual object
+## Activity diagrams
+- Describe the dynamic behavior of a system
+
+## Building Blocks
+The building blocks of UML are [[ser216.uml.things]], [[ser216.uml.relationships]], and [[ser216.uml.diagrams]].

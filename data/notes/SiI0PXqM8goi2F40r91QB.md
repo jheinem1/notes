@@ -1,0 +1,33 @@
+## Phases
+- Requirements planning phase
+    - A workshop utilizing structured discussion of business problems
+- User description phase
+    - Automated tools capture information from users
+- Construction phase
+    - Productivity tools
+        - Code generators, screen generators, etc.
+- Cutover phase
+    - Installation of the system
+    - User acceptance testing
+    - User training
+## Strengths
+- Reduced cycle time and improved productivity
+- Fewer people = fewer costs
+- Time-box approach mitigates cost and risk
+- Customer involved throughout the complete cycle
+- Focus moves from documentation to code ([[WYSIWYG|ser216.what-you-see-is-what-you-get]])
+- Uses modeling concepts to capture information about business, data, and processes
+## Weaknesses
+- Accelerated development process must give quick responses
+- Risk of never achieving closure
+- Hart to use with legacy systems
+- Requires a modularized system
+- Developers and customers must be committed to rapid-fire activities
+## When to use
+- Reasonably well-known requirements
+- User involved throughout the life-cycle
+- Project can be timeboxed
+- Functionality delivered in increments
+- High performance not required
+- Low technical risks
+- System can be modularized
